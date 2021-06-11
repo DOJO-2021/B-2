@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +11,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.PostDao;
+import model.Post;
+
 @WebServlet("/S_ViewServlet")
 public class S_ViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		if (session.getAttribute("user-id") == null) {
-			response.sendRedirect("/CAP/LoginServlet");
-			return;
-		}
+	//	HttpSession session = request.getSession();
+	//	if (session.getAttribute("user-id") == null) {
+	//		response.sendRedirect("/CAP/S_LoginServlet");
+	//		return;
+	//	}
 
-		//ページに飛ばす前に全投稿のデータを収集しておく　OR　ページ遷移によって表示内容変更
+		PostDao bDao = new PostDao();
+		List<Post> PostList = bDao.selectAll(new Post());
 
+		request.setAttribute("PostList", PostList);
+
+		//スタンプのデータ持ってくる
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/s_view.jsp");
 		dispatcher.forward(request, response);
