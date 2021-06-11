@@ -7,10 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
-public class S_LoginServlet {
+public class S_LoginServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,7 +23,7 @@ public class S_LoginServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -52,4 +51,36 @@ public class S_LoginServlet {
 			dispatcher.forward(request, response);
 		}
 	}
+
+	// 講師ログインページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/t_login.jsp");
+		dispatcher.forward(request, response);
+
+		// サインインページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signin.jsp");
+		dispatcher.forward(request, response);
+
+		// パスワードを忘れたらページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordforget.jsp");
+		dispatcher.forward(request, response);
+
+	import React, { useRef } from "react";
+	let text = "";
+	 const clear = () => {
+    text = "";
+    // input要素のDOMオブジェクトを操作してテキストエリアをクリアする
+    inputRef.current.value = "";
+  };
+  return (
+    <>
+      {input要素にrefを渡すことでDOMオブジェクトを取得する }
+      <input ref={inputRef} type="text" onChange={inputValue} />
+      <p>please type "ok".</p>
+      <button onClick={clear}>clear</button>
+      <button onClick={check}>check</button>
+    </>
+  );
+};
+*/
+
 }
