@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.BcDAO;
+import model.Bc;
 
 /**
  * Servlet implementation class SearchServlet
@@ -29,7 +31,7 @@ public class PasswordResetServlet extends HttpServlet {
 			return;
 		}
 
-		// 検索ページにフォワードする
+		// パスワードリセット画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/CAP/jsp/passwordreset.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -41,25 +43,30 @@ public class PasswordResetServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/CAP/S_LoginServlet");
 			return;
 		}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String l_name = request.getParameter("L_NAME");
-		String f_name = request.getParameter("F_NAME");
-		String company = request.getParameter("COMPANY");
+		String user_password1 = request.getParameter("USER_PASSWORD1");
+		String user_password2 = request.getParameter("USER_PASSWORD2");
 
-		// 検索処理を行う
+		// 登録処理を行う
+		// user_password1とuser_password2が一致していればtrue
+
 		BcDAO bDao = new BcDAO();
-		List<Bc> cardList = bDao.select(new Bc(0, l_name, f_name,"",0,"",company,"","","","")); // l_name,f_name,companyだけが決められている箱（new=インスタンス）
-
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList); // リクエストにcardListの情報が入っている
+		if (bDao.insert(new Bc(user_password1))) {	// 登録成功
+			request.setAttribute("result", // resultjavabeans
+			new Result("登録成功！", "レコードを登録しました。", "/CAP/S_LoginServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Result("登録失敗！", "レコードを登録できませんでした。", "/CAP/PasswordResetServlet"));
+		}
 
 		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reserve.jsp");
 		dispatcher.forward(request, response);
 	}
 }

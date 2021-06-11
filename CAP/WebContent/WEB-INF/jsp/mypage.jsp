@@ -21,11 +21,11 @@
 					<tr>
 						<th>秘密の質問</th>
 						<td><select name="SELECT_NAME">
-							<option value="1">出身地は？</option>
-							<option value="2">親の旧姓</option>
-							<option value="3">ペットの名前</option>
-							<option value="4">母校（小学校）の名称</option>
-							<option value="5">初めての海外旅行先は？</option></select></td>
+							<option value="questions1">出身地は？</option>
+							<option value="questions2">親の旧姓は？</option>
+							<option value="questions3">ペットの名前は？</option>
+							<option value="questions4">母校（小学校）の名称は？</option>
+							<option value="questions5">初めての海外旅行先は？</option></select></td>
 					</tr>
 					<tr>
 						<th>答え<th><td><input type="text" name="ANSWER"></td>
