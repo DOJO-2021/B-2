@@ -10,13 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.BcDAO;
-import model.Bc;
-
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class PasswordResetServlet
  */
-@WebServlet("/SearchServlet")
+@WebServlet("/PasswordResetServlet")
 public class PasswordResetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +29,7 @@ public class PasswordResetServlet extends HttpServlet {
 		}
 
 		// パスワードリセット画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/CAP/jsp/passwordreset.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordreset.jsp");
 		dispatcher.forward(request, response);
 	}
 

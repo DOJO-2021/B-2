@@ -12,11 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.SecretDao;
+import model.Result;
 
 /**
- * Servlet implementation class RegistServlet
+ * Servlet implementation class PasswordForgetServlet
  */
-@WebServlet("/RegistServlet")
+@WebServlet("/PasswordForgetServlet")
 public class PasswordForgetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,9 +31,9 @@ public class PasswordForgetServlet extends HttpServlet {
 			response.sendRedirect("/CAP/S_LoginServlet");
 			return;
 		}
-
+		 request.setCharacterEncoding("UTF-8");
 		// パスワード忘れページににフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/CAP/jsp/passwordforget.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordforget.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -52,22 +53,22 @@ public class PasswordForgetServlet extends HttpServlet {
 		int id = 0;	// ダミー
 		String l_name = request.getParameter("L_NAME");
 		String f_name = request.getParameter("F_NAME");
-		String secret_num = request.getParameter("SECRET_NUM");
+		String questions = request.getParameter("QUESTIONS");
 		String answer = request.getParameter("ANSWER");
 
 		System.out.println(request.getParameter("L_NAME"));
 		System.out.println(request.getParameter("F_NAME"));
-		System.out.println(request.getParameter("SECRET_NUM"));
+		System.out.println(request.getParameter("QUESTIONS"));
 		System.out.println(request.getParameter("ANSWER"));
 
-		if(l_name == "" || f_name == "" || secret_num == "" || answer == "") {
+		if(l_name == "" || f_name == "" || questions == "" || answer == "") {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/CAP/jsp/passwordforget.jsp");
 			dispatcher.forward(request, response);
 		}
 
 		// データの照合
 		SecretDao iDao = new SecretDao();
-		if (iDao.isIdOK(id, l_name, f_name, secret_num, answer)) {	// データと合致（isLoginOKをSecretDaoで定義）
+		if (iDao.isIdOK(id, l_name, f_name, questions, answer)) {	// データと合致（isLoginOKをSecretDaoで定義）
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("id", new LoginUser(id)); //User.javaで定義
