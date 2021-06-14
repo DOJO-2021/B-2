@@ -1,1 +1,141 @@
 @charset "UTF-8";
+body {                            /*すべてのページに適用*/
+  background-color: #ffead6;      /*背景色*/
+  margin:0 auto 0 auto;
+  max-width:960px;                /*ページ最大幅*/
+}
+
+hr {                             /*境界線*/
+  background-color:#ff7f50;      /*境界線の色*/
+  height:2px;                    /*境界線の太さ*/
+}
+
+.header {                        /*ヘッダー*/
+  height:120px;                  /*ヘッダーの高さ*/
+}
+
+.logo {                          /*ロゴ*/
+  text-align:center;             /*ロゴの位置を真ん中に*/
+}
+
+.button1 {                         /*アカウントボタン講師・受講生*/
+  float:right;                     /*右に配置*/
+  margin-right: 6px;
+  width:200px;
+  font-size:20px;
+  font-weight:bold;                /*太字*/
+  text-decoration:none;            /*リンク下線無し*/
+  display:block;
+  text-align:center;
+  padding:6px 0 8px;
+  color:#ffffff;
+  background-color:#F27F0C;
+  border-radius:5px;               /*角丸*/
+  box-shadow:2px 2px 2px #ff4500;
+}
+.button1:hover{                        /*アカウントボタン講師・受講生 ホバー*/
+     background-color: #ffbf7f;/*ボタン色*/
+     border-bottom: solid 6px #f39800; /*下線色*/
+}
+
+.button1:active {                       /*ボタンをクリックする時の効果*/
+     margin-top: 6px;
+     border-bottom: none;
+     -webkit-transform: translateY(6px); /*下移動*/
+     transform: translateY(6px);
+}
+
+
+.button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
+  line-height:280px;
+  position:relatuve;
+  height:280px;
+  width:300px;
+  font-size:35px;
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:6px 0 8px;
+  color:#ffffff;
+  background-color:#F27F0C;
+  border-radius:5px;
+  box-shadow:2px 2px 2px #ff4500;
+}
+
+.button2:hover{                        /*アカウントボタン講師・受講生 ホバー*/
+     background-color: #ffbf7f;/*ボタン色*/
+     border-bottom: solid 6px #f39800; /*下線色*/
+}
+
+.button2:active {                      /*ボタンをクリックする時の効果*/
+     margin-top: 6px;
+     border-bottom: none;
+     -webkit-transform: translateY(6px); /*下移動*/
+     transform: translateY(6px);
+}
+
+
+.button3 {                      /*閲覧（受講生）顔文字（講師）ボタン*/
+  line-height:280px;
+  height:280px;
+  width:300px;
+  margin-left:180px;
+  font-size:35px;
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:6px 0 8px;
+  color:#ffffff;
+  background-color:#F27F0C;
+  border-radius:5px;
+  box-shadow:2px 2px 2px #ff4500;
+}
+
+.button3:hover{                        /*アカウントボタン講師・受講生 ホバー*/
+     background-color: #ffbf7f;/*ボタン色*/
+     border-bottom: solid 6px #f39800; /*下線色*/
+}
+
+.button3:active {                      /*ボタンをクリックする時の効果*/
+     margin-top: 6px;
+     border-bottom: none;
+     -webkit-transform: translateY(6px); /*下移動*/
+     transform: translateY(6px);
+}
+
+.menu {                                /*button2.3の位置*/
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+}
+
+
+/*a:link {
+  color:#d25833;
+}
+
+a:visited {
+    color:#d25833;
+
+}
+
+a:hover{
+  color:#e3937a;
+}
+
+a:active {
+  color:#ff6a3b;
+}*/
+
+.footer {                         /*フッター*/
+  clear: both;
+  float:right;
+  position:absolute;
+  bottom:-50px;
+  margin-left: 850px;
+  width:100px;
+  height:120px;
+}
