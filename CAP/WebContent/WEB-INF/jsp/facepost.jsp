@@ -19,20 +19,17 @@
 
 <form method="POST" action="???">
 
-<input type="radio" name="face" value="1" checked />ニコニコ
-<input type="radio" name="face" value="2" />普通
-<input type="radio" name="face" value="2" />不安
 
-<input type="submit" value="登録" />
 <!-- 理解度顔文字を表示 -->
 	<h3>顔文字１</h3>
-	<input type="radio" name="face" value="1" checked />ニコニコ
+	<input type="radio" name="face" value="1" >ニコニコ
 
 	<h3>顔文字２</h3>
-	<input type="radio" name="face" value="2" />普通
+	<input type="radio" name="face" value="2" >普通
 	<h3>顔文字３</h3>
-	<input type="radio" name="face" value="2" />不安
+	<input type="radio" name="face" value="2" >不安
 
+<br>
 
 <input type="text" name="c_comprehension_text">
 
@@ -40,15 +37,21 @@
 
 <!--メンタル顔文字を表示  -->
 	<h3>顔文字１</h3>
-
+		<input type="radio" name="face" value="1" checked />ニコニコ
 
 	<h3>顔文字２</h3>
-
+		<input type="radio" name="face" value="2" />普通
 	<h3>顔文字３</h3>
+		<input type="radio" name="face" value="2" />不安
+
+<br>
 
 <input type="text" name="c_mental_text">
 
-<form method = "post" action="???">
+
 <input type="submit" name ="push" value="送信">
+</form>
+
+
 </body>
 </html>
