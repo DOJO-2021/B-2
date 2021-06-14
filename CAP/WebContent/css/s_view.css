@@ -1,1 +1,220 @@
 @charset "UTF-8";
+
+/* wrapper1はメイン画面*/
+.wrapper1{
+	display:flex;
+	width:960px;
+	height:400px;
+	overflow:hidden;
+	margin: 0 auto 0 auto;
+	border:solid 3px;
+}
+/* wrapper２はジャンルタグ一覧*/
+.wrapper2{
+	display:block;
+	width: 20%;
+	margin:0 0 0 0;
+	overflow:auto;
+	border-right:solid 2px;
+}
+/* ジャンルのスクロールバーは消す*/
+.wrapper2::-webkit-scrollbar {
+    display:none;
+  }
+
+/* wrapper３はコメント画面。*/
+.wrapper3{
+	display:block;
+	width: 80%;
+	margin-left:5%;
+	overflow:auto;
+}
+/* ジャンルは余白無しで詰める*/
+ul{
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+}
+
+/* ジャンルのタグ。点無しで中央揃え*/
+.tag{
+/* 文字の中央配置*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+/* 文字の大きさ*/
+	font-size:150%;
+/* 外枠の設定*/
+	list-style:none;
+	margin-bottom:1px;
+	border: solid 1px #000000;
+	box-shadow:0 3px 6px rgba(0,0,0,0.25);
+	background:#f5f5f5;
+	height:75px;
+}
+/*ホバーで色が濃くなる*/
+.tag:hover{
+	background:#d3d3d3;
+}
+
+/*ラジオボタンの〇ポチ消す*/
+input[type="radio"]{
+	display:none;
+}
+/* ジャンル選択時に暗くする*/
+input[type="radio"]:checked + label{
+	background:#d3d3d3;
+}
+
+/* 投稿*/
+.text li{
+	border-bottom:dashed 2px #f5f5f5;
+	padding-left:5%;
+	list-style:none;
+}
+/* ページタイトル*/
+h1{
+	text-align:center;
+}
+
+/* 投稿タイトル*/
+h2{
+	position:sticky;
+	top:0;
+	margin-top:0;
+	height:36px;
+	text-align:center;
+	background:#ffffff;
+}
+/* メニューの位置をタグと合わせる*/
+.menu{
+	width:960px;
+	margin:0 auto 0 auto;
+}
+/* メニューを横並びに*/
+.menu li{
+	display:inline;
+	margin-right:10px;
+	list-style:none;
+}
+
+/*メニューをホバーすると赤になる*/
+.menu li:hover{
+	color:red;
+}
+
+/* メニューを投稿の位置と合わせる*/
+.footerMenu{
+	width:960px;
+	margin:0 auto 0 auto;
+}
+/* フッターメニューを右に移動*/
+.footerMenu li{
+	text-align:right;
+	list-style:none;
+}
+
+/*フッターメニューをホバーすると赤になる*/
+.footerMenu li:hover{
+	color:red;
+}
+
+/* ポップ表示時の全体画面*/
+.popup {
+  display:none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;/*要素の優先度、大きいほど前へ*/
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.6s;
+}
+
+/*is-showがついたとき表示*/
+.popup.is-show {
+  display:inline;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ポップ画面の設定*/
+.popup-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+/*ポップを閉じるボタンのデザイン */
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.close-btn i {
+  font-size: 20px;
+  color: #333;
+}
+
+/*ポップの後ろの背景を暗くする */
+.black-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* ハンバーガーボタン*/
+#menu-btn{
+	width: 30px;
+	float:right;
+}
+#menu-btn::before{
+	width: 20px;
+    position:static;
+	content: "≡";
+	color: #000000;
+	font-size: 20px;
+	cursor: pointer;
+}
+/*ハンバーガーを押したらバツ印に変化*/
+#menu-btn.on::before {
+	content: "×";
+}
+
+/*投稿削除ボタンを隠す*/
+#menu-content {
+	display:none;
+    width: 5em;
+    height: 2em;
+    position: static;
+	float:right;
+    top: 0;
+    left: 0;
+    z-index: 80;
+	opacity: 0;
+	visibility:hidden;
+}
+/*投稿削除ボタンを出現*/
+#menu-content.menu-appearance{
+	display:inline;
+	opacity: 1;
+	visibility: visible;
+}
