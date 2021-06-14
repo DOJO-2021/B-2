@@ -33,22 +33,7 @@ PW<input id="js-password" type="password" name="PW" placeholder="英数字6文�
 <a href="/CAP/T_LoginServlet">講師ログイン画面へ戻る</a>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-	 var passInput = $('#js-password');
-		    var passVisible = $('<input type="text" value="" name="Pw" id="password_visible" />');
-		    var passCheck = $('<input type="checkbox" />');
-
-		jQuery(function($){
-			    passInput.after(passCheck);
-			    passCheck.click(function(){
-			        if(this.checked){
-			        	passInput.replaceWith(passVisible.val(passInput.val()));
-			        }else{
-			        	passVisible.replaceWith(passInput.val(passVisible.val()));
-			        }
-			    });
-			});
-	</script>
+	<script src="/CAP/js/mypage.js"></script>
 
 </body>
 </html>

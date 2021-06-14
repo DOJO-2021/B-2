@@ -11,19 +11,17 @@
 
 
 <form method="POST" action="/CAP/S_LoginServlet" id="form">
-氏名<input type="text" name="l_name"><input type="text" name="f_name"><br>
-PW<input type="password" name="PW"><br>
+氏名<input type="text" name="user_l_name"><input type="text" name="user_f_name"><br>
+PW<input type="password" name="user_password"><br>
 </form>
 <p id="output"></p>
 
 <input class="login1"type="submit" name="LOGIN" value="ログイン">
-<input class="login1"type="submit" name="RESET" value="リセット">
+<input class="login1"type="reset" name="RESET" value="リセット">
 <br>
-<input class="login2" type="submit" name="KOUSHI" value="講師の方はこちら"<a href="/CAP/T_LoginServlet"></a>>
-<input class="login2" type="submit" name="SIGNIN" value="サインイン"<a href="/CAP/SgininServlet"</a>>
-<input class="login2" type="submit" name="LOGIN" value="パスワードを忘れたら"<a href="/CAP/PasswordForgetServlet"></a>>
-
-
+<a href="/CAP/T_LoginServlet"><input class="login2" type="submit" name="KOUSHI" value="講師の方はこちら"></a>
+<a href="/CAP/SgininServlet"><input class="login2" type="submit" name="SIGNIN" value="サインイン"></a>
+<a href="/CAP/PasswordForgetServlet"><input class="login2" type="submit" name="LOGIN" value="パスワードを忘れたら"></a>
 
 </body>
 </html>
