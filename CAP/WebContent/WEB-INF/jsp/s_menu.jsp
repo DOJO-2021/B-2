@@ -1,23 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんなの気持ち教えてくだサイト受講者用</title>
+<link rel ="stylesheet" href ="css/test.css">
 </head>
 <body>
-<header>
-<h1><a href="s_MenuServlet">みんなの気持ち教えてくだサイト</a></h1>
+<div class="wrapper">
+<header class ="header">
+<h1 class ="logo"><a href="t_MenuServlet"><img src ="images/header.png" alt ="みんなの気持ち教えてくだサイト"></a></h1>
 </header>
-<body>
+<main>
 <hr>
-<a href="/CommunicationAssistProject/SigninServlet">アカウント</a><br>
-<a href="/CommunicationAssistProject/S_PostServlet">投稿</a><br>
-<a href="/CommunicationAssistProject/S_ViewServlet">閲覧</a><br>
-
-<footer>
+<a class="button1" href="/CommunicationAssistProject/SigninServlet">アカウント</a>
+<div class="menu">
+<a class="button2" href="/CommunicationAssistProject/S_PostServlet">投稿</a>
+<a class="button3" href="/CommunicationAssistProject/S_ViewServlet">閲覧</a>
+</div>
+</main>
+<footer class ="footer">
 <a href="/CommunicationAssistProject/LogoutServlet">ログアウト</a>
 </footer>
+</div>
 </body>
 </html>
