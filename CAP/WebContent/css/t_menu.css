@@ -11,7 +11,7 @@ hr {                             /*境界線*/
   height:2px;                    /*境界線の太さ*/
 }
 
-.header {                        /*ヘッダー*/
+.header {                        /*全ページ共通ヘッダー*/
   height:120px;                  /*ヘッダーの高さ*/
 }
 
@@ -19,37 +19,16 @@ hr {                             /*境界線*/
   text-align:center;             /*ロゴの位置を真ん中に*/
 }
 
-.button1 {                         /*アカウントボタン講師・受講生*/
+.icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
   float:right;                     /*右に配置*/
-  margin-right: 6px;
-  width:200px;
-  font-size:20px;
-  font-weight:bold;                /*太字*/
-  text-decoration:none;            /*リンク下線無し*/
-  display:block;
-  text-align:center;
-  padding:6px 0 8px;
-  color:#ffffff;
-  background-color:#F27F0C;
-  border-radius:5px;               /*角丸*/
-  box-shadow:2px 2px 2px #ff4500;
+  margin: -31px;
+  margin-right: -156px;
 }
-.button1:hover{                        /*アカウントボタン講師・受講生 ホバー*/
-     background-color: #ffbf7f;/*ボタン色*/
-     border-bottom: solid 6px #f39800; /*下線色*/
-}
-
-.button1:active {                       /*ボタンをクリックする時の効果*/
-     margin-top: 6px;
-     border-bottom: none;
-     -webkit-transform: translateY(6px); /*下移動*/
-     transform: translateY(6px);
-}
-
 
 .button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
+  margin-left:-25px;
   line-height:280px;
-  position:relatuve;
+  position:relative;
   height:280px;
   width:300px;
   font-size:35px;
@@ -81,7 +60,7 @@ hr {                             /*境界線*/
   line-height:280px;
   height:280px;
   width:300px;
-  margin-left:180px;
+  margin-left:145px;
   font-size:35px;
   font-weight:bold;
   text-decoration:none;
@@ -114,7 +93,7 @@ hr {                             /*境界線*/
 }
 
 
-/*a:link {
+a:link {
   color:#d25833;
 }
 
@@ -129,14 +108,24 @@ a:hover{
 
 a:active {
   color:#ff6a3b;
-}*/
+}
 
-.footer {                         /*フッター*/
-  clear: both;
-  float:right;
+.eyes{               /*閲覧アイコン*/
+  margin-top:45px;
+  margin-left:36px;
+}
+.smile{              /*顔文字アイコン*/
+  margin-top:35px;
+  margin-left:36px;
+}
+
+.write {             /*投稿アイコン*/
+  margin-top:28px;
+  margin-left:18px;
+}
+.footer {                         /*全ページ共通フッター*/
   position:absolute;
-  bottom:-50px;
+  bottom:-100px;
   margin-left: 850px;
-  width:100px;
   height:120px;
 }

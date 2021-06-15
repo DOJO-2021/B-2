@@ -1,1 +1,15 @@
+/*マイページＣＳＳ*/
 @charset "UTF-8";
+.account{               /*アカウント*/
+  text-align:center;
+  font-size:25px;
+}
+
+.hello{                 /*こんにちは○○さん*/
+  text-align:center;
+  font-size:22px;
+}
+
+.resist{
+  text-align:center;
+}

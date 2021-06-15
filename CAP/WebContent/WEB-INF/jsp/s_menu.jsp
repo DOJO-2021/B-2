@@ -9,15 +9,15 @@
 </head>
 <body>
 <header class ="header">
-<h1 class ="logo"><a href="t_MenuServlet"><img src ="images/header.png" alt ="みんなの気持ち教えてくだサイト"></a></h1>
+<h1 class ="logo"><!-- a href="S_MenuServlet" --><img src ="images/logo_ver3.png" alt ="みんなの気持ち教えてくだサイト"></h1>
 </header>
 <hr>
-<a class="button1" href="/CAP/SigninServlet">アカウント</a>
+<a class="icon" href="/CAP/SigninServlet"><img src ="images/icon.png" alt ="アカウント"></a>
 <div class="menu">
 <table>
 <tr>
-<td><a class="button2" href="/CAP/S_PostServlet" >投稿</a></td>
-<td><a class="button3" href="/CAP/S_ViewServlet" >閲覧</a></td>
+<td><a class="button2" title="投稿ページです。" href="/CAP/S_PostServlet" ><div class="write"><img src ="images/write.png" alt ="投稿"></div></a></td>
+<td><a class="button3" title="閲覧ページです。" href="/CAP/S_ViewServlet" ><div class="eyes"><img src ="images/eyes.png" alt ="閲覧"></div></a></td>
 </tr>
 </table>
 </div>
