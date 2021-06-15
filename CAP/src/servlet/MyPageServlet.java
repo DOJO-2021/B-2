@@ -36,7 +36,7 @@ public class MyPageServlet extends HttpServlet {
 
 		// 検索処理を行う
 		UserDao uDao = new UserDao();
-		List<User> cardList = uDao.select(new User(user_id,user_f_name,user_l_name,user_password,user_questions,user_answer,user_word_s)); // idだけが決められている箱
+		List<User> cardList = uDao.select(new User());
 
 
 		// 検索結果をリクエストスコープに格納する
@@ -63,13 +63,13 @@ public class MyPageServlet extends HttpServlet {
 
 		//リクエストパラメータの取得
 		String password = request.getParameter("PASSWORD");
-		String secret_name = request.getParameter("SECRET_NAME");
+		String questions = request.getParameter("QUESTIONS");
 		String answer = request.getParameter("ANSWER");
 
 		// 更新または削除を行う
 		UserDao uDao = new UserDao();
 		if (request.getParameter("OK").equals("OK")) {
-			if (uDao.update(new User(id, user_l_name, user_f_name, user_password, user_questions, user_word_s))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
+			if (uDao.update(new User(0, "", "", password, questions, answer, "", "", 0))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
 				request.setAttribute("result",														// result...領域,何もない下駄箱（名前がついている）みたいな感じ
 				new Result("更新成功！", "レコードを更新しました。", "/CAP/MyPageServlet")); 	// Result 箱(タンスみたいなもの)
 
@@ -79,6 +79,13 @@ public class MyPageServlet extends HttpServlet {
 				new Result("更新失敗！", "レコードを更新できませんでした。", "/CAP/MyPageServlet"));
 			}
 		}
+
+		// 更新/削除された後のデータを持ってくる
+		List<User> cardList = uDao.select(new User(0, "", "", "", "", "", "", "", 0));
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("cardList", cardList);
+
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");

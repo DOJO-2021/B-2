@@ -17,7 +17,7 @@
 					</tr>
 					<tr>
 						<th>秘密の質問</th>
-						<td><select name="SECRET_NUM">
+						<td><select name="QUESTIONS">
 							<option value="1">出身地は？</option>
 							<option value="2">親の旧姓</option>
 							<option value="3">ペットの名前</option>
@@ -28,10 +28,12 @@
 						<th>答え<th><td><input type="text" name="ANSWER"></td>
 					</tr>
 				</table>
-				<input type="submit" name="OK" value="OK">
+
+				<a href="/CAP/PasswordResetServlet"><input type="submit" name="OK" value="OK"></a>
+				</form>
 				<input type="reset" value="リセット">
+
 				<a href="/CAP/S_LoginServlet.java">ログインへ戻る</a>
-			</form>
 	</main>
 </body>
 </html>

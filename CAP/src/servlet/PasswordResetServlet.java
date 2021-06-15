@@ -8,7 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import dao.UserDao;
+import model.Result;
+import model.User;
 
 /**
  * Servlet implementation class PasswordResetServlet
@@ -22,11 +25,11 @@ public class PasswordResetServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする(セッション)
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/CAP/S_LoginServlet");
-			return;
-		}
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/CAP/S_LoginServlet");
+//			return;
+//		}
 
 		// パスワードリセット画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordreset.jsp");
@@ -38,28 +41,29 @@ public class PasswordResetServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/CAP/S_LoginServlet");
-			return;
-		}
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/CAP/S_LoginServlet");
+//			return;
+//		}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String user_password1 = request.getParameter("USER_PASSWORD1");
 		String user_password2 = request.getParameter("USER_PASSWORD2");
 
-		// 登録処理を行う
+		// 更新処理を行う
 		// user_password1とuser_password2が一致していればtrue
-
-		BcDAO bDao = new BcDAO();
-		if (bDao.insert(new Bc(user_password1))) {	// 登録成功
-			request.setAttribute("result", // resultjavabeans
-			new Result("登録成功！", "レコードを登録しました。", "/CAP/S_LoginServlet"));
-		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("登録失敗！", "レコードを登録できませんでした。", "/CAP/PasswordResetServlet"));
+		if(user_password1.equals(user_password2)) {
+			UserDao bDao = new UserDao();
+			if (bDao.update(new User(0, "", "", user_password1, "", "", "", "", 0))) {	// 更新成功
+				request.setAttribute("result", // resultjavabeans
+				new Result("更新成功！", "パスワードを登録しました。", "/CAP/S_LoginServlet"));
+			}
+			else {												// 更新失敗
+				request.setAttribute("result",
+				new Result("更新失敗！", "パスワードを登録できませんでした。", "/CAP/PasswordResetServlet"));
+			}
 		}
 
 		// 結果ページにフォワードする
