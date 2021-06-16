@@ -9,10 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UserDao;
-import model.Result;
-import model.User;
-
 /**
  * Servlet implementation class PasswordResetServlet
  */
@@ -54,17 +50,17 @@ public class PasswordResetServlet extends HttpServlet {
 
 		// 更新処理を行う
 		// user_password1とuser_password2が一致していればtrue
-		if(user_password1.equals(user_password2)) {
-			UserDao bDao = new UserDao();
-			if (bDao.update(new User(0, "", "", user_password1, "", "", "", "", 0))) {	// 更新成功
-				request.setAttribute("result", // resultjavabeans
-				new Result("更新成功！", "パスワードを登録しました。", "/CAP/S_LoginServlet"));
-			}
-			else {												// 更新失敗
-				request.setAttribute("result",
-				new Result("更新失敗！", "パスワードを登録できませんでした。", "/CAP/PasswordResetServlet"));
-			}
-		}
+//		if(user_password1.equals(user_password2)) {
+//			UserDao bDao = new UserDao();
+//			if (bDao.update(new User(0, "", "", user_password1, "", "", "", "", 0))) {	// 更新成功
+//				request.setAttribute("result", // resultjavabeans
+//				new Result("更新成功！", "パスワードを登録しました。", "/CAP/S_LoginServlet"));
+//			}
+//			else {												// 更新失敗
+//				request.setAttribute("result",
+//				new Result("更新失敗！", "パスワードを登録できませんでした。", "/CAP/PasswordResetServlet"));
+//			}
+//		}
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reserve.jsp");

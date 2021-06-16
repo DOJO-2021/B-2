@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
-import model.Result;
 import model.User;
 
 
@@ -67,24 +66,24 @@ public class MyPageServlet extends HttpServlet {
 		String answer = request.getParameter("ANSWER");
 
 		// 更新または削除を行う
-		UserDao uDao = new UserDao();
-		if (request.getParameter("OK").equals("OK")) {
-			if (uDao.update(new User(0, "", "", password, questions, answer, "", "", 0))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
-				request.setAttribute("result",														// result...領域,何もない下駄箱（名前がついている）みたいな感じ
-				new Result("更新成功！", "レコードを更新しました。", "/CAP/MyPageServlet")); 	// Result 箱(タンスみたいなもの)
-
-			}
-			else {												// 更新失敗
-				request.setAttribute("result",
-				new Result("更新失敗！", "レコードを更新できませんでした。", "/CAP/MyPageServlet"));
-			}
-		}
-
-		// 更新/削除された後のデータを持ってくる
-		List<User> cardList = uDao.select(new User(0, "", "", "", "", "", "", "", 0));
+//		UserDao uDao = new UserDao();
+//		if (request.getParameter("OK").equals("OK")) {
+//			if (uDao.update(new User(0, "", "", password, questions, answer, "", "", 0))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
+//				request.setAttribute("result",														// result...領域,何もない下駄箱（名前がついている）みたいな感じ
+//				new Result("更新成功！", "レコードを更新しました。", "/CAP/MyPageServlet")); 	// Result 箱(タンスみたいなもの)
+//
+//			}
+//			else {												// 更新失敗
+//				request.setAttribute("result",
+//				new Result("更新失敗！", "レコードを更新できませんでした。", "/CAP/MyPageServlet"));
+//			}
+//		}
+//
+//		// 更新/削除された後のデータを持ってくる
+//		List<User> cardList = uDao.select(new User(0, "", "", "", "", "", "", "", 0));
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);
+//		request.setAttribute("cardList", cardList);
 
 
 		// 結果ページにフォワードする
