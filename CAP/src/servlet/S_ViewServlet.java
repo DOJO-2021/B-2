@@ -1,6 +1,10 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -64,7 +68,18 @@ public class S_ViewServlet extends HttpServlet {
 		String comment = request.getParameter("comment");
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
-		String user_id = request.getParameter("user_id");
+//		Strinig user_id = request.getParameter("user_id");
+
+		int user_id = 1;
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm:ss");
+		String str = sdf.format(calendar.getTime());
+		String str1 = sdf1.format(calendar.getTime());
+		System.out.println(str);
+		System.out.println(str1);
+		Date post_date = Date.valueOf(str);
+		Time post_time = Time.valueOf(str1);
 
 //		int Id = Integer.parseInt(id);
 //		Date Date = Date.valueOf(date);

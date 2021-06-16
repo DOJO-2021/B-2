@@ -182,11 +182,11 @@ h2{
 }
 
 /* ハンバーガーボタン*/
-#menu-btn{
+.menu-btn{
 	width: 30px;
 	float:right;
 }
-#menu-btn::before{
+.menu-btn::before{
 	width: 20px;
     position:static;
 	content: "≡";
@@ -195,12 +195,12 @@ h2{
 	cursor: pointer;
 }
 /*ハンバーガーを押したらバツ印に変化*/
-#menu-btn.on::before {
+.menu-btn.on::before {
 	content: "×";
 }
 
 /*投稿削除ボタンを隠す*/
-#menu-content {
+.menu-content {
 	display:none;
     width: 5em;
     height: 2em;
@@ -213,8 +213,19 @@ h2{
 	visibility:hidden;
 }
 /*投稿削除ボタンを出現*/
-#menu-content.menu-appearance{
+.menu-content.menu-appearance{
 	display:inline;
 	opacity: 1;
 	visibility: visible;
 }
+
+
+.Hidden{
+	display:none;
+}
+
+.Visible{
+	display:block;
+}
+
+
