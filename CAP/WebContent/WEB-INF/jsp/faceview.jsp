@@ -68,6 +68,10 @@ ul{
 	list-style:none;
 }
  /* 投稿タイトル*/
+h1{
+	text-align: center;
+}
+
 h2{
 	position:sticky;
 	top:0;
@@ -107,8 +111,8 @@ input[type="radio"]:checked + label{
 			<ul>
 
 					<li><input type="radio" name="genre" value="1" id="ALL"><label for="ALL" class="tag">全体</label></li>
-					<li><input type="radio" name="genre" value="2" id=""><label for="HTML/CSS"  class="tag">理解度（個人）</label></li>
-					<li><input type="radio" name="genre" value="3" id="Java"><label for="Java" class="tag">気持ち（個人）</label></li>
+					<li><input type="radio" name="genre" value="2" id=""><label for="rikaido"  class="tag">理解度（個人）</label></li>
+					<li><input type="radio" name="genre" value="3" id="Java"><label for="kimoti" class="tag">気持ち（個人）</label></li>
 
 
 

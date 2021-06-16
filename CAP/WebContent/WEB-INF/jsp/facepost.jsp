@@ -95,7 +95,7 @@ input[type="text"]{
 <!--<div class = "wrapper1">-->
 
 		<h2> ここにアンケート名を表示 </h2>
-			<form method="POST" action="CAP/FaceCheckServlet">
+			<form method="POST" action="FaceCheckServlet">
 					<div class = "item1">
 
 							<h3>理解度</h3>
@@ -146,7 +146,7 @@ input[type="text"]{
 				 <div class = "wrapper3">
 				 	 <input type="submit" style="width: 400px; height: 50px;" name="push" value="送信">
 				 </div>
-		</form>
+			</form>
 <!--</div>-->
 
 </body>
