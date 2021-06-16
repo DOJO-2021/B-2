@@ -24,7 +24,7 @@ public List<User> select(User param) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
 
 		// SQL文を準備する
-		String sql = "select user_id, user_l_name, user_f_name, user_password, user_questions, user_answer, user_word_s, user_word_t, user_type from User where user_l_name like ? and user_f_name like ? and user_password like ?";
+		String sql = "select user_id, user_l_name, user_f_name, user_password, user_questions, user_answer, user_word, user_type from User where user_l_name like ? and user_f_name like ? and user_password like ?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -60,9 +60,8 @@ public List<User> select(User param) {
 				rs.getString("User_password"),
 				rs.getString("User_questions"),
 				rs.getString("User_answer"),
-				rs.getString("User_word_s"),
-				rs.getString("User_word_t"),
-				rs.getInt("User_type")
+				rs.getString("User_word"),
+				rs.getString("User_type")
 				);
 
 			cardList.add(card);
@@ -108,7 +107,7 @@ public boolean insert(User card) {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
 
 			// SQL文を準備する
-			String sql = "insert into User values (null, ?, ?, ?, ?, ?, ?, ?, null)";
+			String sql = "insert into User values (null, ?, ?, ?, ?, ?, ?, null)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -142,19 +141,19 @@ public boolean insert(User card) {
 			else {
 				pStmt.setString(5, "null");
 			}
-			if (card.getUser_word_s() != null) {
-				pStmt.setString(6, card.getUser_word_s());
+			if (card.getUser_word() != null) {
+				pStmt.setString(6, card.getUser_word());
 			}
 			else {
 				pStmt.setString(6, "null");
 			}
-			if (card.getUser_word_t() != null) {
-				pStmt.setString(7, card.getUser_word_t());
+			if (card.getUser_type() != null) {
+				pStmt.setString(7, card.getUser_type());
 			}
 			else {
 				pStmt.setString(7, "null");
 			}
-
+			
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -196,7 +195,7 @@ public boolean update(User card) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
 
 		// SQL文を準備する
-		String sql = "update User set User_l_name=?, User_f_name=?, User_password=?, User_questions=?, User_answer=?, User_word_s=?, User_word_t=?, User_type=? where user_id=?";
+		String sql = "update User set User_l_name=?, User_f_name=?, User_password=?, User_questions=?, User_answer=?, User_word=?, User_type=? where user_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -230,14 +229,14 @@ public boolean update(User card) {
 			else {
 				pStmt.setString(5, "null");
 			}
-			if (card.getUser_word_s() != null) {
-				pStmt.setString(6, card.getUser_word_s());
+			if (card.getUser_word() != null) {
+				pStmt.setString(6, card.getUser_word());
 			}
 			else {
 				pStmt.setString(6, "null");
 			}
-			if (card.getUser_word_t() != null) {
-				pStmt.setString(7, card.getUser_word_t());
+			if (card.getUser_type() != null) {
+				pStmt.setString(7, card.getUser_type());
 			}
 			else {
 				pStmt.setString(7, "null");
