@@ -31,9 +31,6 @@ hr {                             /*境界線*/
   margin-right: -236px;
 
 }
-
-
-
 .button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
   margin-left:-25px;
   line-height:280px;
@@ -96,7 +93,7 @@ hr {                             /*境界線*/
 
 .menu {                                /*button2.3の位置*/
   position: absolute;
-  top: 63%;
+  top: 65%;
   left: 50%;
   -webkit-transform : translate(-50%,-50%);
 }
