@@ -266,3 +266,6 @@ input[type=submit]{
 	font-size:inherit;
 	resize:none;
 }
+.textp{
+	margin-top:0;
+}

@@ -54,8 +54,8 @@
 								<p id="nowPOST${b.post_id}" class="center">（投稿内容）</p><br>
 							<div  class=commentList>
 								<c:forEach var="d" items="${CommentList}" >
-									<div id="VorH${d.browsing_c_id}">
-										<div id="cId${d.browsing_c_id}" class="${d.post_id}">
+									<div id="VorH${b.post_id}${d.browsing_c_id}">
+										<div id="cId${b.post_id}${d.browsing_c_id}" class="${d.post_id}">
 											<p class=comment>${d.browsing_c_comment}</p>
 										</div>
 									</div>
@@ -63,23 +63,23 @@
 									//投稿に紐づいたコメントを表示
 									document.getElementById("js-show-popup${b.post_id}").addEventListener('click',function(){
 										let postId = $('input[name="post_genre${b.post_id}"]').attr('id');
-										let composId = $("#cId${d.browsing_c_id}").attr("class");
+										let composId = $("#cId${b.post_id}${d.browsing_c_id}").attr("class");
 										console.log(postId);
 										console.log(composId);
 
-											$('#VorH${d.browsing_c_id}').removeClass("Visible");
-											$('#VorH${d.browsing_c_id}').removeClass("Hidden");
+											$('#VorH${b.post_id}${d.browsing_c_id}').removeClass("Visible");
+											$('#VorH${b.post_id}${d.browsing_c_id}').removeClass("Hidden");
 										if(postId === composId){
-											$('#VorH${d.browsing_c_id}').addClass("Visible");
+											$('#VorH${b.post_id}${d.browsing_c_id}').addClass("Visible");
 										}else{
-											$('#VorH${d.browsing_c_id}').addClass("Hidden");
+											$('#VorH${b.post_id}${d.browsing_c_id}').addClass("Hidden");
 										}
 									});
 									</script>
 								</c:forEach>
 							</div>
 							<form method="POST" action="CAP/S_ViewServlet">
-								<br><p><textarea cols="60" rows="3" wrap="soft" name="comment" class="textarea"></textarea>
+								<p class="textp"><textarea cols="60" rows="2" wrap="soft" name="comment" class="textarea"></textarea>
 								<br><input type="submit" value="送信"></p>
 							</form>
 				 		</div>
@@ -130,7 +130,7 @@
   <br>
   <footer>
 	<ul class ="footerMenu">
-		<li><a href="">ログアウト</a></li>
+		<li><a href="/CAP/LogoutServlet">ログアウト</a></li>
 	</ul>
   </footer>
 </body>
