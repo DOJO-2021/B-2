@@ -21,10 +21,10 @@ public List<User> select(User param) {
 		Class.forName("org.h2.Driver");
 
 		// データベースに接続する
-		conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 		// SQL文を準備する
-		String sql = "select user_id, user_l_name, user_f_name, user_password, user_questions, user_answer, user_word, user_type from User where user_l_name like ? and user_f_name like ? and user_password like ?";
+		String sql = "select user_id, user_l_name, user_f_name, user_password, secret_id, user_answer, user_type from User where user_l_name like ? and user_f_name like ? and user_password like ?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -58,10 +58,9 @@ public List<User> select(User param) {
 				rs.getString("User_l_name"),
 				rs.getString("User_f_name"),
 				rs.getString("User_password"),
-				rs.getString("User_questions"),
+				rs.getString("Secret_id"),
 				rs.getString("User_answer"),
-				rs.getString("User_word"),
-				rs.getString("User_type")
+				rs.getInt("User_type")
 				);
 
 			cardList.add(card);
@@ -104,10 +103,10 @@ public boolean insert(User card) {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 			// SQL文を準備する
-			String sql = "insert into User values (null, ?, ?, ?, ?, ?, ?, null)";
+			String sql = "insert into User values (null, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -129,8 +128,8 @@ public boolean insert(User card) {
 			else {
 				pStmt.setString(3, "null");
 			}
-			if (card.getUser_questions() != null) {
-				pStmt.setString(4, card.getUser_questions());
+			if (card.getSecret_id() != null) {
+				pStmt.setString(4, card.getSecret_id());
 			}
 			else {
 				pStmt.setString(4, "null");
@@ -141,19 +140,11 @@ public boolean insert(User card) {
 			else {
 				pStmt.setString(5, "null");
 			}
-			if (card.getUser_word() != null) {
-				pStmt.setString(6, card.getUser_word());
-			}
-			else {
-				pStmt.setString(6, "null");
-			}
-			if (card.getUser_type() != null) {
-				pStmt.setString(7, card.getUser_type());
-			}
-			else {
-				pStmt.setString(7, "null");
-			}
-			
+
+				pStmt.setInt(6, card.getUser_type());
+
+
+
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -192,10 +183,10 @@ public boolean update(User card) {
 		Class.forName("org.h2.Driver");
 
 		// データベースに接続する
-		conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 		// SQL文を準備する
-		String sql = "update User set User_l_name=?, User_f_name=?, User_password=?, User_questions=?, User_answer=?, User_word=?, User_type=? where user_id=?";
+		String sql = "update User set User_l_name=?, User_f_name=?, User_password=?, Secret_id=?, User_answer=?, User_type=? where user_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -217,8 +208,8 @@ public boolean update(User card) {
 			else {
 				pStmt.setString(3, "null");
 			}
-			if (card.getUser_questions() != null) {
-				pStmt.setString(4, card.getUser_questions());
+			if (card.getSecret_id() != null) {
+				pStmt.setString(4, card.getSecret_id());
 			}
 			else {
 				pStmt.setString(4, "null");
@@ -228,18 +219,6 @@ public boolean update(User card) {
 			}
 			else {
 				pStmt.setString(5, "null");
-			}
-			if (card.getUser_word() != null) {
-				pStmt.setString(6, card.getUser_word());
-			}
-			else {
-				pStmt.setString(6, "null");
-			}
-			if (card.getUser_type() != null) {
-				pStmt.setString(7, card.getUser_type());
-			}
-			else {
-				pStmt.setString(7, "null");
 			}
 
 		// SQL文を実行する
@@ -280,7 +259,7 @@ public boolean update(User card) {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 			// SELECT文を準備する
 			String sql = "select count(*) from User where user_l_name = ? and user_f_name = ? and user_password = ?";

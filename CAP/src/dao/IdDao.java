@@ -23,10 +23,10 @@ public class IdDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 			// SQL文を準備する
-			String sql = "select user_id, user_l_name, user_f_name, user_password, user_questions, user_answer, user_word, user_type from User where user_l_name like ? and user_f_name like ? and user_password like ?";
+			String sql = "select user_id, user_l_name, user_f_name, user_password, secret_id, user_answer, user_type from User where user_l_name like ? and user_f_name like ? and user_password like ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -56,7 +56,8 @@ public class IdDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				 Users card = new Users(
-					rs.getString("User_id")
+					rs.getString("User_id"),
+					rs.getInt("User_type")
 					);
 
 				cardList.add(card);
