@@ -64,7 +64,7 @@
 </body>
 <footer class ="footer">
 	<ul class="footerMenu">
-		<li><a href="">ログアウト</a> <a href="/CAP/S_MenuServlet">戻る</a></li>
+		<li><a href="/CAP/LogoutServlet">ログアウト</a> <a href="/CAP/S_MenuServlet">戻る</a></li>
 
 	</ul>
 
