@@ -18,10 +18,18 @@ hr {                             /*境界線*/
   text-align:center;             /*ロゴの位置を真ん中に*/
 }
 
+.icon1{                             /*顔文字のアイコン（顔文字投稿ページに飛ぶ）*/
+  float:right;                     /*右に配置*/
+  margin-left: -108px;
+  margin-top: -14px;
+  margin-right: -338px;
+}
+
 .icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
   float:right;                     /*右に配置*/
-  margin: -31px;
-  margin-right: -156px;
+  margin-top: -24px;
+  margin-right: -236px;
+
 }
 
 
@@ -88,7 +96,7 @@ hr {                             /*境界線*/
 
 .menu {                                /*button2.3の位置*/
   position: absolute;
-  top: 60%;
+  top: 63%;
   left: 50%;
   -webkit-transform : translate(-50%,-50%);
 }

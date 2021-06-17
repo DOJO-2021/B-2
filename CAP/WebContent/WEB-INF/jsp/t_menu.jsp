@@ -12,7 +12,7 @@
 <h1 class ="logo"><!-- a href="T_MenuServlet" --><img src ="images/logo_ver3.png" alt ="みんなの気持ち教えてくだサイト"></h1>
 </header>
 <hr>
-<a class="icon" href="/CAP/SigninServlet"><img src ="images/icon.png" alt ="アカウント"></a>
+<a class="icon" href="/CAP/MypageServlet"><img src ="images/icon.png" alt ="アカウント"></a>
 <div class ="menu">
 <table>
 <tr>
