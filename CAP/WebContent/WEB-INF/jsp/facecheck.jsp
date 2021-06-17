@@ -95,8 +95,8 @@ input[type="text"]{
 <p><a href="/CAP/S_MenuServlet">メニュー</a></p>
 <!--<div class = "wrapper1">-->
 
-		<h2> ここにアンケート名を表示 </h2>
-			<form method="POST" action="FacePostServlet">
+		<h2> ここにアンケート名を入力 </h2>
+			<form method="POST" action="FaceCheckServlet">
 					<div class = "item1">
 
 							<h3>理解度</h3>
@@ -148,6 +148,8 @@ input[type="text"]{
 				 	 <input type="submit" style="width: 400px; height: 50px;" name="push" value="送信">
 				 </div>
 			</form>
+
+
 <!--</div>-->
 <p><a href="/CAP/LogoutServlet">ログアウト</a></p>
 </body>

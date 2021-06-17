@@ -29,8 +29,8 @@ public class FaceCheckServlet extends HttpServlet {
 //			return;
 //		}
 
-		// 顔文字投稿ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/facepost.jsp");
+		// 講師用顔文字チェックページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/facecheck.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -73,7 +73,7 @@ public class FaceCheckServlet extends HttpServlet {
 //			new Result("送信失敗！", "レコードを登録できませんでした。", "/CAP/S_MenuServlet"));
 //		}
 
-		// 結果ページにフォワードする
+		// 講師用メニューページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
 		dispatcher.forward(request, response);
 	}

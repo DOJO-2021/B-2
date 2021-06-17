@@ -104,6 +104,9 @@ input[type="radio"]:checked + label{
 
 <h1>顔文字集計</h1>
 
+<p><a href="/CAP/T_ViewServlet"> つぶやき投稿</a></p>
+<p><a href="/CAP/T_MenuServlet">一覧</a></p>
+<p><a href="/CAP/FaceCheckServlet">FaceCheckServletに飛ぶ</a></p>
 <!-- ヘッダーメニュー -->
 
 <div class = "wrapper1">
@@ -134,7 +137,7 @@ input[type="radio"]:checked + label{
   <br>
   <footer>
 	<ul class ="footerMenu">
-		<li><a href="">ログアウト</a></li>
+		<li><a href="/CAP/LogoutServlet">ログアウト</a></li>
 	</ul>
   </footer>
 
