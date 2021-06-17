@@ -1,0 +1,322 @@
+
+
+jdbc:h2:file:C:\pleiades\workspace\B-2\CAP\capdb
+
+テーブル
+
+//秘密の質問
+
+create table secret(
+ secret_id int primary key auto_increment,
+ secret_name varchar(15) default 1
+);
+
+//ユーザーマスタ
+
+create table user(
+ user_id int primary key auto_increment not null,
+ user_l_name varchar(10) not null default 1,
+ user_f_name varchar(10) not null default 1,
+ user_password varchar(20) not null default 1,
+ secret_id varchar(20),
+ user_answer varchar(50) not null default 1,
+ user_type int not null default 1
+);
+
+//アンケート
+create table questionnaire(
+ q_id int primary key auto_increment not null,
+ q_name varchar(100),
+ q_date date,
+ q_time time,
+ user_id int
+);
+
+//顔文字チェック
+
+
+ 
+create table check_table (
+ check_id int auto_increment,
+ q_id int,
+ user_id int,
+ c_comprehension_id int not null default 1,
+ c_mental_id int not null default 1,
+ c_comprehension_text varchar(400),
+ c_mental_text varchar(400),
+ c_date date,
+ c_time time,
+ primary key(q_id,user_id,check_id)
+);
+
+
+//顔文字
+
+
+create table facemark(
+ facemark_id int primary key auto_increment,
+ facemark_name varchar(100)
+);
+
+
+
+//つぶやき投稿
+
+create table post( 
+ post_id int auto_increment not null,
+ user_id int not null default 1,
+ post_text varchar(400) not null ,
+ genre_id int not null,
+ post_date date not null,
+ post_time time not null,
+ primary key(post_id,user_id)
+);
+
+//ジャンル
+
+create table genre(
+ genre_id int primary key auto_increment,
+ genre_name varchar(15)
+);
+
+//つぶやき閲覧（コメント)
+
+create table　browsing_c(
+ browsing_c_id int primary key auto_increment not null,
+ post_id int not null default 1,
+ browsing_c_comment varchar(400) not null default 1,
+ browsing_c_date date,
+ browsing_c_time time,
+ user_id int
+);
+
+//つぶやき閲覧（スタンプ）
+
+create table browsing_b(
+ browsing_b_id int primary key auto_increment not null,
+ post_id int not null default 1,
+ browsing_b_stamp int,
+ user_id int
+);
+
+//スタンプ
+
+create table stamp(
+ stamp_id int primary key auto_increment,
+ stamp_name varchar(15)
+);
+
+--------------------------------------------------------------
+ 
+//秘密の質問データ
+insert into secret values(
+ null,
+ '①出身地は？'
+);
+
+insert into secret values(
+ null,
+ '②親の旧姓は？'
+);
+
+insert into secret values(
+ null,
+ '⓷ペットの名前は？'
+);
+
+insert into secret values(
+ null,
+ '④母校（小学校）の名称は？'
+);
+
+insert into secret values(
+ null,
+ '⑤初めての海外旅行先は？'
+);
+
+
+//user ダミーデータ
+insert into user values(
+ null,
+ '柳川',
+ '和輝',
+ 'b2',
+ '1',
+ 'あいうえお',
+ '1'
+);
+
+insert into user values(
+　null,
+ '受講者',
+ '受講者',
+ 'b2',
+ '1',
+ '受講者',
+ '1'
+);
+
+insert into user values(
+ null,
+ '講師',
+ '講師',
+ 'b2',
+ '1',
+ '講師',
+ '2'
+);
+
+insert into user values(
+ null,
+ '植田',
+ '講師',
+ 'b2',
+ '1',
+ '講師',
+ '2'
+);
+
+//questionnaireダミーデータ
+insert into questionnaire values(
+ null,
+ 'テストアンケート',
+ '2020-06-14',
+ '13:17:32', 
+ '4'
+);
+ 
+//check_tableのダミーデータ
+insert into check_table values(
+ null,
+ '1',
+ '1',
+ '1',
+ '1',
+ '理解度のテキスト入力はここ',
+ '気持ちのテキスト入力はここ',
+ '2020-07-13',
+ '13:33:45'
+);
+
+//facemarkのダミーデータ
+insert into facemark values(
+　null,
+ '0'
+);
+
+insert into facemark values(
+　null,
+ '1'
+);
+
+insert into facemark values(
+　null,
+ '2'
+);
+
+//postダミーデータ
+insert into post values(
+ null,
+ '1',
+ 'テスト投稿',
+ '1',
+ '2007-01-01',
+ '12:33:44'
+);
+
+
+//genreのダミーデータ
+insert into genre values(
+ null,
+ '気持ち'
+);
+
+insert into genre values(
+ null,
+ 'HTML/CSS'
+);
+
+insert into genre values(
+ null,
+ 'java'
+);
+
+insert into genre values(
+ null,
+ 'javascript'
+);
+
+insert into genre values(
+ null,
+ 'その他'
+);
+
+//browsing_cのダミーデータ
+insert into browsing_c values(
+ null,
+ '1',
+ 'これは返信（コメント）を書くところ',
+ '2007-01-02',
+ '13:11:20',
+ '1'
+); 
+
+//　browsing_bのダミーデータ
+insert into browsing_b values(
+ null,
+ '1',
+ '1',
+ '1'
+);
+
+//stampのダミーデータ
+insert into　stamp values(
+　null,
+ '1'
+);
+
+insert into　stamp values(
+　null,
+ '2'
+);
+
+insert into　stamp values(
+　null,
+ '3'
+);
+
+insert into　stamp values(
+　null,
+ '4'
+);
+
+insert into　stamp values(
+　null,
+ '5'
+);
+
+insert into　stamp values(
+　null,
+ '6'
+);
+
+insert into　stamp values(
+　null,
+ '7'
+);
+
+insert into　stamp values(
+　null,
+ '8'
+);
+
+insert into　stamp values(
+　null,
+ '9'
+);
+
+insert into　stamp values(
+　null,
+ '10'
+);
+
