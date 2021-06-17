@@ -34,7 +34,7 @@
 			<ul class="text">
 				<c:forEach var="b" items="${PostList}">
 					<c:forEach var="c" items="${StampList}">
-							<input  id="post_id" name="post_genre${b.post_id}" type="hidden" value="${b.genre_id}">
+							<input  id="${b.post_id}" class="${b.post_id}" name="post_genre${b.post_id}" type="hidden" value="${b.genre_id}">
 							<li  id="genre_id${b.post_id}">
 								<div id="menu-btn${b.post_id}" class="menu-btn"></div>
 								<div id="menu-content${b.post_id}" class="menu-content">
@@ -43,7 +43,7 @@
 									</ul>
 								</div>
 								 ${b.post_date} - ${b.post_time}<br>${b.post_text}<br>${c.browsing_b_stamp}<br>
-								<button id="js-show-popup${b.post_id}">返信</button>
+								<button id="js-show-popup${b.post_id}" class="${b.post_text}">返信</button>
 							</li>
 					</c:forEach>
 					<div class="popup" id="js-popup${b.post_id}">
@@ -51,14 +51,36 @@
 				    		<div class="close-btn" id="js-close-btn${b.post_id}">
 								<i class="fas fa-times"></i>
 							</div>
-							<p>（投稿内容）</p><br>
-							<c:forEach var="d" items="${CommentList}">
-								<p>${d.browsing_c_comment}</p>
-							</c:forEach>
-							【コメント書き込み】
+								<p id="nowPOST${b.post_id}" class="center">（投稿内容）</p><br>
+							<div  class=commentList>
+								<c:forEach var="d" items="${CommentList}" >
+									<div id="VorH${d.browsing_c_id}">
+										<div id="cId${d.browsing_c_id}" class="${d.post_id}">
+											<p class=comment>${d.browsing_c_comment}</p>
+										</div>
+									</div>
+									<script defer>
+									//投稿に紐づいたコメントを表示
+									document.getElementById("js-show-popup${b.post_id}").addEventListener('click',function(){
+										let postId = $('input[name="post_genre${b.post_id}"]').attr('id');
+										let composId = $("#cId${d.browsing_c_id}").attr("class");
+										console.log(postId);
+										console.log(composId);
+
+											$('#VorH${d.browsing_c_id}').removeClass("Visible");
+											$('#VorH${d.browsing_c_id}').removeClass("Hidden");
+										if(postId === composId){
+											$('#VorH${d.browsing_c_id}').addClass("Visible");
+										}else{
+											$('#VorH${d.browsing_c_id}').addClass("Hidden");
+										}
+									});
+									</script>
+								</c:forEach>
+							</div>
 							<form method="POST" action="CAP/S_ViewServlet">
-								<input type="text" name="comment">
-								<input type="submit" value="送信">
+								<br><p><textarea cols="60" rows="3" wrap="soft" name="comment" class="textarea"></textarea>
+								<br><input type="submit" value="送信"></p>
 							</form>
 				 		</div>
 				  		<div class="black-background" id="js-black-bg"></div>
@@ -67,6 +89,9 @@
 						//jQuery無しでコメントオンオフ切り替え
 						document.getElementById("js-show-popup${b.post_id}").addEventListener('click',function(){
 							document.getElementById('js-popup${b.post_id}').classList.toggle('is-show');
+							//コメントの投稿をタイトルに表示
+							let text = $('#js-show-popup${b.post_id}').attr('class');
+							document.getElementById('nowPOST${b.post_id}').textContent =(text);
 						});
 
 						document.getElementById("js-close-btn${b.post_id}").addEventListener('click',function(){
@@ -86,7 +111,6 @@
 							$('input[name="genre"]:radio').change(function(){
 								var radiogenre = $('input[name="genre"]:checked').attr("id");
 								var postgenre = $('input[name="post_genre${b.post_id}"]').val();
-								console.log(radiogenre);
 
 									$('#genre_id${b.post_id}').removeClass("Visible");
 									$('#genre_id${b.post_id}').removeClass("Hidden");

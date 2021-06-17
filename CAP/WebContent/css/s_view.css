@@ -219,13 +219,50 @@ h2{
 	visibility: visible;
 }
 
-
+/*選択していないジャンルの投稿を非表示 */
 .Hidden{
 	display:none;
 }
-
+/*選択したジャンルの投稿を表示*/
 .Visible{
 	display:block;
 }
 
+/* コメントのPタグ*/
+.comment{
+	margin:0 0 5px 0;
+	text-align:center;
+}
 
+/* コメントのスクロール生成 */
+.commentList{
+	width:600px;
+	height:150px;
+	margin:0 auto 0 auto;
+	overflow:auto;
+}
+
+/*フォームを中央配置 */
+form{
+	text-align:center;
+}
+/* フォームの文字太く */
+.center{
+	text-align:center;
+	font-weight:bold;
+}
+
+/* 送信ボタンの大きさ変更*/
+input[type=submit]{
+	width:200px;
+	height:20px;
+	margin-top:10px;
+	text-align:center;
+}
+
+/*テキストエリアの拡大防止*/
+.textarea {
+	font-family:inherit;
+	font-size:inherit;
+	resize:none;
+}
