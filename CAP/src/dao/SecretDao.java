@@ -18,10 +18,10 @@ public class SecretDao {
 
 			// ②データベースに接続する
 			// connがNULLでなければ、ログインできている
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/B-2/CAP/capdb", "sa", "sa");
 
 			// ③SELECT文を準備する
-			String sql = "select count(*) from user where user_l_name = ? and user_f_name = ? and select_id = ? and user_answer = ?";
+			String sql = "select count(*) from user where user_l_name = ? and user_f_name = ? and user_questions = ? and user_answer = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);  // 無害化
 			pStmt.setString(1, l_name); // ？の1番目の１
 			pStmt.setString(2, f_name);

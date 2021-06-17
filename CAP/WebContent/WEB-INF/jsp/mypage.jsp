@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -12,20 +13,18 @@
 	<main>
 		<p>アカウント</p>
 		<p>こんにちは、
-		<c:forEach var="i" items="${cardlist}" begin="1" end="2">
-		<c:out value="${i}" />
-		</c:forEach>さん</p>
+		<c:out value="${cardList.user_l_name}" />
+		<c:out value="${cardList.user_f_name}" />さん</p>
 
-
-					<form method="POST" action="/CAP/MyPageServlet">
-						<table><c:forEach var="e" items="${cardList}" begin="3" end="5" step="1">
+	 				<form method="POST" action="/CAP/MyPageServlet">
+						<table>
 							<tr>
 								<th>パスワード</th>
-								<td><input type="password" name="PASSWORD" id="js-password" value="${e.user_password}"></td>
+								<td><input type="password" name="PASSWORD" id="js-password" value="${cardList.user_password}"></td>
 							</tr>
 							<tr>
 								<th>秘密の質問</th>
-								<td><select name="QUESTIONS" value="${e.user_questions} ">
+								<td><select name="QUESTIONS" value="${cardList.user_questions} ">
 									<option value="questions1">出身地は？</option>
 									<option value="questions2">親の旧姓は？</option>
 									<option value="questions3">ペットの名前は？</option>
@@ -33,9 +32,8 @@
 									<option value="questions5">初めての海外旅行先は？</option></select></td>
 							</tr>
 							<tr>
-								<th>答え<th><td><input type="text" name="ANSWER" value="${e.user_answer}"></td>
+								<th>答え<th><td><input type="text" name="ANSWER" value="${cardList.user_answer}"></td>
 							</tr>
-						</c:forEach>
 						</table>
 					</form>
 			<input type="submit" name="OK" value="OK">

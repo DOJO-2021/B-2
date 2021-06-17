@@ -54,15 +54,21 @@ public class PasswordForgetServlet extends HttpServlet {
 		String questions = request.getParameter("QUESTIONS");
 		String answer = request.getParameter("ANSWER");
 
-//		System.out.println(l_name);
-//		System.out.println(f_name);
-//		System.out.println(questions);
-//		System.out.println(answer);
+		System.out.println(l_name);
+		System.out.println(f_name);
+		System.out.println(questions);
+		System.out.println(answer);
 
-		if(l_name == "" || f_name == "" || questions == "" || answer == "") {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/CAP/jsp/passwordforget.jsp");
+
+
+		if(l_name == "" || f_name == "" || answer == "") {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordforget.jsp");
 			dispatcher.forward(request, response);
 		}
+//		else {
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordreset.jsp");
+//			dispatcher.forward(request, response);
+//		}
 
 		// データの照合
 		SecretDao iDao = new SecretDao();
@@ -77,8 +83,11 @@ public class PasswordForgetServlet extends HttpServlet {
 			new Result("ログイン失敗！", "入力に間違いがあります。", "/CAP/PasswordForgetServlet"));
 
 			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/CAP/jsp/reserve.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 			dispatcher.forward(request, response);
 		}
+
+
+
 	}
 }

@@ -28,12 +28,11 @@
 						<th>答え<th><td><input type="text" name="ANSWER"></td>
 					</tr>
 				</table>
-
-				<a href="/CAP/PasswordResetServlet"><input type="submit" name="OK" value="OK"></a>
+				<input type="submit" name="OK" value="OK">
 				</form>
 				<input type="reset" value="リセット">
 
-				<a href="/CAP/S_LoginServlet.java">ログインへ戻る</a>
+				<a href="/CAP/S_LoginServlet">ログインへ戻る</a>
 	</main>
 </body>
 </html>
