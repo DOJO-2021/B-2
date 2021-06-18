@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.IdDao;
 import dao.UserDao;
 import model.Result;
 import model.User;
@@ -48,7 +49,17 @@ public class S_LoginServlet extends HttpServlet{
 
 			// セッションスコープにID,user_typeを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("user_id", cardList);
+			session.setAttribute("user_id_type", cardList);
+
+
+			// 検索処理を行う
+			IdDao cDao = new IdDao();
+			int card = cDao.acquire(new User(0,user_l_name, user_f_name, user_password,"","", 0));
+
+			// セッションスコープにIDを格納する
+			HttpSession session2 = request.getSession();
+			session2.setAttribute("user_id", card);
+
 
 			// メニューサーブレットにリダイレクトする
 			if(cardList.get(0).getUser_type() == 1) {

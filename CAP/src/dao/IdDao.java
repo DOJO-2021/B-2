@@ -5,18 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import model.User;
-import model.Users;
 
 public class IdDao {
 
 	// 引数paramで検索項目を指定し、IDを返す
-	public List<Users> acquire(User param) {
+	public int acquire(User param) {
 		Connection conn = null;
-		List<Users> cardList = new ArrayList<Users>();
+		int card = 0;
 
 		try {
 			// JDBCドライバを読み込む
@@ -54,21 +51,18 @@ public class IdDao {
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			while (rs.next()) {
-				 Users card = new Users(
-					rs.getInt("User_id")
-					);
+			rs.next();
+			card = rs.getInt("User_id");
 
-				cardList.add(card);
-			}
 		}
+
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			card = 0;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			card = 0;
 		}
 		finally {
 			// データベースを切断
@@ -78,13 +72,13 @@ public class IdDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					card = 0;
 				}
 			}
 		}
 
 		// 結果を返す
-		return cardList;
+		return card;
 	}
 
 }

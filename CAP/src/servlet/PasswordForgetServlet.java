@@ -24,13 +24,6 @@ public class PasswordForgetServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/CAP/S_LoginServlet");
-//			return;
-//		}
-		 request.setCharacterEncoding("UTF-8");
 		// パスワード忘れページににフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordforget.jsp");
 		dispatcher.forward(request, response);
@@ -40,12 +33,6 @@ public class PasswordForgetServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/CAP/S_LoginServlet");
-//			return;
-//		}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -59,21 +46,16 @@ public class PasswordForgetServlet extends HttpServlet {
 		System.out.println(questions);
 		System.out.println(answer);
 
-
-
 		if(l_name == "" || f_name == "" || answer == "") {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordforget.jsp");
 			dispatcher.forward(request, response);
 		}
-//		else {
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordreset.jsp");
-//			dispatcher.forward(request, response);
-//		}
 
 		// データの照合
 		SecretDao iDao = new SecretDao();
 
 		if (iDao.isIdOK(l_name, f_name, questions, answer)) {	// データと合致（isIdOKをSecretDaoで定義）
+
 			// パスワード再設定サーブレットにリダイレクトする
 			response.sendRedirect("/CAP/PasswordResetServlet");
 		}

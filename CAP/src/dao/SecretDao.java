@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.User;
 
 public class SecretDao {
 	// ログインできるならtrueを返す
@@ -21,7 +25,7 @@ public class SecretDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/B-2/CAP/capdb", "sa", "sa");
 
 			// ③SELECT文を準備する
-			String sql = "select count(*) from user where user_l_name = ? and user_f_name = ? and user_questions = ? and user_answer = ?";
+			String sql = "select count(*) from user where user_l_name = ? and user_f_name = ? and secret_id = ? and user_answer = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);  // 無害化
 			pStmt.setString(1, l_name); // ？の1番目の１
 			pStmt.setString(2, f_name);
@@ -61,5 +65,69 @@ public class SecretDao {
 
 		// 結果を返す
 		return pwResult;
+	}
+
+	// セッションスコープのuser_idからアカウント情報を検索
+	public List<User> selectById(User param) {
+		Connection conn = null;
+		List<User> cardList = new ArrayList<User>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+
+			// SQL文を準備する
+			String sql = "select user_id, user_l_name, user_f_name, user_password, secret_id, user_answer, user_type from User where user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+
+			pStmt.setInt(1, param.getUser_id());
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				 User card = new User(
+					rs.getInt("User_id"),
+					rs.getString("User_l_name"),
+					rs.getString("User_f_name"),
+					rs.getString("User_password"),
+					rs.getString("Secret_id"),
+					rs.getString("User_answer"),
+					rs.getInt("User_type")
+					);
+
+				cardList.add(card);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			cardList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			cardList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					cardList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return cardList;
 	}
 }

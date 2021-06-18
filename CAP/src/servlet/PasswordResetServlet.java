@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.Result;
@@ -25,11 +26,11 @@ public class PasswordResetServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする(セッション)
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/CAP/S_LoginServlet");
-//			return;
-//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user_type_id") == null) {
+			response.sendRedirect("/CAP/S_LoginServlet");
+			return;
+		}
 
 		// パスワードリセット画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/passwordreset.jsp");
@@ -41,16 +42,17 @@ public class PasswordResetServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/CAP/S_LoginServlet");
-//			return;
-//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user_type_id") == null) {
+			response.sendRedirect("/CAP/S_LoginServlet");
+			return;
+		}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String user_password1 = request.getParameter("USER_PASSWORD1");
 		String user_password2 = request.getParameter("USER_PASSWORD2");
+		int user_type_id = Integer.parseInt((String)session.getAttribute("user_type_id"));
 
 		System.out.println(user_password1);
 		System.out.println(user_password2);
@@ -59,7 +61,7 @@ public class PasswordResetServlet extends HttpServlet {
 		// user_password1とuser_password2が一致していればtrue
 		if(user_password1.equals(user_password2)) {
 			UserDao bDao = new UserDao();
-			if (bDao.update(new User(0, "", "", user_password1, "", "", "", ""))) {	// 更新成功
+			if (bDao.update(new User(user_type_id, "", "", user_password1, "", "", 0))) {	// 更新成功
 				request.setAttribute("result", // resultjavabeans
 				new Result("更新成功！", "パスワードを登録しました。", "/CAP/S_LoginServlet"));
 			} else {												// 更新失敗
