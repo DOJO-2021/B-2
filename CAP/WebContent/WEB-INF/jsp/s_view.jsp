@@ -5,19 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/CAP/css/s_view.css" type="text/css">
-<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"  type="text/css">
+<!--<link rel="stylesheet" href="/CAP/css/s_view.css" type="text/css">-->
+<!--  <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"  type="text/css">-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>つぶやき投稿閲覧＜受講生用＞</title>
+<link rel ="stylesheet" href ="css/common.css">
+<link rel ="stylesheet" href ="css/s_view.css">
 </head>
 <body>
   <header>
-		<h1>つぶやき投稿閲覧</h1>
+		  <hr>
+		 <!--<h1 class="tubuyaki">つぶやき投稿閲覧</h1>-->
 		<ul class="menu">
 			<li><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
 			<li><a href="/CAP/S_MenuServlet">一覧</a></li>
 		</ul><br>
   </header>
+
   <div class = "wrapper1">
 	<div class = "wrapper2">
 			<ul>
@@ -39,11 +43,7 @@
 								<div id="menu-btn${b.post_id}" class="menu-btn"></div>
 								<div id="menu-content${b.post_id}" class="menu-content">
 									<ul>
-										<li><form method="POST" action="/CAP/DeleteServlet">
-												<input type="submit" name="投稿削除" value="投稿削除" class="delete">
-												<input type="hidden" name="post_id" value="${b.post_id}">
-											</form>
-										</li>
+										<li><a href="#">投稿削除</a></li>
 									</ul>
 								</div>
 								 ${b.post_date} - ${b.post_time}<br>${b.post_text}<br>${c.browsing_b_stamp}<br>
@@ -82,10 +82,9 @@
 									</script>
 								</c:forEach>
 							</div>
-							<form method="POST" action="/CAP/S_ViewServlet">
-								<input type="hidden" name="post_id" value="${b.post_id}">
+							<form method="POST" action="CAP/S_ViewServlet">
 								<p class="textp"><textarea cols="60" rows="2" wrap="soft" name="comment" class="textarea"></textarea>
-								<br><input type="submit" value="送信" class=comsub></p>
+								<br><input type="submit" value="送信"></p>
 							</form>
 				 		</div>
 				  		<div class="black-background" id="js-black-bg"></div>
@@ -126,6 +125,23 @@
 								}
 							});
 						});
+						//最初のジャンル選択
+						window.addEventListener( 'DOMContentLoaded' , function(){
+							let elements = document.querySelectorAll("input[name=genre]");
+							elements[0].checked = true;
+							var radiogenre = $('input[name="genre"]:checked').attr("id");
+							var postgenre = $('input[name="post_genre${b.post_id}"]').val();
+							if(radiogenre == postgenre){
+								$('#genre_id${b.post_id}').addClass("Visible");
+							} else {
+								$('#genre_id${b.post_id}').addClass("Hidden");
+							}
+//							if(genre_id===？){
+//							elements[？].checked = true;
+//							} else{
+//								elements[0].checked = true;
+//							}
+						});
 					</script>
 				</c:forEach>
 			</ul>
@@ -133,10 +149,9 @@
 </div>
 <script type="text/javascript" src="/CAP/js/s_view.js"></script>
   <br>
-  <footer>
-	<ul class ="footerMenu">
-		<li><a href="/CAP/LogoutServlet">ログアウト</a></li>
-	</ul>
+  <footer class ="footer2">
+	<p>&copy:Copyright MINNKUDA . All rights reserved.</p>
+<a href="/CAP/LogoutServlet" style="margin-left:820px;">ログアウト</a>
   </footer>
 </body>
 </html>

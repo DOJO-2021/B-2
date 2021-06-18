@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>みんなの気持ち教えてくだサイト受講者用</title>
 <link rel ="stylesheet" href ="css/s_menu.css">
+<link rel ="stylesheet" href ="css/common.css">
 </head>
 <body>
 <header class ="header">
@@ -23,6 +24,7 @@
 </table>
 </div>
 <footer class ="footer">
+	<p class ="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
 <a href="/CAP/LogoutServlet">ログアウト</a>
 </footer>
 </body>

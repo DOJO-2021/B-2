@@ -1,36 +1,5 @@
 @charset "UTF-8";
-body {                            /*すべてのページに適用*/
-  background-color: #ffead6;      /*背景色*/
-  margin:0 auto 0 auto;
-  max-width:960px;                /*ページ最大幅*/
-}
 
-hr {                             /*境界線*/
-  background-color:#ff7f50;      /*境界線の色*/
-  height:2px;                    /*境界線の太さ*/
-}
-
-.header {                        /*全ページ共通ヘッダー*/
-  height:120px;                  /*ヘッダーの高さ*/
-}
-
-.logo {                          /*ロゴ*/
-  text-align:center;             /*ロゴの位置を真ん中に*/
-}
-
-.icon1{                             /*顔文字のアイコン（顔文字投稿ページに飛ぶ）*/
-  float:right;                     /*右に配置*/
-  margin-left: -108px;
-  margin-top: -14px;
-  margin-right: -338px;
-}
-
-.icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
-  float:right;                     /*右に配置*/
-  margin-top: -24px;
-  margin-right: -236px;
-
-}
 .button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
   margin-left:-25px;
   line-height:280px;
@@ -98,24 +67,6 @@ hr {                             /*境界線*/
   -webkit-transform : translate(-50%,-50%);
 }
 
-
-a:link {                 /*ログアウト*/
-  color:#d25833;
-}
-
-a:visited {              /*ログアウト*/
-    color:#d25833;
-
-}
-
-a:hover{                /*ログアウト*/
-  color:#e3937a;
-}
-
-a:active {              /*ログアウト*/
-  color:#ff6a3b;
-}
-
 .eyes{               /*閲覧アイコン*/
   margin-top:45px;
   margin-left:36px;
@@ -128,10 +79,4 @@ a:active {              /*ログアウト*/
 .write {             /*投稿アイコン*/
   margin-top:28px;
   margin-left:18px;
-}
-.footer {                         /*全ページ共通フッター*/
-  position:absolute;
-  bottom:-100px;
-  margin-left: 850px;
-  height:120px;
 }
