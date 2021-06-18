@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.IdDao;
 import dao.UserDao;
 import model.Result;
 import model.User;
-import model.Users;
 
 @WebServlet("/S_LoginServlet")
 public class S_LoginServlet extends HttpServlet{
@@ -45,12 +43,12 @@ public class S_LoginServlet extends HttpServlet{
 		if (iDao.isLoginOK(user_l_name,user_f_name,user_password)) {	// ログイン成功
 
 			// 検索処理を行う
-			IdDao bDao = new IdDao();
-			List<Users> cardList = bDao.acquire(new User(0,user_l_name, user_f_name, user_password,"","", 1));
+			UserDao bDao = new UserDao();
+			List<User> cardList = bDao.select(new User(0,user_l_name, user_f_name, user_password,"","", 1));
 
 			// セッションスコープにID,user_typeを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("user_id_type", cardList);
+			session.setAttribute("user_id", cardList);
 
 			// メニューサーブレットにリダイレクトする
 			if(cardList.get(0).getUser_type() == 1) {

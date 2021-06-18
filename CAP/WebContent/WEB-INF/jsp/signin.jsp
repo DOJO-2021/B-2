@@ -18,7 +18,7 @@
 氏名<input  type="text" name="user_l_name" placeholder="英字以外で入力してください">
 	<input type="text" name="user_f_name"><br>
 PW<input id="js-password" type="password" name="user_password" placeholder="英数字6文字以上20文字以下">
-  <span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span><br>
+  <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()"></span><br>
 秘密の質問<select name="secret_id">
 	<option value="1">①出身地は？</option>
 	<option value="2">②親の旧姓は？</option>
@@ -46,10 +46,10 @@ PW<input id="js-password" type="password" name="user_password" placeholder="英�
         var btnEye = document.getElementById("buttonEye");
         if (txtPass.type === "text") {
           txtPass.type = "password";
-          btnEye.className = "fa fa-eye";
+          btnEye.className = "fa fa-eye-slash";
         } else {
           txtPass.type = "text";
-          btnEye.className = "fa fa-eye-slash";
+          btnEye.className = "fa fa-eye";
         }
       }
     </script>

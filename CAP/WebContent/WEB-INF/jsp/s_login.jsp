@@ -15,7 +15,7 @@
 <form method="POST" action="/CAP/S_LoginServlet" id="form">
 氏名<input type="text" name="user_l_name"><input type="text" name="user_f_name"><br>
 PW<input id="js-password" type="password" name="user_password">
-  <span id="buttonEye" class="fa fa-eye" onclick="pushHideButton()"></span><br>
+  <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()"></span><br>
 
 <p id="output"></p>
 
@@ -32,10 +32,10 @@ PW<input id="js-password" type="password" name="user_password">
         var btnEye = document.getElementById("buttonEye");
         if (txtPass.type === "text") {
           txtPass.type = "password";
-          btnEye.className = "fa fa-eye";
+          btnEye.className = "fa fa-eye-slash";
         } else {
           txtPass.type = "text";
-          btnEye.className = "fa fa-eye-slash";
+          btnEye.className = "fa fa-eye";
         }
       }
     </script>

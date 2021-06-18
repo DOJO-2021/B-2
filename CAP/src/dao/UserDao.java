@@ -140,7 +140,6 @@ public boolean insert(User card) {
 			else {
 				pStmt.setString(5, "null");
 			}
-
 				pStmt.setInt(6, card.getUser_type());
 
 
@@ -190,6 +189,7 @@ public boolean update(User card) {
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
+
 			if (card.getUser_l_name() != null) {
 				pStmt.setString(1, card.getUser_l_name());
 			}
@@ -220,6 +220,11 @@ public boolean update(User card) {
 			else {
 				pStmt.setString(5, "null");
 			}
+				pStmt.setInt(6, card.getUser_type());
+
+
+				pStmt.setInt(7, card.getUser_id());
+
 
 		// SQL文を実行する
 		if (pStmt.executeUpdate() == 1) {

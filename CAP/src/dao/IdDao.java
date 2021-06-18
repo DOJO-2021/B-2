@@ -56,8 +56,7 @@ public class IdDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				 Users card = new Users(
-					rs.getString("User_id"),
-					rs.getInt("User_type")
+					rs.getInt("User_id")
 					);
 
 				cardList.add(card);
