@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.PostDao;
 import model.Post;
@@ -27,13 +28,12 @@ public class S_PostServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ログインしていなかったらログインサーブレットにリダイレクトする
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/CAP/S_LoginServlet");
-//			return;
-//		}
-
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+				HttpSession session = request.getSession();
+				if (session.getAttribute("user_id") == null) {
+					response.sendRedirect("/CAP/S_LoginServlet");
+					return;
+				}
 		// 投稿ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/s_post.jsp");
 		dispatcher.forward(request, response);
@@ -43,12 +43,12 @@ public class S_PostServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ログインしていなかったらログインサーブレットにリダイレクトする
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("user_id") == null) {
-//			response.sendRedirect("/CAP/LoginServlet");
-//			return;
-//		}
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+				HttpSession session = request.getSession();
+				if (session.getAttribute("user_id") == null) {
+					response.sendRedirect("/CAP/S_LoginServlet");
+					return;
+				}
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -57,8 +57,8 @@ public class S_PostServlet extends HttpServlet {
 		String post_text = request.getParameter("post_text");
 		int genre_id =Integer.parseInt (request.getParameter("genre"));
 		//String user_id = request.getParameter("user_id");
-		int user_id = 1;
-
+		System.out.println(session.getAttribute("user_id"));
+		int user_id= (int)session.getAttribute("user_id");
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm:ss");
