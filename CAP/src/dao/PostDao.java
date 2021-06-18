@@ -143,16 +143,16 @@ public class PostDao {
 			try {
 				Class.forName("org.h2.Driver");
 				conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
-				String sql1 = "select user_id from post where post_id = 1";
+				String sql1 = "select user_id from post where post_id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql1);
-				System.out.println("post_id:"+post_id);
-//				pStmt.setInt(1, post_id);
-				System.out.println("pStmt:"+pStmt);
+//				System.out.println("post_id:"+post_id);
+				pStmt.setInt(1, post_id);
+//				System.out.println("pStmt:"+pStmt);
 				ResultSet rs1 = pStmt.executeQuery();
-				System.out.println("select rows:"+rs1.getRow());	//行数
+				rs1.next();
+//				System.out.println("select rows:"+rs1.getRow());	//行数
 				card = rs1.getInt("user_id");
-
-				System.out.println(card);
+//				System.out.println(card);
 
 			}
 			catch (SQLException e) {
