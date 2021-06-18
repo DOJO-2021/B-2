@@ -48,12 +48,18 @@
 	clear:both;
 }
 /*テキストボックス*/
-.text{
+.c_text{
 	display:block;
 	width: 400px;
 	height:300px;
 	margin:0 0 0 0 ;
+	width:90%;
+	height:60%;
 
+}
+.questionnaire{
+	width:100px;
+	heigt:100px;
 }
 
 /*送信ボタン*/
@@ -80,10 +86,10 @@ label {
 	width:80%;
 	text-align: center;
 	}
-input[type="text"]{
+/*input[type="text"]{
 	width:90%;
 	height:60%;
-}
+}*/
 
 </style>
 
@@ -94,10 +100,13 @@ input[type="text"]{
 
 <p><a href="/CAP/S_MenuServlet">メニュー</a></p>
 <!--<div class = "wrapper1">-->
+	<form method="POST" action="FaceCheckServlet">
+		<input type="text" class="questionnaire" name="Q_NAME"> ここにアンケート名を入力
 
-		<h2> ここにアンケート名を入力 </h2>
-			<form method="POST" action="FaceCheckServlet">
-					<div class = "item1">
+					<p></p>
+					<p></p>
+
+	<%--  				<div class = "item1">
 
 							<h3>理解度</h3>
 
@@ -115,7 +124,7 @@ input[type="text"]{
 									<input type="radio" name="face1" value="3">不安
 
 								<br>
-								 <input type="text"class="" name="c_comprehension_text">
+								 <input type="text"class="c_text" name="C_COMPREHENSION_TEXT">
 								</div>
 					</div>
 
@@ -137,17 +146,17 @@ input[type="text"]{
 									<input type="radio" name="face2" value="3">不安
 
 									<br>
-									<input type="text"class="" name="c_mental_text">
+									<input type="text"class="c_text" name="C_MENTAL_TEXT">
 								</div>
 
 					</div>
 
-				 <br>
+				 <br> --%>
 				 <br>
 				 <div class = "wrapper3">
 				 	 <input type="submit" style="width: 400px; height: 50px;" name="push" value="送信">
 				 </div>
-			</form>
+	</form>
 
 
 <!--</div>-->

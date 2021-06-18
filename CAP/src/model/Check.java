@@ -1,4 +1,6 @@
 package model;
+import java.sql.Date;
+import java.sql.Time;
 
 public class Check {
 	private int check_id ;
@@ -8,15 +10,15 @@ public class Check {
 	private int c_mental_id ;
 	private String c_comprehension_text ;
 	private String c_mental_text ;
-	private String c_date ;
-	private String c_time ;
+	private Date c_date ;
+	private Time c_time ;
 
 	//引数がないコンストラクタ
 	public Check() {}
 
 	//引数があるコンストラクタ
 	public Check(int check_id, int q_id, int user_id, int c_comprehension_id, int c_mental_id, String c_comprehension_text,
-			String c_mental_text, String c_date, String c_time) {
+			String c_mental_text, Date c_date, Time c_time) {
 		this.check_id = check_id;
 		this.q_id = q_id;
 		this.user_id = user_id;
@@ -85,19 +87,19 @@ public class Check {
 		this.c_mental_text = c_mental_text;
 	}
 
-	public String getC_date() {
+	public Date getC_date() {
 		return c_date;
 	}
 
-	public void setC_date(String c_date) {
+	public void setC_date(Date c_date) {
 		this.c_date = c_date;
 	}
 
-	public String getC_time() {
+	public Time getC_time() {
 		return c_time;
 	}
 
-	public void setC_time(String c_time) {
+	public void setC_time(Time c_time) {
 		this.c_time = c_time;
 	}
 
