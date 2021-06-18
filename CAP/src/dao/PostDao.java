@@ -135,4 +135,81 @@ public class PostDao {
 			// 邨先棡繧定ｿ斐☆
 			return result;
 		}
+
+		public int PostUser_id(int post_id) {
+			Connection conn = null;
+			int card = 0;
+
+			try {
+				Class.forName("org.h2.Driver");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+				String sql1 = "select user_id from post where post_id = 1";
+				PreparedStatement pStmt = conn.prepareStatement(sql1);
+				System.out.println("post_id:"+post_id);
+//				pStmt.setInt(1, post_id);
+				System.out.println("pStmt:"+pStmt);
+				ResultSet rs1 = pStmt.executeQuery();
+				System.out.println("select rows:"+rs1.getRow());	//行数
+				card = rs1.getInt("user_id");
+
+				System.out.println(card);
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				card = 0;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				card = 0;
+			}
+			finally {
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						card = 0;
+					}
+				}
+			}
+			return card;
+		}
+
+		public boolean commentDelete(int post_id) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				Class.forName("org.h2.Driver");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+				String sql = "delete from post where post_id=?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				pStmt.setInt(1, post_id);
+
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			return result;
+		}
+
+
 }

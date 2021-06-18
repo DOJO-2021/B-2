@@ -39,7 +39,11 @@
 								<div id="menu-btn${b.post_id}" class="menu-btn"></div>
 								<div id="menu-content${b.post_id}" class="menu-content">
 									<ul>
-										<li><a href="#">投稿削除</a></li>
+										<li><form method="POST" action="/CAP/DeleteServlet">
+												<input type="submit" name="投稿削除" value="投稿削除" class="delete">
+												<input type="hidden" name="post_id" value="${b.post_id}">
+											</form>
+										</li>
 									</ul>
 								</div>
 								 ${b.post_date} - ${b.post_time}<br>${b.post_text}<br>${c.browsing_b_stamp}<br>
@@ -78,9 +82,10 @@
 									</script>
 								</c:forEach>
 							</div>
-							<form method="POST" action="CAP/S_ViewServlet">
+							<form method="POST" action="/CAP/S_ViewServlet">
+								<input type="hidden" name="post_id" value="${b.post_id}">
 								<p class="textp"><textarea cols="60" rows="2" wrap="soft" name="comment" class="textarea"></textarea>
-								<br><input type="submit" value="送信"></p>
+								<br><input type="submit" value="送信" class=comsub></p>
 							</form>
 				 		</div>
 				  		<div class="black-background" id="js-black-bg"></div>
