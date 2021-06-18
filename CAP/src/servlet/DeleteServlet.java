@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Browsing_BDao;
 import dao.Browsing_CDao;
@@ -24,16 +25,16 @@ import model.Result;
 @WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
-//		if (session.getAttribute("user-id") == null) {
-//			response.sendRedirect("/CAP/LoginServlet");
-//			return;
-//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user_id") == null) {
+			response.sendRedirect("/CAP/S_LoginServlet");
+			return;
+		}
 
 		request.setCharacterEncoding("UTF-8");
 
 
-		int user_id= 1;
+		int user_id= (int)session.getAttribute("user_id");
 		String Post_id = request.getParameter("post_id");
 		int post_id = Integer.parseInt(Post_id);
 

@@ -50,8 +50,8 @@ public class S_ViewServlet extends HttpServlet {
 		List<Browsing_B> StampList = sDao.stampSelectAll(new Browsing_B());
 		request.setAttribute("StampList", StampList);
 		//コメント内容を全検索
-		Browsing_CDao cDao = new Browsing_CDao();
-		List<Browsing_C> CommentList = cDao.commentSelectAll(new Browsing_C());
+		Browsing_CDao bcDao = new Browsing_CDao();
+		List<Browsing_C> CommentList = bcDao.commentSelectAll(new Browsing_C());
 		request.setAttribute("CommentList", CommentList);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/s_view.jsp");
@@ -69,9 +69,7 @@ public class S_ViewServlet extends HttpServlet {
 		//コメント内容を保存する
 		String comment = request.getParameter("comment");
 		//ユーザーIDをセッションから持ってくる
-		Object obj = session.getAttribute("user_id");
-		String user = obj.toString();
-		int user_id = Integer.parseInt(user);
+		int user_id= (int)session.getAttribute("user_id");
 		//コメント投稿時刻を保存する
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
