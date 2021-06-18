@@ -14,7 +14,7 @@
 <body>
   <header>
 		  <hr>
-		 <!--<h1 class="tubuyaki">つぶやき投稿閲覧</h1>-->
+		<h1 class ="logo"><a href="s_MenuServlet"><img src ="images/header.png" alt ="みんなの気持ち教えてくだサイト"></a></h1>
 		<ul class="menu">
 			<li><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
 			<li><a href="/CAP/S_MenuServlet">一覧</a></li>
@@ -42,7 +42,10 @@
 								<div id="menu-btn${b.post_id}" class="menu-btn"></div>
 								<div id="menu-content${b.post_id}" class="menu-content">
 									<ul>
-										<li><a href="#">投稿削除</a></li>
+										<li><form method="POST" action="/CAP/DeleteServlet" >
+										<input type="hidden" name=post_id value="${b.post_id}">
+										<input type="submit" name=delete value=投稿削除>
+										</form></li>
 									</ul>
 								</div>
 								 ${b.post_date} - ${b.post_time}<br>${b.post_text}<br>${c.browsing_b_stamp}<br>
