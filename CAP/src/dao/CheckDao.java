@@ -272,13 +272,13 @@ public class CheckDao {
 					try {
 						Class.forName("org.h2.Driver");
 						conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
-						String sql = "select max(q_id) from Check_Table where user_id=? and comprehention_id=0 and mental_id=0 and c_date='1700-01-01' ";
+						String sql = "select max(q_id) from Check_Table where user_id=? and c_comprehension_id=0 and c_mental_id=0 and c_date='1700-01-01' ";
 						PreparedStatement pStmt = conn.prepareStatement(sql);
 							pStmt.setInt(1, user_id);
 
 							ResultSet rs1 = pStmt.executeQuery();
 							rs1.next();
-							card = rs1.getInt("q_id");
+							card = rs1.getInt("max(q_id)");
 
 						}
 						catch (SQLException e) {

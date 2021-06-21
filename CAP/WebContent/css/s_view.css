@@ -298,7 +298,7 @@ input.delete:hover{
 }
 
 /* アンケート画面を表示する */
-.modal is-show{
+.is-show_modal{
   display:inline;
   opacity: 1;
   visibility: visible;

@@ -161,14 +161,17 @@
 	<p>&copy:Copyright MINNKUDA . All rights reserved.</p>
 <a href="/CAP/LogoutServlet" style="margin-left:820px;">ログアウト</a>
   </footer>
-  <div class=modal>
+  <div class="modal" id="modal">
 		<div class="modal-inner">
 		  <h2>顔文字投稿</h2>
-			<div class="close-btn" id="">
+	<!--	<div class="close-btn" id="">
 				<i class="fas fa-times"></i>
-			</div>
+			</div> -->
 			<div class=mini-q>
-				<div class="questionnaire"> ここにアンケート名を入力</div><br>
+				<c:forEach var="e" items="${QList}">
+					<div class="questionnaire" id="${e.q_id}"> ${e.q_name}</div><br>
+				</c:forEach>
+		<form method="POST" action="/CAP/FacePostServlet">
 			<div class=mini-wrapper1>
 				<div class=mini-wrapper2>
 					<h3 class="check_title">理解度</h3>
@@ -193,9 +196,21 @@
 			<div class=mini_center>
 				<input type="submit" name="送信">
 			</div>
+		</form>
 		</div>
 		</div>
 		<div class="modal-background" id="js-black-bg"></div>
   </div>
+  <script>
+  	'use strict';
+  	//未回答の投稿があった場合最新のものを表示
+  	window.addEventListener( 'DOMContentLoaded' , function(){
+		const id = $('${e.q_id}').attr("id");
+		if(id != 0){
+			document.getElementById('modal').classList.toggle('is-show_modal');
+		}
+  	});
+  </script>
+
 </body>
 </html>
