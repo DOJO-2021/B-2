@@ -220,14 +220,19 @@ public class CheckDao {
 					// 結果を返す
 					return result;
 				}
+
+				//受講生のアカウントのIDをすべて出力
 				public ArrayList<Users> AllUserSelect(){
 					Connection conn = null;
 					ArrayList<Users> cardList = new ArrayList<Users>();
+
 				try {
 					Class.forName("org.h2.Driver");
 					conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+
 					String sql = "select user_id from User where user_type=1";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
+
 					ResultSet rs = pStmt.executeQuery();
 					System.out.println(rs);
 					while (rs.next()) {
@@ -256,7 +261,47 @@ public class CheckDao {
 					}
 				}
 				return cardList;
+
 				}
+
+				//答えていない最新のアンケートがあるかどうか、あればIDを渡す。
+				public int NullQ_Check(int user_id) {
+					Connection conn = null;
+					int card = 0;
+
+					try {
+						Class.forName("org.h2.Driver");
+						conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+						String sql = "select max(q_id) from Check_Table where user_id=? and comprehention_id=0 and mental_id=0 and c_date='1700-01-01' ";
+						PreparedStatement pStmt = conn.prepareStatement(sql);
+							pStmt.setInt(1, user_id);
+
+							ResultSet rs1 = pStmt.executeQuery();
+							rs1.next();
+							card = rs1.getInt("q_id");
+
+						}
+						catch (SQLException e) {
+							e.printStackTrace();
+							card = 0;
+						}
+						catch (ClassNotFoundException e) {
+							e.printStackTrace();
+							card = 0;
+						}
+						finally {
+							if (conn != null) {
+								try {
+									conn.close();
+								}
+								catch (SQLException e) {
+									e.printStackTrace();
+									card = 0;
+								}
+							}
+						}
+						return card;
+					}
 
 	}
 

@@ -17,12 +17,15 @@ import javax.servlet.http.HttpSession;
 
 import dao.Browsing_BDao;
 import dao.Browsing_CDao;
+import dao.CheckDao;
 import dao.GenreDao;
 import dao.PostDao;
+import dao.QuestionareDao;
 import model.Browsing_B;
 import model.Browsing_C;
 import model.Genre;
 import model.Post;
+import model.Questionare;
 import model.Result;
 
 @WebServlet("/S_ViewServlet")
@@ -35,6 +38,21 @@ public class S_ViewServlet extends HttpServlet {
 		if (session.getAttribute("user_id") == null) {
 			response.sendRedirect("/CAP/S_LoginServlet");
 			return;
+		}
+
+
+		//新しいアンケートがあった場合にポップを表示する
+		CheckDao CTDao = new CheckDao();
+		QuestionareDao QDao = new QuestionareDao();
+			//ユーザーIDをセッションから持ってくる
+			int user_id= (int)session.getAttribute("user_id");
+			//答えていないアンケートがあるかどうかのチェック
+		if(CTDao.NullQ_Check(user_id) != 0) {
+			//必要なアンケートのIDを入手する処理
+			int q_id = CTDao.NullQ_Check(user_id);
+			//必要なアンケートのデータを入手する処理
+			List<Questionare> QList = QDao.NewQ_Data(q_id);
+			request.setAttribute("QList", QList);
 		}
 
 		//投稿内容を全検索

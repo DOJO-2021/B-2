@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     //もしもログインしていなかったらログインサーブレットにリダイレクトする
     HttpSession session = request.getSession();
-    if (session.getAttribute("l_name") == null) {
+    if (session.getAttribute("user_id") == null) {
         response.sendRedirect("/CAP/S_LoginServlet");
         return;
     }

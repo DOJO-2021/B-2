@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
@@ -14,9 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.CheckDao;
 import dao.QuestionareDao;
 import model.Questionare;
 import model.Result;
+import model.Users;
 /**
  * Servlet implementation class FaceCheckServlet
  */
@@ -82,14 +85,26 @@ public class FaceCheckServlet extends HttpServlet {
 
 //		int user_id =1;
 
-
 		// 登録処理を行う
-		//すべて書き込む
-		QuestionareDao bDao = new QuestionareDao();
-		if (bDao.insert(new Questionare(0, q_name, q_date, q_time, user_id ))) {	// 登録成功
-			request.setAttribute("result",
-			new Result("送信成功！", "レコードを登録しました。", "/CAP/S_MenuServlet"));
-		}
+				//すべて書き込む
+				QuestionareDao bDao = new QuestionareDao();
+				CheckDao cDao = new CheckDao();
+				if (bDao.insert(new Questionare(0, q_name, q_date, q_time, user_id ))) {	// 登録成功
+					//アンケートのIDを取ってくる
+					int q_id = bDao.q_idSearch(new Questionare(0, q_name, q_date, q_time, user_id ));
+					//ユーザー分の回答テーブルを作成
+					ArrayList<Users> all_user_id = cDao.AllUserSelect();
+					System.out.println(all_user_id);
+					for(Users s_user_id : all_user_id ) {
+						if(cDao.NewTableInsert(q_id, s_user_id)) {
+							request.setAttribute("result",
+									new Result("送信成功！", "レコードを登録しました。", "/CAP/S_MenuServlet"));
+						}else {
+							request.setAttribute("result",
+									new Result("送信失敗！", "レコードを登録できませんでした。", "/CAP/S_MenuServlet"));
+						}
+					}
+				}
 		else {												// 登録失敗
 			request.setAttribute("result",
 			new Result("送信失敗！", "レコードを登録できませんでした。", "/CAP/S_MenuServlet"));
