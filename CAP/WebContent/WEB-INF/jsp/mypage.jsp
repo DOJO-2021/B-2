@@ -29,18 +29,43 @@
 									<option value="2">親の旧姓は？</option>
 									<option value="3">ペットの名前は？</option>
 									<option value="4">母校（小学校）の名称は？</option>
-									<option value="5">初めての海外旅行先は？</option></select></td>
+									<option value="5">初めての海外旅行先は？</option>
+									</select></td>
 							</tr>
 							<tr>
 								<th>答え<th><td><input type="text" name="ANSWER" value="${cardList[0].user_answer}"></td>
 							</tr>
 						</table>
 			<input type="submit" name="OK" value="OK">
-			</form>
 			<input type="reset" value="リセット">
-			<a href="/CAP/S_MenuServlet.java">ホームに戻る</a>
+			</form>
+
+			<a href="/CAP/S_MenuServlet">ホームに戻る</a>
 	</main>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/CAP/js/mypage.js"></script>
+	<script>
+		var QUESTIONS = "${cardList.get(0).secret_id}";
+		var opt;
+		switch(QUESTIONS){
+		case'1':
+			opt = document.querySelector('option[value="1"]');
+			break;
+		case'2':
+			opt = document.querySelector('option[value="2"]');
+			break;
+		case'3':
+			opt = document.querySelector('option[value="3"]');
+			break;
+		case'4':
+			opt = document.querySelector('option[value="4"]');
+			break;
+		case'5':
+			opt = document.querySelector('option[value="5"]');
+			break;
+		}
+		opt.selected = true;
+		document.
+	</script>
 </body>
 </html>

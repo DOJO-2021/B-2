@@ -41,7 +41,7 @@ public class MyPageServlet extends HttpServlet {
 		String user = obj.toString();
 		int user_id = Integer.parseInt(user);
 //		int user_id= (int)session.getAttribute("user_id");
-
+		
 		System.out.println(user_id);
 
 		// 検索処理を行う
@@ -75,19 +75,19 @@ public class MyPageServlet extends HttpServlet {
 		String user_l_name = request.getParameter("user_l_name");
 		String user_f_name = request.getParameter("user_f_name");
 		String user_password = request.getParameter("user_password");
-		String questions = request.getParameter("QUESTIONS");
+		String secret_id = request.getParameter("QUESTIONS");
 		String answer = request.getParameter("ANSWER");
 		int user_type = Integer.parseInt(request.getParameter("user_type"));
 		int user_id= (int)session.getAttribute("user_id");
 
 
-		System.out.println(questions);
+		System.out.println(secret_id);
 		System.out.println(answer);
 
 		// 更新または削除を行う
 		UserDao uDao = new UserDao();
 		if (request.getParameter("OK").equals("OK")) {
-			if (uDao.update(new User(user_id, user_l_name, user_f_name, user_password, questions, answer,user_type))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
+			if (uDao.update(new User(user_id, user_l_name, user_f_name, user_password, secret_id, answer,user_type))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
 				request.setAttribute("result",														// result...領域,何もない下駄箱（名前がついている）みたいな感じ
 				new Result("更新成功！", "レコードを更新しました。", "/CAP/MyPageServlet")); 	// Result 箱(タンスみたいなもの)
 
