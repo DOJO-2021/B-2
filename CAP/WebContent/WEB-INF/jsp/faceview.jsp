@@ -121,9 +121,9 @@ input[type="radio"]:checked + label{
 	<div class = "wrapper2">
 			<ul>
 
-					<li><input type="radio" name="genre" value="1" id="ALL"><label for="ALL" class="tag">全体</label></li>
-					<li><input type="radio" name="genre" value="2" id=""><label for="rikaido"  class="tag">理解度（個人）</label></li>
-					<li><input type="radio" name="genre" value="3" id="Java"><label for="kimoti" class="tag">気持ち（個人）</label></li>
+				<li><input type="radio" name="genre" value="1" id="ALL"><label for="ALL" class="tag"><a href="/CAP/FaceCollectServlet">全体</a></label></li>
+				<li><input type="radio" name="genre" value="2" id=""><label for="rikaido"  class="tag"><a href="/CAP/FaceCollectServlet">理解度（個人）</a></label></li>
+				<li><input type="radio" name="genre" value="3" id="Java"><label for="kimoti" class="tag"><a href="/CAP/FaceCollectServlet">気持ち（個人）</a></label></li>
 
 
 

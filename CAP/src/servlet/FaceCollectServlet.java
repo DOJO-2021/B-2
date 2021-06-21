@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.CheckDao;
+import model.Check;
 /**
  * Servlet implementation class FaceCollectServlet
  */
@@ -52,10 +55,11 @@ public class FaceCollectServlet extends HttpServlet {
 			return;
 		}
 //		System.out.println(session.getAttribute("user_id"));
-		int user_id= (int)session.getAttribute("user_id");
+//		int user_id= (int)session.getAttribute("user_id");
 
 		// リクエストパラメータを取得する
 		int q_id = Integer.parseInt (request.getParameter("Q_ID"));
+		int user_id= (int)session.getAttribute("user_id");
 
 		int c_comprehension_id = Integer.parseInt (request.getParameter("C_COMPREHENSION_ID"));
 		int c_mental_id = Integer.parseInt (request.getParameter("C_MENTAL_ID"));
@@ -74,14 +78,14 @@ public class FaceCollectServlet extends HttpServlet {
 
 
 		// 検索処理を行う
-//	    CheckDao CheckDao = new CheckDao();
-//		List<FaceCheck> FaceCheckList = .select(new Bc(0, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text,c_mental_text,c_date,c_time));
-//
-////		// 検索結果をリクエストスコープに格納する
-//		request.setAttribute("cardList", cardList);
-//
-//		// 結果ページにフォワードする
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
-//		dispatcher.forward(request, response);
+	    CheckDao cDao = new CheckDao();
+		List<Check> FaceCheckList = cDao.select(new Check(0, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text,c_mental_text,c_date,c_time));
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("FaceCheckList", FaceCheckList);
+
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
+		dispatcher.forward(request, response);
 	}
 }
