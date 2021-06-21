@@ -37,9 +37,7 @@ public class FaceCheckServlet extends HttpServlet {
 			return;
 		}
 //		System.out.println(session.getAttribute("user_id"));
-		Object obj = session.getAttribute("user_id");
-		String user = obj.toString();
-		int user_id = Integer.parseInt(user);
+		int user_id= (int)session.getAttribute("user_id");
 
 		// 講師用顔文字チェックページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/facecheck.jsp");
@@ -59,16 +57,14 @@ public class FaceCheckServlet extends HttpServlet {
 			return;
 		}
 //		System.out.println(session.getAttribute("user_id"));
-		Object obj = session.getAttribute("user_id");
-		String user = obj.toString();
-		int user_id = Integer.parseInt(user);
+//		int user_id= (int)session.getAttribute("user_id");
 
 		// リクエストパラメータを取得する
 		//ID以外書き込む
 
 		request.setCharacterEncoding("UTF-8");
 
-		int q_id = Integer.parseInt (request.getParameter("Q_ID"));
+//		int q_id = Integer.parseInt (request.getParameter("Q_ID"));
 		String q_name = request.getParameter("Q_NAME");
 
 		Calendar calendar = Calendar.getInstance();
@@ -81,6 +77,7 @@ public class FaceCheckServlet extends HttpServlet {
 		Date q_date = Date.valueOf(str);
 		Time q_time = Time.valueOf(str1);
 
+		int user_id= (int)session.getAttribute("user_id");
 //		int user_id = Integer.parseInt (request.getParameter("USER_ID"));
 
 //		int user_id =1;

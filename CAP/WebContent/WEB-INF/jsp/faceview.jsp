@@ -31,8 +31,15 @@
  /* wrapper３はコメント画面。*/
 .wrapper3{
 	display:block;
-	width: 80%;
-	margin-left:5%;
+	width: 50%;
+
+	overflow:auto;
+}
+
+.wrapper4{
+	display:block;
+	width: 50%;
+
 	overflow:auto;
 }
  /* ジャンルは余白無しで詰める*/
@@ -80,6 +87,7 @@ h2{
 	text-align:center;
 	background:#ffffff;
 }
+
 /* フッターメニューを右に移動*/
 .footerMenu li{
 	text-align:right;
@@ -122,16 +130,21 @@ input[type="radio"]:checked + label{
 			</ul>
 	</div>
 	<div class = wrapper3>
-		<h2></h2>
+
+
+		<h2>理解度</h2>
+
+		<!-- 理解度データ表示 -->
+	</div>
+
+	<div class = wrapper4>
+		<h2>メンタル</h2>
+		<!-- 理解度データ表示 -->
 	</div>
 </div>
 
-<h2>理解度</h2>
 
-<!-- 理解度データ表示 -->
 
-<h2>メンタル</h2>
-<!-- 理解度データ表示 -->
 
 
   <br>

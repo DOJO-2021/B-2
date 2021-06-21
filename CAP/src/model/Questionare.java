@@ -4,11 +4,6 @@ import java.sql.Time;
 
 public class Questionare {
 
-
-
-
-
-
 		private int q_id ;
 		private String q_name ;
 		private Date q_date ;

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//import dao.QuestionareDao;
 import dao.CheckDao;
 import model.Check;
 import model.Result;
@@ -36,10 +37,8 @@ public class FacePostServlet extends HttpServlet {
 			response.sendRedirect("/CAP/S_LoginServlet");
 			return;
 		}
-//	System.out.println(session.getAttribute("user_id"));
-//		Object obj = session.getAttribute("user_id");
-//		String user = obj.toString();
-//		int user_id = Integer.parseInt(user);
+//		System.out.println(session.getAttribute("user_id"));
+		int user_id= (int)session.getAttribute("user_id");
 
 		// 受講生顔文字投稿にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/facepost.jsp");
@@ -58,9 +57,7 @@ public class FacePostServlet extends HttpServlet {
 			return;
 		}
 //		System.out.println(session.getAttribute("user_id"));
-		Object obj = session.getAttribute("user_id");
-		String user = obj.toString();
-		int user_id = Integer.parseInt(user);
+		int user_id= (int)session.getAttribute("user_id");
 
 		// リクエストパラメータを取得する
 		//ID以外書き込む
@@ -100,8 +97,8 @@ public class FacePostServlet extends HttpServlet {
 			new Result("送信失敗！", "レコードを登録できませんでした。", "/CAP/S_MenuServlet"));
 		}
 
-		// 講師用メニューページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
+		// 受講生用メニューページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/s_menu.jsp");
 		dispatcher.forward(request, response);
 	}
 }

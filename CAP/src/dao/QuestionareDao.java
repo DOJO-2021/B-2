@@ -24,7 +24,7 @@ public class QuestionareDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 				// SQL文を準備する
-				String sql = "insert into User values (null, ?, ?, ?, ?)";
+				String sql = "insert into questionnaire values (null, ?, ?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる

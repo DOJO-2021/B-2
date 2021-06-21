@@ -98,7 +98,7 @@ label {
 
 <h1>顔文字投稿</h1>
 
-<p><a href="/CAP/S_MenuServlet">メニュー</a></p>
+<p><a href="/CAP/T_MenuServlet">メニュー</a></p>
 <!--<div class = "wrapper1">-->
 	<form method="POST" action="FaceCheckServlet">
 		<input type="text" class="questionnaire" name="Q_NAME"> ここにアンケート名を入力
