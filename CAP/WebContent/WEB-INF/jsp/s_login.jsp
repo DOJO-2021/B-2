@@ -12,19 +12,19 @@
 <body>
 
 
-<form method="POST" action="/CAP/S_LoginServlet" id="form">
-氏名<input type="text" name="user_l_name"><input type="text" name="user_f_name"><br>
+<form method="POST" action="/CAP/S_LoginServlet" class="form">
+<p>氏名<input type="text" name="user_l_name"><input type="text" name="user_f_name"><br>
 PW<input id="js-password" type="password" name="user_password">
   <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()"></span><br>
 
-<p id="output"></p>
-
 <input class="login1"type="submit" name="LOGIN" value="ログイン">
-<input class="login1"type="reset" name="RESET" value="リセット"><br>
+<input class="login1"type="reset" name="RESET" value="リセット"></p><br>
 </form>
 
-<a href="/CAP/SigninServlet"><input class="login2" type="submit" name="SIGNIN" value="サインイン"></a>
-<a href="/CAP/PasswordForgetServlet"><input class="login2" type="submit" name="LOGIN" value="パスワードを忘れたら"></a>
+<div class = login2>
+<a href="/CAP/SigninServlet"><input  type="submit" name="SIGNIN" value="サインイン"></a>
+<a href="/CAP/PasswordForgetServlet"><input type="submit" name="LOGIN" value="パスワードを忘れたら"></a>
+</div>
 
 <script>
       function pushHideButton() {
@@ -41,4 +41,5 @@ PW<input id="js-password" type="password" name="user_password">
     </script>
 
 </body>
+<p id="output"></p>
 </html>

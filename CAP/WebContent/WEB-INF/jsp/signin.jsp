@@ -12,10 +12,11 @@
 </head>
 <body>
 
-//みんなの気持ち教えてくだサイト
 
-<form method="POST" action="/CAP/SigninServlet" id="form">
-氏名<input  type="text" name="user_l_name" placeholder="英字以外で入力してください">
+
+<form method="POST" action="/CAP/SigninServlet" class="form">
+
+<p>氏名<input  type="text" name="user_l_name" placeholder="英字以外で入力してください">
 	<input type="text" name="user_f_name"><br>
 PW<input id="js-password" type="password" name="user_password" placeholder="英数字6文字以上20文字以下">
   <span id="buttonEye" class="fa fa-eye-slash" onclick="pushHideButton()"></span><br>
@@ -29,16 +30,14 @@ PW<input id="js-password" type="password" name="user_password" placeholder="英�
 こたえ<input type="text" name="user_answer"><br>
 合言葉<input type="text" name="user_word"><br>
 <input type ="radio" name ="user_type" value="1" checked>受講生
-<input type ="radio" name ="user_type" value="2" checked>講師
+<input type ="radio" name ="user_type" value="2" >講師
 <br>
 
-<p id="output"></p>
-
 <input class="regist"type="submit" name="REGIST" value="登録">
-<input type="reset" name="RESET" value="リセット"><br>
+<input type="reset" name="RESET" value="リセット"><br></p>
 </form>
-
-<a href="/CAP/S_LoginServlet">ログイン画面へ戻る</a>
+<div class = signin1>
+<a href="/CAP/S_LoginServlet">ログイン画面へ戻る</a></div>
 
 <script>
       function pushHideButton() {

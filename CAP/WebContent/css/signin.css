@@ -1,1 +1,35 @@
 @charset "UTF-8";
+
+body{
+	background-color: #ffead6;      /*背景色*/
+	margin:0 auto 0 auto;
+	max-width:960px;                /*ページ最大幅*/
+	text-align:center;
+
+}
+/*オレンジの枠*/
+.form{
+	margin: 10px auto;
+	line-height:50px;
+  	position:relative;
+  	height:400px;
+  	width:600px;
+  	font-size:20px;
+  	text-decoration:none;
+  	display:block;
+  	background-color:#F27F0C;
+  	box-shadow:2px 2px 2px #ff4500;
+}
+/*中のテキストボックスform*/
+.form p{
+	margin: 10px 85px 0 85px;
+	position: absolute;
+ 	top: 50%;
+ 	-webkit-transform : translateY(-50%);
+ 	 transform : translateY(-50%);
+}
+
+.signin1{
+	text-align:right;
+	margin:50px 100px 0 0;
+}
