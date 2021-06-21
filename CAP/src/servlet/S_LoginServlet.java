@@ -64,19 +64,19 @@ public class S_LoginServlet extends HttpServlet{
 			// メニューサーブレットにリダイレクトする
 			if(cardList.get(0).getUser_type() == 1) {
 				response.sendRedirect("/CAP/S_MenuServlet");
-			}else if(cardList.get(0).getUser_type() == 2) {
+			} else if(cardList.get(0).getUser_type() == 2) {
 				response.sendRedirect("/CAP/T_MenuServlet");
-				}
-		}
-		else {									// ログイン失敗
+			}
+		} else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 			request.setAttribute("result",
-			new Result("ログイン失敗！", "氏名またはPWに間違いがあります。", "/CAP/error.jsp"));
+			new Result("ログイン失敗！", "氏名またはPWに間違いがあります。", "/CAP/S_LoginServlet"));
 
 			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
-			dispatcher.forward(request, response);
-			}
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
 		}
+
 	}
+}
 //}

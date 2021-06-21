@@ -40,8 +40,9 @@ public class MyPageServlet extends HttpServlet {
 		Object obj = session.getAttribute("user_id");
 		String user = obj.toString();
 		int user_id = Integer.parseInt(user);
+//		int user_id= (int)session.getAttribute("user_id");
 
-//		System.out.println("user_id");
+		System.out.println(user_id);
 
 		// 検索処理を行う
 		SecretDao uDao = new SecretDao();
@@ -71,8 +72,14 @@ public class MyPageServlet extends HttpServlet {
 
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
+		String user_l_name = request.getParameter("user_l_name");
+		String user_f_name = request.getParameter("user_f_name");
+		String user_password = request.getParameter("user_password");
 		String questions = request.getParameter("QUESTIONS");
 		String answer = request.getParameter("ANSWER");
+		int user_type = Integer.parseInt(request.getParameter("user_type"));
+		int user_id= (int)session.getAttribute("user_id");
+
 
 		System.out.println(questions);
 		System.out.println(answer);
@@ -80,7 +87,7 @@ public class MyPageServlet extends HttpServlet {
 		// 更新または削除を行う
 		UserDao uDao = new UserDao();
 		if (request.getParameter("OK").equals("OK")) {
-			if (uDao.update(new User(0, "", "", "", questions, answer, 0))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
+			if (uDao.update(new User(user_id, user_l_name, user_f_name, user_password, questions, answer,user_type))) {	// 更新成功　updateはtrueかfalseを返しているメソッド\
 				request.setAttribute("result",														// result...領域,何もない下駄箱（名前がついている）みたいな感じ
 				new Result("更新成功！", "レコードを更新しました。", "/CAP/MyPageServlet")); 	// Result 箱(タンスみたいなもの)
 
@@ -90,6 +97,8 @@ public class MyPageServlet extends HttpServlet {
 				new Result("更新失敗！", "レコードを更新できませんでした。", "/CAP/MyPageServlet"));
 			}
 		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+		dispatcher.forward(request, response);
 
 		// 更新/削除された後のデータを持ってくる
 		List<User> cardList = uDao.select(new User(0, "", "", "", "", "", 0));
@@ -98,7 +107,7 @@ public class MyPageServlet extends HttpServlet {
 		request.setAttribute("cardList", cardList);
 
 		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
-		dispatcher.forward(request, response);
+		RequestDispatcher dispatcher2 = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+		dispatcher2.forward(request, response);
 	}
 }

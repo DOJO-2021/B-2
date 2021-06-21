@@ -17,6 +17,10 @@
 		<c:out value="${cardList.get(0).user_f_name}" />さん</p>
 
 	 				  <form method="POST" action="/CAP/MyPageServlet">
+	 				  <input type="hidden" name="user_l_name" id="result" value="${cardList.get(0).user_l_name}">
+	 				  <input type="hidden" name="user_f_name" id="result" value="${cardList.get(0).user_f_name}">
+	 				  <input type="hidden" name="user_password" id="result" value="${cardList.get(0).user_password}">
+	 				  <input type="hidden" name="user_type" id="result" value="${cardList.get(0).user_type}">
 						<table>
 							<tr>
 								<th>秘密の質問</th>

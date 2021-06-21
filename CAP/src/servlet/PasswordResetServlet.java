@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,10 +26,10 @@ public class PasswordResetServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする(セッション)
+		// もしもpasswordforget.jspで入力がなければPasswordForgetサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("user_type_id") == null) {
-			response.sendRedirect("/CAP/S_LoginServlet");
+		if (session.getAttribute("user_secret") == null) {
+			response.sendRedirect("/CAP/PasswordForgetServlet");
 			return;
 		}
 
@@ -40,11 +41,12 @@ public class PasswordResetServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// もしもpasswordforget.jspで入力がなければPasswordForgetサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("user_type_id") == null) {
-			response.sendRedirect("/CAP/S_LoginServlet");
+		if (session.getAttribute("user_secret") == null) {
+			response.sendRedirect("/CAP/PasswordForgetServlet");
 			return;
 		}
 
@@ -52,16 +54,24 @@ public class PasswordResetServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String user_password1 = request.getParameter("USER_PASSWORD1");
 		String user_password2 = request.getParameter("USER_PASSWORD2");
-		int user_type_id = Integer.parseInt((String)session.getAttribute("user_type_id"));
+
+		List<User> user_secret = (List<User>) session.getAttribute("user_secret");
+		int user_id = user_secret.get(0).getUser_id();
+		String user_l_name = user_secret.get(0).getUser_l_name();
+		String user_f_name = user_secret.get(0).getUser_f_name();
+		String secret_id = user_secret.get(0).getSecret_id();
+		String user_answer = user_secret.get(0).getUser_answer();
+		int user_type = user_secret.get(0).getUser_type();
 
 		System.out.println(user_password1);
 		System.out.println(user_password2);
+
 
 		// パスワード更新処理を行う
 		// user_password1とuser_password2が一致していればtrue
 		if(user_password1.equals(user_password2)) {
 			UserDao bDao = new UserDao();
-			if (bDao.update(new User(user_type_id, "", "", user_password1, "", "", 0))) {	// 更新成功
+			if (bDao.update(new User(user_id, user_l_name, user_f_name, user_password1, secret_id,user_answer,user_type))) {	// 更新成功
 				request.setAttribute("result", // resultjavabeans
 				new Result("更新成功！", "パスワードを登録しました。", "/CAP/S_LoginServlet"));
 			} else {												// 更新失敗
@@ -72,6 +82,10 @@ public class PasswordResetServlet extends HttpServlet {
 			request.setAttribute("result",
 			new Result("更新失敗！", "パスワードが間違っています。", "/CAP/PasswordResetServlet"));
 		}
+
+		// セッションスコープを破棄する
+		HttpSession session2 = request.getSession();
+		session2.invalidate();
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");

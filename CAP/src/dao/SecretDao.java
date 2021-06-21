@@ -130,4 +130,92 @@ public class SecretDao {
 		// 結果を返す
 		return cardList;
 	}
+
+	//
+	public List<User> selectSecret(User param) {
+		Connection conn = null;
+		List<User> cardList = new ArrayList<User>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+
+			// SQL文を準備する
+			String sql = "select user_id, user_l_name, user_f_name, user_password, secret_id, user_answer, user_type from User where user_l_name like ? and user_f_name like ? and secret_id like ? and user_answer like ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+
+			if (param.getUser_l_name() != null) {
+				pStmt.setString(1, "%" + param.getUser_l_name() + "%");
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+			if (param.getUser_f_name() != null) {
+				pStmt.setString(2, "%" + param.getUser_f_name() + "%");
+			}
+			else {
+				pStmt.setString(2, "%");
+			}
+
+			if (param.getSecret_id() != null) {
+				pStmt.setString(3, "%" + param.getSecret_id() + "%");
+			}
+			else {
+				pStmt.setString(3, "%");
+			}
+
+			if (param.getUser_answer() != null) {
+				pStmt.setString(4, "%" + param.getUser_answer() + "%");
+			}
+			else {
+				pStmt.setString(4, "%");
+			}
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				 User card = new User(
+					rs.getInt("User_id"),
+					rs.getString("User_l_name"),
+					rs.getString("User_f_name"),
+					rs.getString("User_password"),
+					rs.getString("Secret_id"),
+					rs.getString("User_answer"),
+					rs.getInt("User_type")
+
+					);
+				cardList.add(card);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			cardList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			cardList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					cardList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return cardList;
+	}
+
 }
