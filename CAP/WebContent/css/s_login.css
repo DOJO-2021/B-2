@@ -8,29 +8,72 @@ body{
 	text-align:center;
 
 }
-/*オレンジの枠*/
+/*オレンジの枠
 .form{
 	margin: 10px auto;
 	line-height:50px;
   	position:relative;
   	height:300px;
-  	width:600px;
+  	width:700px;
   	font-size:20px;
   	text-decoration:none;
   	display:block;
   	background-color:#F27F0C;
   	box-shadow:2px 2px 2px #ff4500;
-}
-/*中のテキストボックスform*/
-.form p{
-	margin: 10px 85px 0 85px;
-	position: absolute;
- 	top: 50%;
- 	-webkit-transform : translateY(-50%);
- 	 transform : translateY(-50%);
+}*/
+
+.form {
+	margin-left: auto;
+	margin-right:auto;
+	position: relative;
+ 	/*top: 50%;
+ 	-webkit-transform : translatY(-50%);
+ 	 transform : translateY(-50%);*/
 }
 
-.login2{
-	text-align:right;
-	margin:50px 100px 0 0;
+.form th, .form td{
+	text-align:left;
+}
+
+/*氏名の幅*/
+.form input[name="user_l_name"],[name="user_f_name"]{
+	width: 15em;
+	height: 2em;
+	border:solid 1px #EEA34A;
+}
+
+/*PWの幅*/
+.form input[name="user_password"]{
+	width: 30.6em;
+	height: 2em;
+	border:solid 1px #EEA34A;
+}
+
+/*ログイン、リセットボタン*/
+.login1 {
+  width:69px;
+   height:27px;
+  line-height:20px;
+  position:relative;
+  /*height:20px;
+  width:30px;*/
+  font-size:11px;
+  font-weight:bold;
+  text-decoration:none;
+  color:#ffffff;
+  background-color:#f09388;
+  border-radius:5px;
+  box-shadow:2px 2px 2px #e36055;
+}
+/*ボタンホバー時*/
+.login1:hover{
+     background-color: #fbcab9;/*ボタン色*/
+     border-bottom: solid 2px #fbcab9; /*下線色*/
+}
+ /*ボタンクリック時*/
+.login1:active {
+     margin-top: 2px;
+     border-bottom: none;
+     -webkit-transform: translateY(2px); /*下移動*/
+     transform: translateY(2px);
 }
