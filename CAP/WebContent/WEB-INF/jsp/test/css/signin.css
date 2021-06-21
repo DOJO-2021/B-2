@@ -1,69 +1,45 @@
 @charset "UTF-8";
-html{
-	margin: 0 auto 0 auto;
-}
-/*タグ*/
-html{
-	text-align: center;
-	margin: 0 auto 0 auto;
-	transform: translateY(50%);
-	color: #000000;
-}
-
-table{
-	margin: 0 auto 0 auto;
-}
-/*無いと氏名の右のテキストボックスがおかしくなる*/
 td{
 	max-width: 85px;
 }
 
-/*ok、リセットボタンの下の空白*/
-form{
-	margin-bottom:30px;
-}
-
-/*class CSS*/
-
-/*サイトのおでこ狭く*/
-.logo{
-  margin-top: -125px;
-}
-.images{
-  margin-top:-40px;
-
-}
-.form{               /*フォーム項目*/
-  margin:0 auto 10px auto;
-  line-height:60px;
-
-}
-/*.box{              /*フォーム項目枠線　旧デザイン*/
-  /*border:2px solid #FF4500;
-  width: 600px;
-  margin-left: 182px;
-  margin-top:45px;
-  border-radius:20px;
-}*/
-
-.box{                /*フォーム項目枠線　現デザイン*/
+  .box{                /*フォーム項目枠線　現デザイン*/
   border: 2px solid #ffa83e;
   border-radius: 10px;
   width:600px;
   margin-left: 182px;
-  margin-top:45px;
-
+  margin-top:40px;
 
 }
+
 .boxtitle{
   background: #ffa83e;
   color: #FFF;
   text-align: center;
   margin: 0;
+  font-size:20px;
   font-weight:bold;
 }
+
 .box .inner{
   padding: .5em;
+}
+
+
+/*中のテキストボックスform*/
+.form{               /*フォーム項目*/
+  margin:0 auto 10px auto;
+  line-height:60px;
+}
+
+span {
+  margin-left:100px;
+}
+
+.signin1{
+	    margin-left: 455px;
+	    margin-top: -30px;
+
 }
 
 /*ボタンサイズ*/
@@ -81,11 +57,9 @@ td.resetbtn {
 
 .okbtn {
   width:69px;
-   height:27px;
+  height:27px;
   line-height:20px;
   position:relative;
-  /*height:20px;
-  width:30px;*/
   font-size:11px;
   font-weight:bold;
   text-decoration:none;
@@ -141,11 +115,19 @@ td.resetbtn {
      transform: translateY(2px);
 }
 
-.copyright{
-    margin-left: -650px;
-    margin-bottom: -36px;
+.btn {
+     margin-left: 226px;
+     margin-bottom: 20px;
 }
 
-a{                 /*footerタグ*/
- margin-left:770px;
+.copyright {
+    margin-bottom: -10px;
+    margin-left: -102px;
 }
+
+
+a{
+ margin-left:770px;
+ margin-bottom: -20px;
+}
+

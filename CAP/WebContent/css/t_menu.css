@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+.images{                 /*ロゴ位置*/
+  margin-top:-40px;
+}
+/*サイのアイコンを使うときのCSS*/
+.icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
+  float:right;                     /*右に配置*/
+  margin: -31px;
+  margin-right: -161px;
+
+}
 .button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
   margin-left:-25px;
   line-height:280px;
@@ -13,7 +23,7 @@
   text-align:center;
   padding:6px 0 8px;
   color:#ffffff;
-  background-color:#F27F0C;
+  background-color:#fc800596;
   border-radius:5px;
   box-shadow:2px 2px 2px #ff4500;
 }
@@ -43,7 +53,7 @@
   text-align:center;
   padding:6px 0 8px;
   color:#ffffff;
-  background-color:#F27F0C;
+  background-color:#fc800596;
   border-radius:5px;
   box-shadow:2px 2px 2px #ff4500;
 }
@@ -79,4 +89,8 @@
 .write {             /*投稿アイコン*/
   margin-top:28px;
   margin-left:18px;
+}
+
+.a{
+margin-left: 850px;
 }

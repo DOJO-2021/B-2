@@ -1,14 +1,32 @@
-@charset "UTF-8";
-
-.images{                 /*ロゴ位置*/
-  margin-top:-40px;
+html * {
+  box-sizing:border-box;
 }
-/*サイのアイコンを使うときのCSS*/
+
+body {                            /*すべてのページに適用*/
+  background-color: #ffead6;      /*背景色*/
+  margin:0 auto 0 auto;
+  max-width:960px;                /*ページ最大幅*/
+}
+
+hr {                             /*境界線*/
+  background-color:#ff4500;      /*境界線の色*/
+  height:3px;                    /*境界線の太さ*/
+}
+
+.header {                        /*全ページ共通ヘッダー*/
+  height:120px;                  /*ヘッダーの高さ*/
+}
+
+.logo {                          /*ロゴ*/
+  text-align:center;             /*ロゴの位置を真ん中に*/
+}
+
 .icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
   float:right;                     /*右に配置*/
   margin: -31px;
-  margin-right: -235px;
+  margin-right: -156px;
 }
+
 .button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
   margin-left:-25px;
   line-height:280px;
@@ -22,7 +40,7 @@
   text-align:center;
   padding:6px 0 8px;
   color:#ffffff;
-  background-color:#fc800596;
+  background-color:#F27F0C;
   border-radius:5px;
   box-shadow:2px 2px 2px #ff4500;
 }
@@ -52,7 +70,7 @@
   text-align:center;
   padding:6px 0 8px;
   color:#ffffff;
-  background-color:#fc800596;
+  background-color:#F27F0C;
   border-radius:5px;
   box-shadow:2px 2px 2px #ff4500;
 }
@@ -71,9 +89,30 @@
 
 .menu {                                /*button2.3の位置*/
   position: absolute;
-  top: 65%;
+  top: 63%;
   left: 50%;
   -webkit-transform : translate(-50%,-50%);
+}
+
+
+a{
+ margin-left:770px;
+}
+a:link {
+  color:#d25833;
+}
+
+a:visited {
+    color:#d25833;
+
+}
+
+a:hover{
+  color:#e3937a;
+}
+
+a:active {
+  color:#ff6a3b;
 }
 
 .eyes{               /*閲覧アイコン*/
@@ -89,11 +128,13 @@
   margin-top:28px;
   margin-left:18px;
 }
-
-.a{
-  margin-left: 850px;
+.footer {                         /*全ページ共通フッター*/
+  position:absolute;
+  bottom:-100px;
+  margin-right: 58px;
+  height:120px;
 }
 
 .copyright{
-  margin-bottom:-100px;
+ margin-right:500px;		/*Copyrightの位置調整*/
 }

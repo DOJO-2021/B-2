@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class T_MenuServlet
@@ -23,11 +24,11 @@ import javax.servlet.http.HttpServletResponse;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     //もしもログインしていなかったらログインサーブレットにリダイレクトする
-    /*HttpSession session = request.getSession();
+    HttpSession session = request.getSession();
     if (session.getAttribute("l_name") == null) {
         response.sendRedirect("/CAP/S_LoginServlet");
         return;
-    }*/
+    }
 
     // メニューページにフォワードする
     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/t_menu.jsp");

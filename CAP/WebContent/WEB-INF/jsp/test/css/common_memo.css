@@ -9,7 +9,7 @@ body {                            /*すべてのページに適用*/
 
 /*全画面共通ヘッダー*/
 hr {                             /*境界線*/
-  background-color:#ff7f50;    /*境界線の色*/
+  background-color:#ff7f50;      /*境界線の色*/
   height:2px;                    /*境界線の太さ*/
 }
 
@@ -18,17 +18,22 @@ hr {                             /*境界線*/
 }
 
 /*ロゴをどうするかはまだ未定*/
-.logo {                          /*ロゴ*/
-  text-align:center;             /*ロゴの位置を真ん中に*/
+
+.images{                         /*ロゴ*/
+	margin-top:-40px;
+	    /*ロゴの位置を真ん中に*/
 }
 
-
-.icon1{                             /*顔文字のアイコン（顔文字投稿ページに飛ぶ）*/
+.logo{
+text-align:center
+}
+/*サイのアイコンを使うときのCSS*/
+.icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
   float:right;                     /*右に配置*/
-  margin-left: -108px;
-  margin-top: -14px;
-  margin-right: -338px;
+  margin: -31px;
+  margin-right: -156px;
 }
+
 /*例 html*/
 /*<html>
 <head>
@@ -41,7 +46,6 @@ hr {                             /*境界線*/
 <h1 class ="logo"><!-- a href="S_MenuServlet" --><img src ="images/未定.png" alt ="みんなの気持ち教えてくだサイト"></h1>
 </header>
 <hr>
-<a class="icon1" href="/CAP/SigninServlet"><img src ="images/icon1.png" alt ="アカウント"></a>
 <a class="icon" href="/CAP/SigninServlet"><img src ="images/icon.png" alt ="アカウント"></a>
 */
 
@@ -53,7 +57,9 @@ hr {                             /*境界線*/
 
 }
 
-
+/*a{
+ margin-left:770px;
+}*/
 a:link {
   color:#d25833;
 }
@@ -71,13 +77,14 @@ a:active {
   color:#ff6a3b;
 }
 
+/*.copyright{
+ margin-left:-650px;		/*Copyrightの位置調整*/
+
 
 /*例 html*/
 /*<footer class ="footer">
 	<p>&copy:Copyright MINNKUDA . All rights reserved.</p>
-<a href="/CAP/LogoutServlet">ログアウト</a>
+<a class="a" href="/CAP/LogoutServlet">ログアウト</a>
 </footer>
 </body>
 </html>*/
-
-

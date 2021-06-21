@@ -10,7 +10,7 @@
 </head>
 <body>
 <header class ="header">
-<h1 class ="logo"><!-- a href="T_MenuServlet" --><img src ="images/logo_ver3.png" alt ="みんなの気持ち教えてくだサイト"></h1>
+<h1 class ="logo"><!-- a href="T_MenuServlet" --><img src ="images/logover_4.PNG" alt ="みんなの気持ち教えてくだサイト" class="images"></h1>
 </header>
 <hr>
 <a class="icon" href="/CAP/MypageServlet"><img src ="images/icon.png" alt ="アカウント"></a>
@@ -23,8 +23,9 @@
 </table>
 </div>
 <footer class ="footer">
+<a class="a" href="/CAP/LogoutServlet">ログアウト</a>
 	<p class ="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
-<a href="/CAP/LogoutServlet">ログアウト</a>
+
 </footer>
 </body>
 </html>
