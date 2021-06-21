@@ -161,5 +161,41 @@
 	<p>&copy:Copyright MINNKUDA . All rights reserved.</p>
 <a href="/CAP/LogoutServlet" style="margin-left:820px;">ログアウト</a>
   </footer>
+  <div class=modal>
+		<div class="modal-inner">
+		  <h2>顔文字投稿</h2>
+			<div class="close-btn" id="">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class=mini-q>
+				<div class="questionnaire"> ここにアンケート名を入力</div><br>
+			<div class=mini-wrapper1>
+				<div class=mini-wrapper2>
+					<h3 class="check_title">理解度</h3>
+					<div class=FaceMark>
+						<input type="radio" name="comp" value=1><label class="margin">good</label>
+						<input type="radio" name="comp" value=2><label class="margin">soso</label>
+						<input type="radio" name="comp" value=3><label class="margin">bad</label>
+						</div>
+					<br><textarea class="q_text"></textarea>
+				</div>
+				<div class="clear"></div>
+				<div class=mini-wrapper3>
+					<h3 class="check_title">気持ち</h3>
+					<div class=FaceMark>
+						<input type="radio" name="mental" value=1><label class="margin">good</label>
+						<input type="radio" name="mental" value=2><label class="margin">soso</label>
+						<input type="radio" name="mental" value=3><label class="margin">bad</label>
+					</div>
+					<br><textarea class="q_text"></textarea>
+				</div>
+			</div>
+			<div class=mini_center>
+				<input type="submit" name="送信">
+			</div>
+		</div>
+		</div>
+		<div class="modal-background" id="js-black-bg"></div>
+  </div>
 </body>
 </html>

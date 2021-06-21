@@ -127,7 +127,7 @@ h2{
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;/*要素の優先度、大きいほど前へ*/
+  z-index: 7777;/*要素の優先度、大きいほど前へ*/
   opacity: 0;
   visibility: hidden;
   transition: 0.6s;
@@ -270,14 +270,146 @@ input.comsub{
 	margin-top:0;
 }
 
+/* 削除のボタンデザイン */
 input.delete{
 	background:#ffffff;
 	border:none;
 	width:70px;
 }
 
+/* 削除のホバー時 */
 input.delete:hover{
 	background:#d3d3d3;
+}
+
+
+/* アンケート画面 */
+.modal{
+  display:none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;/*要素の優先度、大きいほど前へ*/
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.6s;
+}
+
+/* アンケート画面を表示する */
+.modal is-show{
+  display:inline;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* アンケート画面のボディ */
+.modal-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 75%;
+  height:65%;
+  max-width: 960px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 4;
+}
+
+/* アンケート画面の外 */
+.modal-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 3;
+  cursor: pointer;
+}
+/* アンケート選択画面 */
+.mini-wrapper1{
+	display:flex;
+	width:960px;
+	height:350px;
+	overflow:hidden;
+	margin: 0 auto 0 auto;
+}
+/* 理解度画面 */
+.mini-wrapper2{
+	display:block;
+	width: 50%;
+	height:100%;
+	margin:0 0 0 5%;
+	float:left;
+	overflow:hidden;
+}
+
+/* 気持ち画面 */
+.mini-wrapper3{
+	display:block;
+	width: 50%;
+	height:100%;
+	margin:0 5% 0 0;
+	float:right;
+	overflow:hidden;
+}
+
+/* フロート解除 */
+.clear{
+	clear:both;
+}
+
+/* アンケートのテキストエリア */
+.q_text{
+	display:block;
+	width: 400px;
+	height:300px;
+	margin:0 auto 0 auto;
+	width:90%;
+	height:60%;
+	font-family:inherit;
+	font-size:inherit;
+	resize:none;
+}
+
+/* 顔文字選択 */
+.questionnaire{
+	text-align:center;
+	margin:0 auto;
+}
+
+/* アンケートのタイトル */
+.mini-title{
+	text-align:center;
+	margin:0 auto;
+	border:solid 3px;
+}
+
+/* 顔文字ブロック */
+.FaceMark{
+	margin:0 auto;
+	text-align:center;
+}
+
+/* 顔文字 */
+.margin{
+	margin:0 5%;
+}
+
+/* アンケートの送信ボタン */
+.mini_center{
+	margin: 0 auto;
+	text-align:center;
+	width:960px;
+}
+
+/* 顔文字のタイトル */
+.check_title{
+	text-align:center;
+	margin-top:0;
 }
 
 .a {
