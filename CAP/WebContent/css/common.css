@@ -17,25 +17,13 @@ hr {                             /*境界線*/
 }
 
 .header {                      /*全ページ共通ヘッダー*/
-  background:url(../images/logover_4.PNG);
+ /* background:url(../images/logover_4.PNG);*/
+  background:url(../images/logo5.png);
   background-repeat:no-repeat;
-  height:150px;                  /*ヘッダーの高さ*/
+  height:155px;                  /*ヘッダーの高さ*/
   margin-left:232px;
 }
 
-/*サイのアイコンを使うときのCSS*/
-.icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
-  float:right;                     /*右に配置*/
-  margin: -19px;
-  margin-right: -235px;
-}
-
-.icon1{                             /*顔文字のアイコン（顔文字投稿ページに飛ぶ）*/
-  float:right;                     /*右に配置*/
-  margin-left: -108px;
-  margin-top: -7px;
-  margin-right: -338px;
-}
 /*例 html*/
 /*<html>
 <head>

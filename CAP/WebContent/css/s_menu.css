@@ -1,6 +1,18 @@
 @charset "UTF-8";
 
+/*サイのアイコンを使うときのCSS*/
+.icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
+  float:right;                     /*右に配置*/
+  margin: -22px;
+  margin-right: -235px;
+}
 
+.icon1{                             /*顔文字のアイコン（顔文字投稿ページに飛ぶ）*/
+  float: right;
+    margin-left: -105px;
+    margin-top: -5px;
+    margin-right: 124px;
+}
 .button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
   margin-left:-25px;
   line-height:280px;

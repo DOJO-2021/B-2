@@ -1,14 +1,10 @@
 @charset "UTF-8";
 
-.images{                 /*ロゴ位置*/
-  margin-top:-40px;
-}
 /*サイのアイコンを使うときのCSS*/
-.icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
+.sai{                             /*サイのアイコン（アカウントページに飛ぶ）*/
   float:right;                     /*右に配置*/
-  margin: -31px;
-  margin-right: -161px;
-
+  margin: -29px;
+  margin-right: -166px;
 }
 .button2 {                         /*投稿（受講生）閲覧（講師）ボタン*/
   margin-left:-25px;
@@ -92,5 +88,10 @@
 }
 
 .a{
-margin-left: 850px;
+  margin-left: 765px;
+}
+
+.copyright{
+    margin-left: -110px;
+    margin-bottom: 50px;
 }
