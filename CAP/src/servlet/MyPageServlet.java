@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.SecretDao;
 import dao.UserDao;
 import model.Result;
+import model.Stamp;
 import model.User;
 
 
@@ -35,23 +36,33 @@ public class MyPageServlet extends HttpServlet {
 			response.sendRedirect("/CAP/S_LoginServlet");
 			return;
 		}
-//		System.out.println(session.getAttribute("user_id"));
 
 		Object obj = session.getAttribute("user_id");
 		String user = obj.toString();
 		int user_id = Integer.parseInt(user);
-//		int user_id= (int)session.getAttribute("user_id");
-		
-		System.out.println(user_id);
+
+		System.out.println("user_id" + user_id);
 
 		// 検索処理を行う
 		SecretDao uDao = new SecretDao();
 		List<User> cardList = uDao.selectById(new User(user_id,"","","","","",0));
-
 //		System.out.println(cardList.get(0).getUser_f_name());
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("cardList", cardList); // リクエストにcardListの情報が入っている
+
+		// 戻るリンクの設定
+		int user_type = cardList.get(0).getUser_type();
+		System.out.println("user_type" + user_type);
+
+		// user_type=1なら受講生のメニューページ、2なら講師のメニューのリンクを送る
+		if(user_type == 1) {
+			request.setAttribute("menu",
+			new Stamp("/CAP/S_MenuServlet"));
+		} else if(user_type == 2) {
+			request.setAttribute("menu",
+			new Stamp("/CAP/T_MenuServlet"));
+		}
 
 		// マイページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");

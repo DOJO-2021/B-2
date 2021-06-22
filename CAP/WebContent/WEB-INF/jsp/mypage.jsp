@@ -40,7 +40,7 @@
 			<input type="reset" value="リセット">
 			</form>
 
-			<a href="/CAP/S_MenuServlet">ホームに戻る</a>
+			<a href="${menu.menu}">ホームに戻る</a>
 	</main>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/CAP/js/mypage.js"></script>
