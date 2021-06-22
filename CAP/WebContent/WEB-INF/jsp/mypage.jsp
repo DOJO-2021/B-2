@@ -24,7 +24,7 @@
 						<table>
 							<tr>
 								<th>秘密の質問</th>
-								<td><select name="QUESTIONS">
+								<td><select name="QUESTIONS" id="${cardList.get(0).secret_id}">
 									<option value="1">出身地は？</option>
 									<option value="2">親の旧姓は？</option>
 									<option value="3">ペットの名前は？</option>
@@ -45,7 +45,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/CAP/js/mypage.js"></script>
 	<script>
-		var QUESTIONS = "${cardList.get(0).secret_id}";
+		var QUESTIONS = document.getElementById("${cardList.get(0).secret_id}").id;
 		var opt;
 		switch(QUESTIONS){
 		case'1':
@@ -65,7 +65,6 @@
 			break;
 		}
 		opt.selected = true;
-		document.
 	</script>
 </body>
 </html>
