@@ -207,11 +207,10 @@
   	//未回答の投稿があった場合最新のものを表示
   	window.addEventListener( 'DOMContentLoaded' , function(){
 		const id = $('${e.q_id}').attr("id");
-		if(id != 0){
+		if(id != null){
 			document.getElementById('modal').classList.toggle('is-show_modal');
 		}
   	});
   </script>
-
 </body>
 </html>
