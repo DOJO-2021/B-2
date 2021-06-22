@@ -40,10 +40,10 @@ public class PasswordForgetServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String l_name = request.getParameter("L_NAME");
-		String f_name = request.getParameter("F_NAME");
+		String l_name = request.getParameter("l_name");
+		String f_name = request.getParameter("f_name");
 		String secret_id = request.getParameter("QUESTIONS");
-		String user_answer = request.getParameter("ANSWER");
+		String user_answer = request.getParameter("answer");
 
 		System.out.println(l_name);
 		System.out.println(f_name);

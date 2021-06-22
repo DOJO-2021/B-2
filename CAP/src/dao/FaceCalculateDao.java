@@ -12,13 +12,13 @@ import model.FaceMarks;
 
 public class FaceCalculateDao {
 
-	public static void main(String[] args) {
-		System.out.println("「good,soso,bad」=" + faceMental());
-		System.out.println("「good,soso,bad」=" + faceComprehension());
-	}
+//	public static void main(String[] args) {
+//		System.out.println("「good,soso,bad」=" + faceMental());
+//		System.out.println("「good,soso,bad」=" + faceComprehension());
+//	}
 
 	// メンタルのgood,soso,badの数を計算してリストにして返す
-	public static List<FaceMarks> faceMental() {
+	public List<FaceMarks> faceMental() {
 		Connection conn = null;
 		List<FaceMarks> cardList = new ArrayList<FaceMarks>();
 
@@ -72,7 +72,7 @@ public class FaceCalculateDao {
 	}
 
 	// 理解度のgood,soso,badの数を集計する
-	public static List<FaceMarks> faceComprehension() {
+	public List<FaceMarks> faceComprehension() {
 		Connection conn = null;
 		List<FaceMarks> cardList = new ArrayList<FaceMarks>();
 
