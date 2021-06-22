@@ -10,7 +10,6 @@
 </head>
 <body>
 <header class ="header">
-<h1 class ="logo"><!-- a href="S_MenuServlet" --><img src ="images/logover_4.PNG" alt ="みんなの気持ち教えてくだサイト" class="images"></h1>
 </header>
 <hr>
 <a class="icon1" href="/CAP/FacePostServlet"><img src ="images/icon1.png" alt="顔文字投稿"></a>
@@ -26,7 +25,6 @@
 <footer class ="footer">
 <a 	class="a" href="/CAP/LogoutServlet">ログアウト</a>
 	<p class ="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
-
 </footer>
 </body>
 </html>
