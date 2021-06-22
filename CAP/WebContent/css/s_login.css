@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
 
-body{
-	background-color: #ffead6;      /*背景色*/
-	margin:0 auto 0 auto;
-	max-width:960px;                /*ページ最大幅*/
-	text-align:center;
-
+body {
+	background-color: #ffead6; /*背景色*/
+	margin: 0 auto 0 auto;
+	max-width: 960px; /*ページ最大幅*/
+	text-align: center;
+	font-family: 'Sawarabi Gothic', sans-serif;
 }
 /*オレンジの枠
 .form{
@@ -21,59 +22,109 @@ body{
   	background-color:#F27F0C;
   	box-shadow:2px 2px 2px #ff4500;
 }*/
-
 .form {
 	margin-left: auto;
-	margin-right:auto;
+	margin-right: auto;
 	position: relative;
- 	/*top: 50%;
+	/*top: 50%;
  	-webkit-transform : translatY(-50%);
  	 transform : translateY(-50%);*/
 }
 
-.form th, .form td{
-	text-align:left;
+.form td {
+	text-align: left;
 }
 
 /*氏名の幅*/
-.form input[name="user_l_name"],[name="user_f_name"]{
+.form input[name="user_l_name"], [name="user_f_name"] {
+	margin-top:50px;
 	width: 15em;
 	height: 2em;
-	border:solid 1px #EEA34A;
+	border: solid 1px #EEA34A;
 }
 
 /*PWの幅*/
-.form input[name="user_password"]{
+.form input[name="user_password"] {
 	width: 30.6em;
 	height: 2em;
-	border:solid 1px #EEA34A;
+	border: solid 1px #EEA34A;
 }
 
 /*ログイン、リセットボタン*/
 .login1 {
-  width:69px;
-   height:27px;
-  line-height:20px;
-  position:relative;
-  /*height:20px;
-  width:30px;*/
-  font-size:11px;
-  font-weight:bold;
-  text-decoration:none;
-  color:#ffffff;
-  background-color:#f09388;
-  border-radius:5px;
-  box-shadow:2px 2px 2px #e36055;
+	margin:5px 0 30px 0;
+	width: 90px;
+	height: 35px;
+	line-height: 20px;
+	position: relative;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #f09388;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #e36055;
 }
 /*ボタンホバー時*/
-.login1:hover{
-     background-color: #fbcab9;/*ボタン色*/
-     border-bottom: solid 2px #fbcab9; /*下線色*/
+.login1:hover {
+	background-color: #fbcab9; /*ボタン色*/
+	border-bottom: solid 2px #fbcab9; /*下線色*/
 }
- /*ボタンクリック時*/
+/*ボタンクリック時*/
 .login1:active {
-     margin-top: 2px;
-     border-bottom: none;
-     -webkit-transform: translateY(2px); /*下移動*/
-     transform: translateY(2px);
+	margin-top: 2px;
+	border-bottom: none;
+	-webkit-transform: translateY(2px); /*下移動*/
+	transform: translateY(2px);
+}
+
+/*サインイン*/
+.sign {
+	margin:5px 0 20px 0;
+	width: 420px;
+	height: 40px;
+	line-height: 20px;
+	position: relative;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #f09388;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #e36055;
+}
+/*ボタンホバー時*/
+.sign:hover {
+	background-color: #fbcab9; /*ボタン色*/
+	border-bottom: solid 2px #fbcab9; /*下線色*/
+}
+/*ボタンクリック時*/
+.sign:active {
+	margin-top: 2px;
+	border-bottom: none;
+	-webkit-transform: translateY(2px); /*下移動*/
+	transform: translateY(2px);
+}
+.pass{
+	margin-bottom:50px;
+}
+/*背景*/
+.box{                /*フォーム項目枠線　現デザイン*/
+  border: 2px solid #ffa83e;
+  border-radius: 10px;
+  width:600px;
+  margin-left: 182px;
+  margin-top:45px;
+
+
+}
+.boxtitle{
+  background: #ffa83e;
+  color: #FFF;
+  text-align: center;
+  margin: 0;
+  font-weight:bold;
+}
+.box .inner{
+  padding: .5em;
 }
