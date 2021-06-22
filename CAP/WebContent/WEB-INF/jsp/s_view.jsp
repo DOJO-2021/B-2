@@ -167,37 +167,38 @@
 	<!--	<div class="close-btn" id="">
 				<i class="fas fa-times"></i>
 			</div> -->
+		<form method="POST" action="/CAP/FacePostServlet">
 			<div class=mini-q>
 				<c:forEach var="e" items="${QList}">
 					<div class="questionnaire" id="${e.q_id}"> ${e.q_name}</div><br>
+					<input type="hidden" name="q_id" value="${e.q_id}">
 				</c:forEach>
-		<form method="POST" action="/CAP/FacePostServlet">
 			<div class=mini-wrapper1>
 				<div class=mini-wrapper2>
 					<h3 class="check_title">理解度</h3>
 					<div class=FaceMark>
-						<input type="radio" name="comp" value=1><label class="margin">good</label>
-						<input type="radio" name="comp" value=2><label class="margin">soso</label>
-						<input type="radio" name="comp" value=3><label class="margin">bad</label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp1 value=1><label for=comp1 class="margin">good</label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp2 value=2><label for=comp2 class="margin">soso</label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp3 value=3><label for=comp3 class="margin">bad</label>
 						</div>
-					<br><textarea class="q_text"></textarea>
+					<br><textarea class="q_text" name="C_COMPREHENSION_TEXT"></textarea>
 				</div>
 				<div class="clear"></div>
 				<div class=mini-wrapper3>
 					<h3 class="check_title">気持ち</h3>
 					<div class=FaceMark>
-						<input type="radio" name="mental" value=1><label class="margin">good</label>
-						<input type="radio" name="mental" value=2><label class="margin">soso</label>
-						<input type="radio" name="mental" value=3><label class="margin">bad</label>
+						<input type="radio" name="C_MENTAL_ID" value=1 id=mental1><label for=mental1 class="margin">good</label>
+						<input type="radio" name="C_MENTAL_ID" value=2 id=mental2><label for=mental2 class="margin">soso</label>
+						<input type="radio" name="C_MENTAL_ID" value=3 id=mental3><label for=mental3 class="margin">bad</label>
 					</div>
-					<br><textarea class="q_text"></textarea>
+					<br><textarea class="q_text" name="C_MENTAL_TEXT"></textarea>
 				</div>
 			</div>
 			<div class=mini_center>
 				<input type="submit" name="送信">
 			</div>
+			</div>
 		</form>
-		</div>
 		</div>
 		<div class="modal-background" id="js-black-bg"></div>
   </div>
