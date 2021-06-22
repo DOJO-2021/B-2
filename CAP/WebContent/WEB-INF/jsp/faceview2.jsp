@@ -130,93 +130,20 @@ input[type="radio"]:checked + label{
 
 			</ul>
 	</div>
-	<div class = wrapper3>
 
 
-		<h2>理解度</h2>
+	<ul>
+		<c:forEach var="f" items="${checkList}">
+
+			<input type="radio" name="genre" id="${f.check_id}">
+				<p><c:out value="${f.c_comprehension_text}"/></p>
 
 
-		<!-- 理解度のグラフ -->
-			<input type="hidden" id="good" value="${FCList.get(0).facemark_good}"> <input type="hidden" id="soso"
-				value="${FCList.get(1).facemark_soso}"> <input type="hidden"
-				id="bad" value="${FCList.get(2).facemark_bad}">
-
-			<canvas id="myPieChart"></canvas>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-			<script>
-				var ctx = document.getElementById("myPieChart");
-				var good = document.getElementById("good").value;
-				var soso = document.getElementById("soso").value;
-				var bad = document.getElementById("bad").value;
-				console.log("よい = " + good);
-				console.log("普通 = " + soso);
-				console.log("悪い = " + bad);
-
-				var myPieChart = new Chart(ctx,
-						{
-							type : 'pie',
-							data : {
-								labels : [ good, soso, bad ],
-								datasets : [ {
-									backgroundColor : [ "#BB5179", "#FAFF67",
-											"#58A27C" ],
-									data : [ good, soso, bad ]
-								} ]
-							},
-							options : {
-								title : {
-									display : true,
-									text : '理解度割合'
-								}
-							}
-						});
-			</script>
-
-	</div>
-
-	<div class = wrapper4>
-		<h2>メンタル</h2>
-		<!-- メンタルのグラフ -->
+		</c:forEach>
+	</ul>
 
 
-			<input type="hidden" id="good" value="${FMList.get(0).facemark_good}"> <input type="hidden" id="soso"
-				value="${FMList.get(1).facemark_soso}"> <input type="hidden"
-				id="bad" value="${FMList.get(2).facemark_bad}">
 
-			<canvas id="myPieChart"></canvas>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-			<script>
-				var ctx = document.getElementById("myPieChart");
-				var good = document.getElementById("good").value;
-				var soso = document.getElementById("soso").value;
-				var bad = document.getElementById("bad").value;
-				console.log("よい = " + good);
-				console.log("普通 = " + soso);
-				console.log("悪い = " + bad);
-
-				var myPieChart = new Chart(ctx,
-						{
-							type : 'pie',
-							data : {
-								labels : [ good, soso, bad ],
-								datasets : [ {
-									backgroundColor : [ "#BB5179", "#FAFF67",
-											"#58A27C" ],
-									data : [ good, soso, bad ]
-								} ]
-							},
-							options : {
-								title : {
-									display : true,
-									text : '理解度割合'
-								}
-							}
-						});
-			</script>
-
-	</div>
 </div>
 
 <ul>

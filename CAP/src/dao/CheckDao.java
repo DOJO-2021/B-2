@@ -27,7 +27,7 @@ public class CheckDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleides/workspace/B-2/CAP/capdb", "sa", "sa");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 				// SQL文を準備する
 				String sql = "insert into check_table values (null,?, ?, ?, ?, ?, ?, ?, ? )";
@@ -112,20 +112,12 @@ public class CheckDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleides/workspace/B-2/CAP/capdb", "sa", "sa");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 				// SQL文を準備する
-				String sql = "SELECT check_id, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text, c_mental_text, c_date, c_time from check_table ORDER BY check_id";
-//						+ " q_id,"
-//						+ " user_id,"
-//						+ " c_comprehension_id,"
-//						+ " c_mental_id,"
-//						+ " c_comprehension_text,"
-//						+ " c_mental_text,"
-//						+ " c_date,"
-//						+ " c_time,"
-//						+ " WHERE c_comprehension_text LIKE ?AND c_mental_text like ?";
-//				System.out.println(sql);
+				String sql = "SELECT check_id, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text, c_mental_text, c_date, c_time from check_table ";
+
+				System.out.println(sql);
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -153,7 +145,7 @@ public class CheckDao {
 							rs.getInt("q_id"),
 							rs.getInt("user_id"),
 							rs.getInt("c_comprehension_id"),
-							rs.getInt(" c_mental_id"),
+							rs.getInt("c_mental_id"),
 							rs.getString("c_comprehension_text"),
 							rs.getString("c_mental_text"),
 							rs.getDate("c_date"),

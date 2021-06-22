@@ -16,7 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CheckDao;
+import dao.FaceCalculateDao;
 import model.Check;
+import model.FaceMarks;
+
 /**
  * Servlet implementation class FaceCollectServlet
  */
@@ -43,6 +46,29 @@ public class FaceCollectServlet extends HttpServlet {
 				CheckDao cDao = new CheckDao();
 				List<Check> CheckList = cDao.checkSelectAll(new Check());
 				request.setAttribute("CheckList", CheckList);
+
+				// 理解度の集計結果
+				FaceCalculateDao fcDao = new FaceCalculateDao();
+						List<FaceMarks> FCList = fcDao.faceComprehension();
+
+//						for(FaceMarks FC:FCList) {
+//							System.out.println(FC);
+//						}
+
+						// メンタルの集計結果
+						FaceCalculateDao fmDao = new FaceCalculateDao();
+								List<FaceMarks> FMList = fmDao.faceMental();
+
+//								for(FaceMarks FM:FMList) {
+//									System.out.println(FM);
+//								}
+
+								request.setAttribute("FMList", FMList);
+
+
+						request.setAttribute("FCList", FCList);
+
+				request.setAttribute("FCList", FCList);
 
 		// 講師用顔文字閲覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
