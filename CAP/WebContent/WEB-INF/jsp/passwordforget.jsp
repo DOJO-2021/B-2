@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
+<html style="height: 300px;">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/passwordforget.css">
-<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="/CAP/css/passwordforget.css">
+<link rel="stylesheet" href="/CAP/css/common.css">
 <title>みんなの気持ち教えてくだサイト</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<th>秘密の質問</th>
-						<td><select name="QUESTIONS">
+						<td><select name="QUESTIONS"style="width:163px;">
 							<option value="1">出身地は？</option>
 							<option value="2">親の旧姓</option>
 							<option value="3">ペットの名前</option>
@@ -41,9 +41,11 @@
 			</form>
 	</div>
 	</main>
+	</body>
 	<footer class="footer">
+	<br>
 		<a href="S_LoginServlet.java">戻る</a>
 				<p class="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
 	</footer>
-</body>
+
 </html>
