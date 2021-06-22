@@ -39,7 +39,7 @@ public class FaceCollectServlet extends HttpServlet {
 			return;
 		}
 //		System.out.println(session.getAttribute("user_id"));
-		int user_id= (int)session.getAttribute("user_id");
+//		int user_id= (int)session.getAttribute("user_id");
 
 
 		//受講生からのアンケート回答内容を全検索
@@ -51,23 +51,24 @@ public class FaceCollectServlet extends HttpServlet {
 				FaceCalculateDao fcDao = new FaceCalculateDao();
 						List<FaceMarks> FCList = fcDao.faceComprehension();
 
-//						for(FaceMarks FC:FCList) {
-//							System.out.println(FC);
-//						}
+						for(FaceMarks FC:FCList) {
+							System.out.println("理解度"+FC);
 
-						// メンタルの集計結果
+						}
+//
+//						// メンタルの集計結果
 						FaceCalculateDao fmDao = new FaceCalculateDao();
 								List<FaceMarks> FMList = fmDao.faceMental();
 
-//								for(FaceMarks FM:FMList) {
-//									System.out.println(FM);
-//								}
+								for(FaceMarks FM:FMList) {
+									System.out.println("メンタル"+FM);
+								}
 
 								request.setAttribute("FMList", FMList);
 
 
-						request.setAttribute("FCList", FCList);
-
+//
+//
 				request.setAttribute("FCList", FCList);
 
 		// 講師用顔文字閲覧ページにフォワードする
@@ -117,7 +118,21 @@ public class FaceCollectServlet extends HttpServlet {
 		request.setAttribute("FaceCheckList", FaceCheckList);
 
 		// 結果ページにフォワードする
+		 String value = request.getParameter("1");
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
 		dispatcher.forward(request, response);
+
+//		if (value == "1") {
+//			RequestDispatcher dispatcher1 = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
+//			dispatcher1.forward(request, response);
+//		}
+//		else ( value == "2") {
+//			request.setAttribute("value=2",
+//			new ("登録失敗！", "レコードを登録できませんでした。", "/CAP/S_MenuServlet"));
+//			RequestDispatcher dispatcher2 = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+//			dispatcher2.forward(request, response);
+		}
 	}
-}
+//}
