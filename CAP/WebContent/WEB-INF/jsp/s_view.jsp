@@ -12,15 +12,14 @@
 <link rel ="stylesheet" href ="css/s_view.css">
 </head>
 <body>
-  <header>
-		  <hr>
-		<h1 class ="logo"><a href="s_MenuServlet"><img src ="images/header.png" alt ="みんなの気持ち教えてくだサイト"></a></h1>
-		<ul class="menu">
-			<li><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
-			<li><a href="/CAP/S_MenuServlet">一覧</a></li>
-		</ul><br>
+  <header class="header">
   </header>
-
+		<ul id="g-nav">
+			<li class="nav-item"><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
+			<li class="nav-item"><a href="/CAP/S_MenuServlet">　　一覧　　</a></li>
+			 <li class="nav-item"><a href="トップページへ">トップページ</a></li>
+		</ul><br>
+	<h2 id="titleName">気持ち　投稿閲覧</h2>
   <div class = "wrapper1">
 	<div class = "wrapper2">
 			<ul>
@@ -33,7 +32,7 @@
 			</ul>
 	</div>
 	<div class = wrapper3>
-		<h2 id="titleName">気持ち　投稿閲覧</h2>
+
 			<ul class="text">
 				<c:forEach var="b" items="${PostList}">
 					<c:forEach var="c" items="${StampList}">

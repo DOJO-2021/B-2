@@ -5,9 +5,10 @@
 	display:flex;
 	width:960px;
 	height:400px;
-	overflow:hidden;
 	margin: 0 auto 0 auto;
 	border:solid 3px;
+	border-color:#895618;
+	background-color: #ffead6;
 }
 /* wrapper２はジャンルタグ一覧*/
 .wrapper2{
@@ -16,6 +17,9 @@
 	margin:0 0 0 0;
 	overflow:auto;
 	border-right:solid 2px;
+	border-color:#895618;
+	background-color: #ffead6;
+	color:#5a3507;
 }
 /* ジャンルのスクロールバーは消す*/
 .wrapper2::-webkit-scrollbar {
@@ -25,8 +29,9 @@
 /* wrapper３はコメント画面。*/
 .wrapper3{
 	display:block;
-	width: 80%;;
+	width: 80%;
 	overflow:auto;
+   background: #ffffff;
 }
 /* ジャンルは余白無しで詰める*/
 ul{
@@ -46,9 +51,9 @@ ul{
 /* 外枠の設定*/
 	list-style:none;
 	margin-bottom:1px;
-	border: solid 1px #000000;
-	box-shadow:0 3px 6px rgba(0,0,0,0.25);
-	background:beige;
+	border:  4px #895618;
+	box-shadow:0 3px 6px rgba(137,86,24,1);
+	background:#ffffff;
 	height:75px;
 }
 /*ホバーで色が濃くなる*/
@@ -62,7 +67,7 @@ input[type="radio"]{
 }
 /* ジャンル選択時に暗くする*/
 input[type="radio"]:checked + label{
-	background:#ff6a3b;
+	background:#ffc057;
 }
 
 /* 投稿*/
@@ -76,16 +81,7 @@ h1{
 	text-align:center;
 }
 
-/* 投稿タイトル*/
-h2{
-	position:sticky;
-	top:0;
-	margin-top:0;
-	height:36px;
-	text-align:center;
-	background:#fb6d40;
-	color:beige;
-}
+
 /* メニューの位置をタグと合わせる*/
 .menu{
 	width:960px;
@@ -423,3 +419,62 @@ input.delete:hover{
   height:120px;
 }
 
+/*グローバルメニュー*/
+
+#g-nav {
+	margin-top:10px;
+    display: table;
+    width: 100%;
+    font-weight: bold;
+    background-color: #f9bf28;/* 背景色 */
+    border: 2px dashed #fff;/* 枠線の太さと色 */
+    box-shadow: 0 0 0 4px rgba(249,191,56,1);/* 背景色 */
+}
+.nav-item {
+    display: table-cell;
+    list-style-type: none;
+    text-align: center;
+}
+.nav-item a {
+    display: block;
+    color: #d25833;/* 文字色 */
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.nav-item a:hover {
+    background-color: #fff;/* 背景色 */
+    color: #835210;/* 文字色 */
+    opacity: 0.7;/* 不透明度 */
+    transition: all 0.7s 0s ease;
+    transition-property: background-color, color;
+}
+
+.nav-item  a:active{
+	 background-color: #ffe7a6;
+	 color: #4b4b4b;
+	 opacity: 0.7;/* 不透明度 */
+	 transition: all 0s 0s ease;
+
+}
+
+/* 投稿タイトル*/
+h2 {
+    font-size: 1.2em;/* 文字の大きさ */
+    width:300px;
+    font-weight: bold;/* 文字の太さ */
+    color: #5C4747;/* 文字の色 */
+    margin:0 auto 0 auto;
+    border-bottom: 2px dashed #fab363;/* 文字の下の点線の太さ・種類・カラー */
+    padding: 0 35px;
+    position:relative;
+}
+h2:after{
+    content:"☆";/* 文字前のワンポイント */
+    max-width:100px;
+    font-size:26px;/* ワンポイントの大きさ */
+    color: #895618;/* ワンポイントのカラー */
+    top: -6px;/* ワンポイントの位置 */
+    left:5px;/* ワンポイントの位置 */
+    position:absolute;
+}

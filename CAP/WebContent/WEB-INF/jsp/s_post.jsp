@@ -13,10 +13,7 @@
 </head>
 <main>
 <header class ="header">
-<h1 class ="logo"><a href="S_MenuServlet"><img src ="images/" alt ="みんなの気持ち教えてくだサイト"></a></h1>
 </header>
-
-
 <ul id="g-nav">
     <li class="nav-item"><a href="つぶやきを見る">つぶやきを見る</a></li>
     <li class="nav-item"><a href="s_post.html">　　つぶやく　　</a></li>
@@ -70,7 +67,6 @@
 <br>
 <br>
 <br>
-<footer class ="footer">
 <br>
 <br>
 <br>
@@ -87,7 +83,6 @@
 	<p class="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
 
 
-</footer>
 </body>
 
 

@@ -1,10 +1,10 @@
 @charset "UTF-8";
+
 /* wrapper1はメイン画面*/
 .wrapper1{
 	display:flex;
 	max-width:960px;
 	max-height:400px;
-	/*overflow:hidden;*/
 	margin: 0 auto 0 auto;
 	border:solid 3px;
 	border-color:#895618;
@@ -28,12 +28,11 @@
  /* wrapper３はコメント画面。*/
 .wrapper3{
 	display:block;
-	width: 100%;
+	width: 80%;
 	overflow:hidden;
 	background: #ffffff;
 
 }
-
 
 /* ジャンルは余白無しで詰める*/
 ul{
@@ -61,7 +60,7 @@ ul{
 .tag :hover{
 	background:#f9c17d;
 }
-/*ラジオボタンの〇ポチ消す*/
+/*ラジオボタンのrgb(249, 193, 125)*/
 input[type="radio"]{
 	display:none;
 }
@@ -108,33 +107,19 @@ div#submit{
 	color:red;
 }
 
-
-
 .footer_menu{
-	margin-left:840px;
+  margin-right:800px;
 }
 
+/*
 .footer{
 	margin-bottom:-100px;
-}
+}*/
 
-
-
-
-.header {                        /*ヘッダー*/
-  height:120px;                  /*ヘッダーの高さ*/
-}
-
-.logo {                          /*ロゴ*/
-  text-align:center;             /*ロゴの位置を真ん中に*/
-}
-
-.copyright{
-	margin:0 auto 0 -100px;
-}
 /*グローバルメニュー*/
 
 #g-nav {
+	margin-top:10px;
     display: table;
     width: 100%;
     font-weight: bold;
@@ -179,7 +164,6 @@ h2 {
     margin:0 auto 0 auto;
     border-bottom: 2px dashed #fab363;/* 文字の下の点線の太さ・種類・カラー */
     padding: 0 35px;
-    margin-bottom: 2em;
     position:relative;
 }
 h2:after{
@@ -221,4 +205,8 @@ h2:after{
      border-bottom: none;
      -webkit-transform: translateY(2px); /*下移動*/
      transform: translateY(2px);
+}
+
+.copyright{
+    margin-left: -10px;
 }
