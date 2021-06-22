@@ -38,6 +38,12 @@ public class FaceCollectServlet extends HttpServlet {
 //		System.out.println(session.getAttribute("user_id"));
 		int user_id= (int)session.getAttribute("user_id");
 
+
+		//受講生からのアンケート回答内容を全検索
+				CheckDao cDao = new CheckDao();
+				List<Check> CheckList = cDao.checkSelectAll(new Check());
+				request.setAttribute("CheckList", CheckList);
+
 		// 講師用顔文字閲覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
 		dispatcher.forward(request, response);
@@ -79,7 +85,7 @@ public class FaceCollectServlet extends HttpServlet {
 
 		// 検索処理を行う
 	    CheckDao cDao = new CheckDao();
-		List<Check> FaceCheckList = cDao.select(new Check(0, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text,c_mental_text,c_date,c_time));
+		List<Check> FaceCheckList = cDao.checkSelectAll(new Check(0, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text,c_mental_text,c_date,c_time));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("FaceCheckList", FaceCheckList);

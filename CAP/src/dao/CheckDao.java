@@ -28,7 +28,7 @@ public class CheckDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleides/workspace/B-2/CAP/capdb", "sa", "sa");
 
 				// SQL文を準備する
-				String sql = "insert into Check values (null,?, ?, ?, ?, ?, ?, ?, ? )";
+				String sql = "insert into check_table values (null,?, ?, ?, ?, ?, ?, ?, ? )";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -101,9 +101,9 @@ public class CheckDao {
 		}
 
 		// 引数paramで検索項目を指定し、検索結果のリストを返す
-		public List<Check> select(Check param) {
+		public List<Check> checkSelectAll(Check param) {
 			Connection conn = null;
-			List<Check> cardList = new ArrayList<Check>();
+			List<Check> checkList = new ArrayList<Check>();
 
 			try {
 				// JDBCドライバを読み込む
@@ -113,30 +113,30 @@ public class CheckDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleides/workspace/B-2/CAP/capdb", "sa", "sa");
 
 				// SQL文を準備する
-				String sql = "SELECT check_id, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text, c_mental_text, c_date, c_time from check_table"
-						+ " q_id,"
-						+ " user_id,"
-						+ " c_comprehension_id,"
-						+ " c_mental_id,"
-						+ " c_comprehension_text,"
-						+ " c_mental_text,"
-						+ " c_date,"
-						+ " c_time,"
-						+ " WHERE c_comprehension_text LIKE ?AND c_mental_text like ?";
-				System.out.println(sql);
+				String sql = "SELECT check_id, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text, c_mental_text, c_date, c_time from check_table ORDER BY check_id";
+//						+ " q_id,"
+//						+ " user_id,"
+//						+ " c_comprehension_id,"
+//						+ " c_mental_id,"
+//						+ " c_comprehension_text,"
+//						+ " c_mental_text,"
+//						+ " c_date,"
+//						+ " c_time,"
+//						+ " WHERE c_comprehension_text LIKE ?AND c_mental_text like ?";
+//				System.out.println(sql);
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (param.getC_comprehension_text() != null) {
-					pStmt.setString(1, "%" + param.getC_comprehension_text() + "%");
-		     	} else {
-					pStmt.setString(1, "%");
-				}
-				if (param.getC_mental_text() != null) {
-					pStmt.setString(2, "%" + param.getC_mental_text() + "%");
-				} else {
-					pStmt.setString(2, "%");
-				}
+//				if (param.getC_comprehension_text() != null) {
+//					pStmt.setString(1, "%" + param.getC_comprehension_text() + "%");
+//		     	} else {
+//					pStmt.setString(1, "%");
+//				}
+//				if (param.getC_mental_text() != null) {
+//					pStmt.setString(2, "%" + param.getC_mental_text() + "%");
+//				} else {
+//					pStmt.setString(2, "%");
+//				}
 
 
 
@@ -158,15 +158,16 @@ public class CheckDao {
 							rs.getTime("c_time")
 
 							);
-					cardList.add(card);
+					checkList.add(card);
+					System.out.println(checkList);
 
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				cardList = null;
+				checkList = null;
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				cardList = null;
+				checkList = null;
 			} finally {
 				// データベースを切断
 				if (conn != null) {
@@ -174,13 +175,13 @@ public class CheckDao {
 						conn.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
-						cardList = null;
+						checkList = null;
 					}
 				}
 			}
 
 			// 結果を返す
-			return cardList;
+			return checkList;
 		}
 
 
@@ -220,19 +221,14 @@ public class CheckDao {
 					// 結果を返す
 					return result;
 				}
-
-				//受講生のアカウントのIDをすべて出力
 				public ArrayList<Users> AllUserSelect(){
 					Connection conn = null;
 					ArrayList<Users> cardList = new ArrayList<Users>();
-
 				try {
 					Class.forName("org.h2.Driver");
 					conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
-
 					String sql = "select user_id from User where user_type=1";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
-
 					ResultSet rs = pStmt.executeQuery();
 					System.out.println(rs);
 					while (rs.next()) {
@@ -261,47 +257,7 @@ public class CheckDao {
 					}
 				}
 				return cardList;
-
 				}
-
-				//答えていない最新のアンケートがあるかどうか、あればIDを渡す。
-				public int NullQ_Check(int user_id) {
-					Connection conn = null;
-					int card = 0;
-
-					try {
-						Class.forName("org.h2.Driver");
-						conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
-						String sql = "select max(q_id) from Check_Table where user_id=? and c_comprehension_id=0 and c_mental_id=0 and c_date='1700-01-01' ";
-						PreparedStatement pStmt = conn.prepareStatement(sql);
-							pStmt.setInt(1, user_id);
-
-							ResultSet rs1 = pStmt.executeQuery();
-							rs1.next();
-							card = rs1.getInt("max(q_id)");
-
-						}
-						catch (SQLException e) {
-							e.printStackTrace();
-							card = 0;
-						}
-						catch (ClassNotFoundException e) {
-							e.printStackTrace();
-							card = 0;
-						}
-						finally {
-							if (conn != null) {
-								try {
-									conn.close();
-								}
-								catch (SQLException e) {
-									e.printStackTrace();
-									card = 0;
-								}
-							}
-						}
-						return card;
-					}
 
 	}
 
