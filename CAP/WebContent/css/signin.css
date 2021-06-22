@@ -1,35 +1,101 @@
 @charset "UTF-8";
 
 body{
-	background-color: #ffead6;      /*背景色*/
-	margin:0 auto 0 auto;
-	max-width:960px;                /*ページ最大幅*/
-	text-align:center;
-
-}
-/*オレンジの枠*/
-.form{
-	margin: 10px auto;
-	line-height:50px;
-  	position:relative;
-  	height:400px;
-  	width:600px;
-  	font-size:20px;
-  	text-decoration:none;
-  	display:block;
-  	background-color:#F27F0C;
-  	box-shadow:2px 2px 2px #ff4500;
-}
-/*中のテキストボックスform*/
-.form p{
-	margin: 10px 85px 0 85px;
-	position: absolute;
- 	top: 50%;
- 	-webkit-transform : translateY(-50%);
- 	 transform : translateY(-50%);
+	background-color: #ffead6; /*背景色*/
+	margin: 0 auto 0 auto;
+	max-width: 960px; /*ページ最大幅*/
+	text-align: center;
+	color:#3e3e3e;
 }
 
-.signin1{
-	text-align:right;
-	margin:50px 100px 0 0;
+/*全体*/
+.form {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:30px;
+	position: relative;
+}
+.form th, td {
+	text-align: left;
+}
+
+/*氏名の幅*/
+.form input[name="user_l_name"], [name="user_f_name"] {
+	width: 14.9em;
+	height: 2em;
+	border: solid 1px #EEA34A;
+}
+
+/*PW、こたえ、合言葉の幅*/
+.form [name="user_password"], [name="user_answer"],[name="user_word"] {
+	width: 30.7em;
+	height: 2em;
+	border: solid 1px #EEA34A;
+}
+/*秘密の質問の幅*/
+.form [name="secret_id"]{
+	width: 31.2em;
+	height: 2em;
+	border: solid 1px #EEA34A;
+}
+
+/*user_typeの大きさ*/
+.form [name="user_type"]{
+	font-size: 30px;
+}
+
+/*登録、リセットボタン*/
+.signin1 {
+	margin:10px 0 23px 0;
+	width: 90px;
+	height: 35px;
+	line-height: 20px;
+	position: relative;
+	font-size: 15px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #f1aa8b;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #e36055;
+}
+/*ボタンホバー時*/
+.signin1:hover {
+	background-color: #fbcab9; /*ボタン色*/
+	border-bottom: solid 2px #fbcab9; /*下線色*/
+}
+/*ボタンクリック時*/
+.signin1:active {
+	margin-top: 2px;
+	border-bottom: none;
+	-webkit-transform: translateY(2px); /*下移動*/
+	transform: translateY(2px);
+}
+
+/*背景*/
+.box{                /*フォーム項目枠線　現デザイン*/
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color:rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  width:600px;
+  height:400px;
+  margin-left: 182px;
+  margin-top:25px;
+
+
+}
+.boxtitle{
+  background: #ffffff;
+  color: #3e3e3e;
+  text-align: center;
+  margin: 0;
+  font-weight:bold;
+  height:35px;
+  font-size: 20px;
+}
+.box .inner{
+  padding: .5em;
+}
+
+.copyright{
+	margin-top:30px;
 }
