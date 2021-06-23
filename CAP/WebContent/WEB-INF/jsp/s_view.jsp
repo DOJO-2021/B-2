@@ -15,13 +15,13 @@
 
   <header class="header">
   <h1>
-  <a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
+  <a href="${menu.menu}"></a>
   </h1>
   </header>
 		<ul id="g-nav">
 			<li class="nav-item"><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
-			<li class="nav-item"><a href="/CAP/S_MenuServlet">　　一覧　　</a></li>
-			 <li class="nav-item"><a href="トップページへ">トップページ</a></li>
+			<li class="nav-item"><a href="/CAP/S_ViewServlet">　　一覧　　</a></li>
+			 <li class="nav-item"><a href="/CAP/S_MenuServlet">トップページ</a></li>
 		</ul>
 <body>
 <br>

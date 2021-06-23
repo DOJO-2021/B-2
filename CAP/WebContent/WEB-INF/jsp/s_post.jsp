@@ -18,9 +18,9 @@
 		</h1>
 </header>
 <ul id="g-nav">
-    <li class="nav-item"><a href="つぶやきを見る">つぶやきを見る</a></li>
-    <li class="nav-item"><a href="s_post.html">　　つぶやく　　</a></li>
-    <li class="nav-item"><a href="トップページへ">トップページへ</a></li>
+			<li class="nav-item"><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
+			<li class="nav-item"><a href="/CAP/S_ViewServlet">　　一覧　　</a></li>
+			 <li class="nav-item"><a href="/CAP/S_MenuServlet">トップページ</a></li>
 
 </ul>
 
