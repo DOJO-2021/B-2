@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,20 +39,12 @@
 			<div class="wrapper2">
 
 				<ul>
-
-					<li><input type="radio" name="genre" value="1" id="mind" required="required" checked="checked" ><label for="mind" class="tag">気持ち</label></li>
-					<li><input type="radio" name="genre" value="2" id="HTML/CSS"><label
-						for="HTML/CSS" class="tag">HTML／CSS</label></li>
-					<li><input type="radio" name="genre" value="3" id="Java"><label
-						for="Java" class="tag">Java</label></li>
-					<li><input type="radio" name="genre" value="4" id="JavaScript"><label
-						for="JavaScript" class="tag">JavaScript</label></li>
-					<li><input type="radio" name="genre" value="5" id="SQL"><label
-						for="SQL" class="tag">SQL</label></li>
-					<li><input type="radio" name="genre" value="6" id="Q"><label
-						for="Q" class="tag">質問・要望</label></li>
-
-
+				<c:forEach var="a" items="${GenreList}">
+					<li>
+						<input type="radio" name="genre" id="${a.genre_id}" class="${a.genre_name}" value="${a.genre_id}" required="required">
+						<label for="${a.genre_id}" class="tag">${a.genre_name}</label>
+					</li>
+				</c:forEach>
 				</ul>
 			</div>
 			<div class=wrapper3>
