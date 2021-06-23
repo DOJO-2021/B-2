@@ -1,1 +1,483 @@
 @charset "UTF-8";
+
+/* wrapper1はメイン画面*/
+.wrapper1{
+	display:flex;
+	width:960px;
+	height:400px;
+	margin: 0 auto 0 auto;
+	border:solid 3px;
+	border-color:#895618;
+	background-color: #ffead6;
+}
+/* wrapper２はジャンルタグ一覧*/
+.wrapper2{
+	display:block;
+	width: 20%;
+	margin:0 0 0 0;
+	overflow:auto;
+	border-right:solid 2px;
+	border-color:#895618;
+	background-color: #ffead6;
+	color:#5a3507;
+}
+/* ジャンルのスクロールバーは消す*/
+.wrapper2::-webkit-scrollbar {
+    display:none;
+  }
+
+/* wrapper３はコメント画面。*/
+.wrapper3{
+	display:block;
+	width: 80%;
+	overflow:auto;
+   background: #ffffff;
+}
+/* ジャンルは余白無しで詰める*/
+ul{
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+}
+
+/* ジャンルのタグ。点無しで中央揃え*/
+.tag{
+/* 文字の中央配置*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+/* 文字の大きさ*/
+	font-size:150%;
+/* 外枠の設定*/
+	list-style:none;
+	margin-bottom:1px;
+	border:  4px #895618;
+	box-shadow:0 3px 6px rgba(137,86,24,1);
+	background:#ffffff;
+	height:75px;
+}
+/*ホバーで色が濃くなる*/
+.tag:hover{
+	background:#f9c17d;
+}
+
+/*ラジオボタンの〇ポチ消す*/
+input[type="radio"]{
+	display:none;
+}
+/* ジャンル選択時に暗くする*/
+input[name="genre"]:checked + label{
+	background:#ffc057;
+}
+
+/* 投稿*/
+.text li{
+	border-bottom:dashed 2px #f5f5f5;
+	padding-left:5%;
+	list-style:none;
+}
+/* ページタイトル*/
+h1{
+	text-align:center;
+}
+
+
+/* メニューの位置をタグと合わせる*/
+.menu{
+	width:960px;
+	margin:0 auto 0 auto;
+}
+/* メニューを横並びに*/
+.menu li{
+	display:inline;
+	margin-right:10px;
+	list-style:none;
+}
+
+/*メニューをホバーすると赤になる*/
+.menu li:hover{
+	color:red;
+}
+
+/* メニューを投稿の位置と合わせる*/
+.footerMenu{
+	width:960px;
+	margin:0 auto 0 auto;
+}
+/* フッターメニューを右に移動*/
+.footerMenu li{
+	text-align:right;
+	list-style:none;
+}
+
+/*フッターメニューをホバーすると赤になる*/
+.footerMenu li:hover{
+	color:red;
+}
+
+/* ポップ表示時の全体画面*/
+.popup {
+  display:none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 7777;/*要素の優先度、大きいほど前へ*/
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.6s;
+}
+
+/*is-showがついたとき表示*/
+.popup.is-show {
+  display:inline;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ポップ画面の設定*/
+.popup-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+/*ポップを閉じるボタンのデザイン */
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.close-btn i {
+  font-size: 20px;
+  color: #333;
+}
+
+/*ポップの後ろの背景を暗くする */
+.black-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* ハンバーガーボタン*/
+.menu-btn{
+	width: 30px;
+	float:right;
+}
+.menu-btn::before{
+	width: 20px;
+    position:static;
+	content: "≡";
+	color: #000000;
+	font-size: 20px;
+	cursor: pointer;
+}
+/*ハンバーガーを押したらバツ印に変化*/
+.menu-btn.on::before {
+	content: "×";
+}
+
+/*投稿削除ボタンを隠す*/
+.menu-content {
+	display:none;
+    width: 5em;
+    height: 2em;
+    position: static;
+	float:right;
+    top: 0;
+    left: 0;
+    z-index: 80;
+	opacity: 0;
+	visibility:hidden;
+}
+/*投稿削除ボタンを出現*/
+.menu-content.menu-appearance{
+	display:inline;
+	opacity: 1;
+	visibility: visible;
+}
+
+/*選択していないジャンルの投稿を非表示 */
+.Hidden{
+	display:none;
+}
+/*選択したジャンルの投稿を表示*/
+.Visible{
+	display:block;
+}
+
+/* コメントのPタグ*/
+.comment{
+	margin:0 0 5px 0;
+	text-align:center;
+}
+
+/* コメントのスクロール生成 */
+.commentList{
+	width:600px;
+	height:150px;
+	margin:0 auto 0 auto;
+	overflow:auto;
+}
+
+/* フォームの文字太く */
+.center{
+	text-align:center;
+	font-weight:bold;
+}
+
+/* 送信ボタンの大きさ変更*/
+input.comsub{
+	width:200px;
+	height:20px;
+	margin-top:10px;
+	text-align:center;
+}
+
+/*テキストエリアの拡大防止*/
+.textarea {
+	font-family:inherit;
+	font-size:inherit;
+	resize:none;
+}
+.textp{
+	margin-top:0;
+}
+
+/* 削除のボタンデザイン */
+input.delete{
+	background:#ffffff;
+	border:none;
+	width:70px;
+}
+
+/* 削除のホバー時 */
+input.delete:hover{
+	background:#d3d3d3;
+}
+
+
+/* アンケート画面 */
+.modal{
+  display:none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;/*要素の優先度、大きいほど前へ*/
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.6s;
+}
+
+/* アンケート画面を表示する */
+.is-show_modal{
+  display:inline;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* アンケート画面のボディ */
+.modal-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 75%;
+  height:70%;
+  max-width: 960px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 4;
+}
+
+/* アンケート画面の外 */
+.modal-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 3;
+  cursor: pointer;
+}
+/* アンケート選択画面 */
+.mini-wrapper1{
+	display:flex;
+	width:960px;
+	height:350px;
+	overflow:hidden;
+	margin: 0 auto 0 auto;
+}
+/* 理解度画面 */
+.mini-wrapper2{
+	display:block;
+	width: 50%;
+	height:100%;
+	margin:0 0 0 5%;
+	float:left;
+	overflow:hidden;
+}
+
+/* 気持ち画面 */
+.mini-wrapper3{
+	display:block;
+	width: 50%;
+	height:100%;
+	margin:0 5% 0 0;
+	float:right;
+	overflow:hidden;
+}
+
+/* フロート解除 */
+.clear{
+	clear:both;
+}
+
+/* アンケートのテキストエリア */
+.q_text{
+	display:block;
+	width: 400px;
+	height:300px;
+	margin:0 auto 0 auto;
+	width:90%;
+	height:60%;
+	font-family:inherit;
+	font-size:inherit;
+	resize:none;
+}
+
+/* 顔文字選択 */
+.questionnaire{
+	text-align:center;
+	margin:0 auto;
+}
+
+/* アンケートのタイトル */
+.mini-title{
+	text-align:center;
+	margin:0 auto;
+	border:solid 3px;
+}
+
+/* 顔文字ブロック */
+.FaceMark{
+	margin:0 auto;
+	text-align:center;
+}
+
+/* 顔文字 */
+.margin{
+	margin:0 5%;
+}
+
+/* アンケートの送信ボタン */
+.mini_center{
+	margin: 0 auto;
+	text-align:center;
+	width:960px;
+}
+
+/* 顔文字のタイトル */
+.check_title{
+	text-align:center;
+	margin-top:0;
+}
+
+.a {
+  margin-right:800px;
+
+}
+
+.footer2 {                         /*フッター*/
+  bottom:-100px;
+  margin-right: 58px;
+  height:120px;
+}
+
+/*グローバルメニュー*/
+
+#g-nav {
+	margin-top:10px;
+    display: table;
+    width: 100%;
+    font-weight: bold;
+    background-color: #f9bf28;/* 背景色 */
+    border: 2px dashed #fff;/* 枠線の太さと色 */
+    box-shadow: 0 0 0 4px rgba(249,191,56,1);/* 背景色 */
+}
+.nav-item {
+    display: table-cell;
+    list-style-type: none;
+    text-align: center;
+}
+.nav-item a {
+    display: block;
+    color: #d25833;/* 文字色 */
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.nav-item a:hover {
+    background-color: #fff;/* 背景色 */
+    color: #835210;/* 文字色 */
+    opacity: 0.7;/* 不透明度 */
+    transition: all 0.7s 0s ease;
+    transition-property: background-color, color;
+}
+
+.nav-item  a:active{
+	 background-color: #ffe7a6;
+	 color: #4b4b4b;
+	 opacity: 0.7;/* 不透明度 */
+	 transition: all 0s 0s ease;
+
+}
+
+/* 投稿タイトル*/
+h2 {
+	margin-bottom:20px;
+    font-size: 1.2em;/* 文字の大きさ */
+    width:300px;
+    font-weight: bold;/* 文字の太さ */
+    color: #5C4747;/* 文字の色 */
+    margin:0 auto 0 auto;
+    border-bottom: 2px dashed #fab363;/* 文字の下の点線の太さ・種類・カラー */
+    padding: 0 35px;
+    position:relative;
+    position:sticky;
+	top:0;
+	margin-top:0;
+	height:36px;
+	text-align:center;
+	background-color: #ffead6;
+}
+h2:after{
+    content:"☆";/* 文字前のワンポイント */
+    max-width:100px;
+    font-size:26px;/* ワンポイントの大きさ */
+    color: #895618;/* ワンポイントのカラー */
+    top: -6px;/* ワンポイントの位置 */
+    left:5px;/* ワンポイントの位置 */
+    position:absolute;
+}
