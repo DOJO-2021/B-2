@@ -116,7 +116,7 @@ input[type="radio"]:checked + label{
 <p><a href="/CAP/T_ViewServlet"> つぶやき投稿</a></p>
 <p><a href="/CAP/T_MenuServlet">一覧</a></p>
 <p><a href="/CAP/FaceCheckServlet">FaceCheckServletに飛ぶ</a></p>
-<!-- ヘッダーメニュー --
+<!-- ヘッダーメニュー -->
 
 <div class = "wrapper1">
 	<div class = "wrapper2">
@@ -171,8 +171,9 @@ input[type="radio"]:checked + label{
 							}
 						});
 			</script>
-
 	</div>
+
+
 
 	<div class = wrapper4>
 		<h2>メンタル</h2>
