@@ -47,12 +47,20 @@ public class S_ViewServlet extends HttpServlet {
 			//ユーザーIDをセッションから持ってくる
 			int user_id= (int)session.getAttribute("user_id");
 			//答えていないアンケートがあるかどうかのチェック
+			System.out.println(CTDao.NullQ_Check(user_id));
 		if(CTDao.NullQ_Check(user_id) != 0) {
 			//必要なアンケートのIDを入手する処理
 			int q_id = CTDao.NullQ_Check(user_id);
+			System.out.println("q_id=" + q_id);
 			//必要なアンケートのデータを入手する処理
 			List<Questionare> QList = QDao.NewQ_Data(q_id);
 			request.setAttribute("QList", QList);
+		} else {
+//			System.out.println("0"+CTDao.NullQ_Check(user_id));
+//			List<Questionare> QList = {};
+//			System.out.println(QList.get(0));
+//			request.setAttribute("QList", QList);
+//			System.out.println("0001");
 		}
 
 		//投稿内容を全検索

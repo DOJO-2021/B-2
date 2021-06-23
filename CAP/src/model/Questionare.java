@@ -12,7 +12,15 @@ public class Questionare {
 
 
 		//引数がないコンストラクタ
-		public Questionare() {}
+		public Questionare() {
+			this.q_id = 0;
+			this.q_name = "";
+			this.q_date = null;
+			this.q_time = null;
+			this.user_id = 0;
+
+
+		}
 
 		//引数があるコンストラクタ
 		public Questionare(int q_id, String q_name, Date q_date, Time q_time, int user_id) {
