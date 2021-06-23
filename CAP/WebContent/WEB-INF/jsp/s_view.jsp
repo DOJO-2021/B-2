@@ -11,15 +11,23 @@
 <link rel ="stylesheet" href ="css/common.css">
 <link rel ="stylesheet" href ="css/s_view.css">
 </head>
-<body>
+<main>
+
   <header class="header">
+  <h1>
+  <a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
+  </h1>
   </header>
 		<ul id="g-nav">
 			<li class="nav-item"><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
 			<li class="nav-item"><a href="/CAP/S_MenuServlet">　　一覧　　</a></li>
 			 <li class="nav-item"><a href="トップページへ">トップページ</a></li>
-		</ul><br>
+		</ul>
+<body>
+<br>
+<br>
 	<h2 id="titleName">気持ち　投稿閲覧</h2>
+<br>
   <div class = "wrapper1">
 	<div class = "wrapper2">
 			<ul>
@@ -157,12 +165,16 @@
 <script type="text/javascript" src="/CAP/js/s_view.js"></script>
   <br>
   <footer class ="footer2">
+  <a href="/CAP/LogoutServlet" style="margin-left:820px;">ログアウト</a>
 	<p>&copy:Copyright MINNKUDA . All rights reserved.</p>
-<a href="/CAP/LogoutServlet" style="margin-left:820px;">ログアウト</a>
+
   </footer>
    <div class="modal" id="modal">
 		<div class="modal-inner">
+<br>
+<br>
 		  <h2>顔文字投稿</h2>
+<br>
 	<!--	<div class="close-btn" id="">
 				<i class="fas fa-times"></i>
 			</div> -->
@@ -176,9 +188,9 @@
 				<div class=mini-wrapper2>
 					<h3 class="check_title">理解度</h3>
 					<div class=FaceMark>
-						<input type="radio" name="C_COMPREHENSION_ID" id=comp1 value=1><label for=comp1 class="margin"><img id=imgC1 src="images/kaomozi1.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'"  width="50" height="50"></label>
-						<input type="radio" name="C_COMPREHENSION_ID" id=comp2 value=2><label for=comp2 class="margin"><img src="images/kaomozi2.png" onmouseover="this.src='images/kao2.png'" onmouseout="this.src='images/kaomozi2.png'"  width="50" height="50"></label>
-						<input type="radio" name="C_COMPREHENSION_ID" id=comp3 value=3><label for=comp3 class="margin"><img src="images/kaomozi3.png" onmouseover="this.src='images/kao3.png'" onmouseout="this.src='images/kaomozi3.png'"  width="50" height="50"></label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp1 value=1><label for=comp1 class="margin"><img src="/CAP/images/kaomozi1.png" onmouseover="this.src='CAP/images/kao1.png'" onmouseout="this.src='CAP/images/kaomozi1.png'" width="50" height="50"></label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp2 value=2><label for=comp2 class="margin"><img src="/CAP/images/kaomozi2.png" onmouseover="this.src='CAP/images/kao2.png'"width="50" height="50"></label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp3 value=3><label for=comp3 class="margin"><img src="/CAP/images/kaomozi3.png" onmouseover="this.src='CAP/images/kao3.png'"width="50" height="50"></label>
 						</div>
 					<br><textarea class="q_text" name="C_COMPREHENSION_TEXT"></textarea>
 				</div>
@@ -186,9 +198,9 @@
 				<div class=mini-wrapper3>
 					<h3 class="check_title">気持ち</h3>
 					<div class=FaceMark>
-						<input type="radio" name="C_MENTAL_ID" value=1 id=mental1><label for=mental1 class="margin"><img src="images/kaomozi1.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'" width="50" height="50"></label>
-						<input type="radio" name="C_MENTAL_ID" value=2 id=mental2><label for=mental2 class="margin"><img src="images/kaomozi2.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'" width="50" height="50"></label>
-						<input type="radio" name="C_MENTAL_ID" value=3 id=mental3><label for=mental3 class="margin"><img src="images/kaomozi3.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'" width="50" height="50"></label>
+						<input type="radio" name="C_MENTAL_ID" value=1 id=mental1><label for=mental1 class="margin"><img src="/CAP/images/kaomozi1.png" width="50" height="50"></label>
+						<input type="radio" name="C_MENTAL_ID" value=2 id=mental2><label for=mental2 class="margin"><img src="/CAP/images/kaomozi2.png" width="50" height="50"></label>
+						<input type="radio" name="C_MENTAL_ID" value=3 id=mental3><label for=mental3 class="margin"><img src="/CAP/images/kaomozi3.png" width="50" height="50"></label>
 					</div>
 					<br><textarea class="q_text" name="C_MENTAL_TEXT"></textarea>
 				</div>
@@ -201,6 +213,7 @@
 		</div>
 		<div class="modal-background" id="js-black-bg"></div>
   </div>
+  </main>
   <script>
   	'use strict';
  	//未回答の投稿があった場合最新のものを表示
@@ -213,11 +226,6 @@
 			document.getElementById('modal').classList.toggle('is-show_modal');
 		}
   	});
-
- 	//
- 	function ChangeImg(id, newSrc){
-			document.getElementById(id).src = newSrc;
-	}
   </script>
 </body>
 </html>

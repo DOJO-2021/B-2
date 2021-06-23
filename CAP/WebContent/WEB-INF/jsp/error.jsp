@@ -5,16 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>みんなの気持ち教えてくだサイト</title>
+<link rel ="stylesheet" href ="css/common.css">
+<link rel ="stylesheet" href ="css/error.css">
 </head>
 <body>
-<header>
-	<h1>みんなの気持ち教えてくだサイト</h1>
+<header class="header">
+	<h1>
+			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
+		</h1>
 </header>
 <main>
 <hr>
-	<h1><c:out value="${result.title}" /></h1>
-	<p><c:out value="${result.message}" /></p>
-	<a href="${result.backTo}">戻る</a>
+	<h1 class="result"><c:out value="${result.title}" /></h1>
+	<p class="result"><c:out value="${result.message}" /></p>
+	<div class="result"><a href="${result.backTo}">戻る</a></div>
 </main>
 <footer>
 </footer>

@@ -58,7 +58,7 @@ ul{
 }
 /*ホバーで色が濃くなる*/
 .tag:hover{
-	background:#f7d1a4;
+	background:#f9c17d;
 }
 
 /*ラジオボタンの〇ポチ消す*/
@@ -413,7 +413,7 @@ input.delete:hover{
 
 }
 
-.footer2 {                         /*全ページ共通フッター*/
+.footer2 {                         /*フッター*/
   bottom:-100px;
   margin-right: 58px;
   height:120px;
@@ -460,6 +460,7 @@ input.delete:hover{
 
 /* 投稿タイトル*/
 h2 {
+	margin-bottom:20px;
     font-size: 1.2em;/* 文字の大きさ */
     width:300px;
     font-weight: bold;/* 文字の太さ */
@@ -468,6 +469,12 @@ h2 {
     border-bottom: 2px dashed #fab363;/* 文字の下の点線の太さ・種類・カラー */
     padding: 0 35px;
     position:relative;
+    position:sticky;
+	top:0;
+	margin-top:0;
+	height:36px;
+	text-align:center;
+	background-color: #ffead6;
 }
 h2:after{
     content:"☆";/* 文字前のワンポイント */

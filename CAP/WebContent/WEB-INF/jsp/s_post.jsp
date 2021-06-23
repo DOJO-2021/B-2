@@ -13,6 +13,9 @@
 </head>
 <main>
 <header class ="header">
+		<h1>
+<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
+		</h1>
 </header>
 <ul id="g-nav">
     <li class="nav-item"><a href="つぶやきを見る">つぶやきを見る</a></li>
@@ -64,22 +67,11 @@
 
 
 </main>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-	<table class="footer_Menu">
-	<tr>
-		<td><a href="/CAP/LogoutServlet">ログアウト</a> </td>
-		<td><a href="/CAP/S_MenuServlet">戻る</a></td>
 
-	</tr>
-	</table>
+	<footer class="footer2">
+		<div class="left"><a href="/CAP/LogoutServlet">ログアウト</a></div>
+		<div class="right"><a href="/CAP/S_MenuServlet">戻る</a></div>
+		 </footer>
 	<p class="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
 
 

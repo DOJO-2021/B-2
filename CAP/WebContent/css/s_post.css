@@ -58,7 +58,7 @@ ul{
 }
  /*ホバーで色が濃くなる*/
 .tag :hover{
-	background:#f9c17d;
+	background:rgb(255, 128, 128);
 }
 /*ラジオボタンのrgb(249, 193, 125)*/
 input[type="radio"]{
@@ -66,7 +66,7 @@ input[type="radio"]{
 }
 /* ジャンル選択時に暗くする*/
 input[type="radio"]:checked + label{
-	background:#ffc057;
+	background:#fa9c7e;
 }
  /* 投稿*/
 .text li{
@@ -74,15 +74,7 @@ input[type="radio"]:checked + label{
 	padding-left:5%;
 	list-style:none;
 }
- /* 投稿タイトル*/
-h2{
-	position:sticky;
-	top:0;
-	margin-top:0;
-	height:36px;
-	text-align:center;
-	background-color: #ffead6;
-}
+
 /* テキストエリア設定*/
 .question{
 	width: 100%;
@@ -108,13 +100,10 @@ div#submit{
 }
 
 .footer_menu{
-  margin-right:800px;
+  float:right;
+  margin:0;
 }
 
-/*
-.footer{
-	margin-bottom:-100px;
-}*/
 
 /*グローバルメニュー*/
 
@@ -156,15 +145,20 @@ div#submit{
 }
 
 
-h2 {
+h2 {   /* 投稿タイトル*/
     font-size: 1.2em;/* 文字の大きさ */
     width:300px;
     font-weight: bold;/* 文字の太さ */
     color: #5C4747;/* 文字の色 */
     margin:0 auto 0 auto;
-    border-bottom: 2px dashed #fab363;/* 文字の下の点線の太さ・種類・カラー */
+    border-bottom: 2px dashed #f69577;/* 文字の下の点線の太さ・種類・カラー */
     padding: 0 35px;
-    position:relative;
+	position:sticky;
+	top:0;
+	margin-top:0;
+	height:36px;
+	text-align:center;
+	background-color: #ffead6;
 }
 h2:after{
     content:"☆";/* 文字前のワンポイント */
@@ -207,6 +201,23 @@ h2:after{
      transform: translateY(2px);
 }
 
+.footer2{
+
+  bottom:-100px;
+  margin-right: 58px;
+  height:49px;
+}
+
+.left{
+	float:right;
+    margin-left:20px;
+    margin-top: 20px;
+}
+.right{
+  float:right;
+   margin-top: 20px;
+}
+
 .copyright{
-    margin-left: -10px;
+	margin-bottom:32px;
 }
