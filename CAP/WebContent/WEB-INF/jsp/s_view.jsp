@@ -176,9 +176,9 @@
 				<div class=mini-wrapper2>
 					<h3 class="check_title">理解度</h3>
 					<div class=FaceMark>
-						<input type="radio" name="C_COMPREHENSION_ID" id=comp1 value=1><label for=comp1 class="margin"><img src="/CAP/images/kaomozi1.png" onmouseover="this.src='CAP/images/kao1.png'" onmouseout="this.src='CAP/images/kaomozi1.png'" width="50" height="50"></label>
-						<input type="radio" name="C_COMPREHENSION_ID" id=comp2 value=2><label for=comp2 class="margin"><img src="/CAP/images/kaomozi2.png" onmouseover="this.src='CAP/images/kao2.png'"width="50" height="50"></label>
-						<input type="radio" name="C_COMPREHENSION_ID" id=comp3 value=3><label for=comp3 class="margin"><img src="/CAP/images/kaomozi3.png" onmouseover="this.src='CAP/images/kao3.png'"width="50" height="50"></label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp1 value=1><label for=comp1 class="margin"><img id=imgC1 src="images/kaomozi1.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'"  width="50" height="50"></label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp2 value=2><label for=comp2 class="margin"><img src="images/kaomozi2.png" onmouseover="this.src='images/kao2.png'" onmouseout="this.src='images/kaomozi2.png'"  width="50" height="50"></label>
+						<input type="radio" name="C_COMPREHENSION_ID" id=comp3 value=3><label for=comp3 class="margin"><img src="images/kaomozi3.png" onmouseover="this.src='images/kao3.png'" onmouseout="this.src='images/kaomozi3.png'"  width="50" height="50"></label>
 						</div>
 					<br><textarea class="q_text" name="C_COMPREHENSION_TEXT"></textarea>
 				</div>
@@ -186,9 +186,9 @@
 				<div class=mini-wrapper3>
 					<h3 class="check_title">気持ち</h3>
 					<div class=FaceMark>
-						<input type="radio" name="C_MENTAL_ID" value=1 id=mental1><label for=mental1 class="margin"><img src="/CAP/images/kaomozi1.png" width="50" height="50"></label>
-						<input type="radio" name="C_MENTAL_ID" value=2 id=mental2><label for=mental2 class="margin"><img src="/CAP/images/kaomozi2.png" width="50" height="50"></label>
-						<input type="radio" name="C_MENTAL_ID" value=3 id=mental3><label for=mental3 class="margin"><img src="/CAP/images/kaomozi3.png" width="50" height="50"></label>
+						<input type="radio" name="C_MENTAL_ID" value=1 id=mental1><label for=mental1 class="margin"><img src="images/kaomozi1.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'" width="50" height="50"></label>
+						<input type="radio" name="C_MENTAL_ID" value=2 id=mental2><label for=mental2 class="margin"><img src="images/kaomozi2.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'" width="50" height="50"></label>
+						<input type="radio" name="C_MENTAL_ID" value=3 id=mental3><label for=mental3 class="margin"><img src="images/kaomozi3.png" onmouseover="this.src='images/kao1.png'" onmouseout="this.src='images/kaomozi1.png'" width="50" height="50"></label>
 					</div>
 					<br><textarea class="q_text" name="C_MENTAL_TEXT"></textarea>
 				</div>
@@ -213,6 +213,11 @@
 			document.getElementById('modal').classList.toggle('is-show_modal');
 		}
   	});
+
+ 	//
+ 	function ChangeImg(id, newSrc){
+			document.getElementById(id).src = newSrc;
+	}
   </script>
 </body>
 </html>
