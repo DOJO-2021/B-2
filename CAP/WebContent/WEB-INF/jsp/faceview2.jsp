@@ -118,6 +118,27 @@ input[type="radio"]:checked + label{
 <p><a href="/CAP/FaceCheckServlet">FaceCheckServletに飛ぶ</a></p>
 <!-- ヘッダーメニュー -->
 
+
+<form method="GET" action="サーブレット名">
+  <select name="grade">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="5">5</option>
+    <option value="5">5</option>
+  </select>
+  <br>
+  <select name="openDuring">
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
+  <br>
+  <input type="submit' value="送信">
+</form>
+
+
 <div class = "wrapper1">
 	<div class = "wrapper2">
 			<ul>
