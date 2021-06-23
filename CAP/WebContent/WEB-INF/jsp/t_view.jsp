@@ -19,7 +19,8 @@
   </h1>
   </header>
 		<ul id="g-nav">
-			<li class="nav-item"><a href="/CAP/T_ViewServlet">　　一覧　　</a></li>
+			<li class="nav-item"><a href="/CAP/T_ViewServlet">　　閲覧　　</a></li>
+			<li class="nav-item"><a href="/CAP/FaceCollectServlet">　顔文字　</a></li>
 			 <li class="nav-item"><a href="/CAP/T_MenuServlet">トップページ</a></li>
 		</ul>
 <body>
