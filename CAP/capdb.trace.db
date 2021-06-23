@@ -1,0 +1,8 @@
+2021-06-23 09:24:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "USER" が見つかりません
+Table "USER" not found; SQL statement:
+select count(*) from User where user_l_name = ? and user_f_name = ? and user_password = ? [42102-199]
+2021-06-23 09:24:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "USER" が見つかりません
+Table "USER" not found; SQL statement:
+select count(*) from User where user_l_name = ? and user_f_name = ? and user_password = ? [42102-199]

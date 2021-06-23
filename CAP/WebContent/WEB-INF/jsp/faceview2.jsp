@@ -32,7 +32,7 @@
  /* wrapper３はコメント画面。*/
 .wrapper3{
 	display:block;
-	width: 50%;
+	width: 80%;
 
 	overflow:auto;
 }
@@ -123,42 +123,49 @@ input[type="radio"]:checked + label{
 			<ul>
 
 				<li><input type="radio" name="genre" value="1" id="ALL"><label for="ALL" class="tag"><a href="/CAP/FaceCollectServlet">全体</a></label></li>
-				<li><input type="radio" name="genre" value="2" id=""><label for="rikaido"  class="tag"><a href="/CAP/FaceCollectServlet">理解度（個人）</a></label></li>
-				<li><input type="radio" name="genre" value="3" id="Java"><label for="kimoti" class="tag"><a href="/CAP/FaceCollectServlet">気持ち（個人）</a></label></li>
+				<li><input type="radio" name="genre" value="2" id=""><label for="rikaido"  class="tag"><a href="/CAP/FaceCollectServlet2">理解度（個人）</a></label></li>
+				<li><input type="radio" name="genre" value="3" id="Java"><label for="kimoti" class="tag"><a href="/CAP/FaceCollectServlet3">気持ち（個人）</a></label></li>
 
 
 
 			</ul>
 	</div>
 
+	<div class = "wrapper3">
 
-	<ul>
 		<c:forEach var="f" items="${checkList}">
+			<p>(名前) <c:out value="${f.user_id}"/></p>
 
-			<input type="radio" name="genre" id="${f.check_id}">
-				<p><c:out value="${f.c_comprehension_text}"/></p>
+			<!-- 時間 -->
+			<p><c:out value="${f.c_date}"/></p>
+			<!-- 理解度の顔文字 -->
+			<img src="images/kao1.png" width="30" height="30"id="${f.c_comprehension_id}"/>
+			<!-- 理解度のテキスト -->
+			<p><c:out value="${f.c_comprehension_text}"/></p>
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+
+	window.addEventListener( 'DOMContentLoaded' , function(){
+		let id=$('#${f.c_comprehension_id}').attr('id');
+		console.log(id);
+
+		if(id === '2'){
+			$('#${f.c_comprehension_id}').attr('src','images/kao2.png');
+		}else if(id === '3'){
+			$('#${f.c_comprehension_id}').attr('src','images/kao3.png');
+		}
+	});
+	</script>
 
 		</c:forEach>
-	</ul>
 
 
+	</div>
 
 </div>
 
-<ul>
-		<c:forEach var="f" items="${checkList}">
 
-			<input type="radio" name="genre" id="${f.check_id}">
-				<p><c:out value="${f.c_comprehension_text}"/></p>
-
-
-
-
-
-
-		</c:forEach>
-</ul>
 
 
   <br>

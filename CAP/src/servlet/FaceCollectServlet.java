@@ -44,8 +44,8 @@ public class FaceCollectServlet extends HttpServlet {
 
 		//受講生からのアンケート回答内容を全検索
 				CheckDao cDao = new CheckDao();
-				List<Check> CheckList = cDao.checkSelectAll(new Check());
-				request.setAttribute("CheckList", CheckList);
+				List<Check> checkList = cDao.checkSelectAll(new Check());
+				request.setAttribute("checkList", checkList);
 
 				// 理解度の集計結果
 				FaceCalculateDao fcDao = new FaceCalculateDao();
@@ -118,21 +118,12 @@ public class FaceCollectServlet extends HttpServlet {
 		request.setAttribute("FaceCheckList", FaceCheckList);
 
 		// 結果ページにフォワードする
-		 String value = request.getParameter("1");
+
 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
 		dispatcher.forward(request, response);
 
-//		if (value == "1") {
-//			RequestDispatcher dispatcher1 = request.getRequestDispatcher("/WEB-INF/jsp/faceview.jsp");
-//			dispatcher1.forward(request, response);
-//		}
-//		else ( value == "2") {
-//			request.setAttribute("value=2",
-//			new ("登録失敗！", "レコードを登録できませんでした。", "/CAP/S_MenuServlet"));
-//			RequestDispatcher dispatcher2 = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
-//			dispatcher2.forward(request, response);
-		}
+
 	}
-//}
+}

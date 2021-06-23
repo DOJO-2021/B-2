@@ -117,7 +117,7 @@ public class CheckDao {
 				// SQL文を準備する
 				String sql = "SELECT check_id, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text, c_mental_text, c_date, c_time from check_table ";
 
-				System.out.println(sql);
+
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる

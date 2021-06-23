@@ -123,10 +123,8 @@ input[type="radio"]:checked + label{
 			<ul>
 
 				<li><input type="radio" name="genre" value="1" id="ALL "><label for="ALL" class="tag"><a href="/CAP/FaceCollectServlet">全体</a></label></li>
-				<li><input type="radio" name="genre" value="2" id="rikaido"><label for="rikaido"  class="tag"><a href="/CAP/FaceCollectServlet">理解度（個人）</a></label></li>
-				<li><input type="radio" name="genre" value="3" id="kimoti"><label for="kimoti" class="tag"><a href="/CAP/FaceCollectServlet">気持ち（個人）</a></label></li>
-
-
+				<li><input type="radio" name="genre" value="2" id="rikaido"><label for="rikaido"  class="tag"><a href="/CAP/FaceCollectServlet2">理解度（個人）</a></label></li>
+				<li><input type="radio" name="genre" value="3" id="kimoti"><label for="kimoti" class="tag"><a href="/CAP/FaceCollectServlet3">気持ち（個人）</a></label></li>
 			</ul>
 	</div>
 	<div class = wrapper3>
@@ -219,19 +217,6 @@ input[type="radio"]:checked + label{
 	</div>
 </div>
 
-<ul>
-		<c:forEach var="f" items="${checkList}">
-
-			<input type="radio" name="genre" id="${f.check_id}">
-				<p><c:out value="${f.c_comprehension_text}"/></p>
-
-
-
-
-
-
-		</c:forEach>
-</ul>
 
 
   <br>
