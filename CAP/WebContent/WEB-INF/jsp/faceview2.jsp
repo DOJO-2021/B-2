@@ -119,23 +119,14 @@ input[type="radio"]:checked + label{
 <!-- ヘッダーメニュー -->
 
 
-<form method="GET" action="サーブレット名">
-  <select name="grade">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="5">5</option>
-    <option value="5">5</option>
+<form method="GET" action="FaceCollectServlet2.java">
+  <select name="q_id">
+    <c:forEach var="f" items="${checkList}">
+    	<option value="${f.user_id}">${f.user_id}</option>
+
+
+	</c:forEach>
   </select>
-  <br>
-  <select name="openDuring">
-    <option value="1">1</option>
-    <option value="2">2</option>
-  </select>
-  <br>
-  <input type="submit' value="送信">
 </form>
 
 
@@ -154,30 +145,56 @@ input[type="radio"]:checked + label{
 
 	<div class = "wrapper3">
 
+
+	<c:forEach var="a" items="${alldataList}">
+					<p>(名前)<c:out value="${a.user_l_name}" /><c:out value="${a.user_f_name}" /></p>
+
+					<!-- 時間 -->
+					<p>
+						<c:out value="${a.c_date}" />
+					</p>
+					<!-- 理解度の顔文字 -->
+					<img src="images/kao1.png" width="30" height="30"
+						id="${a.c_comprehension_id}" />
+					<!-- 理解度のテキスト -->
+					<p>
+						<c:out value="${a.c_comprehension_text}" />
+					</p>
+
+
+
+
+
 		<c:forEach var="f" items="${checkList}">
-			<p>(名前) <c:out value="${f.user_id}"/></p>
+					<p>(名前)<c:out value="${f.user_id}" /><c:out value="${u.user_l_name}" /><c:out value="${u.user_f_name}" /></p>
 
-			<!-- 時間 -->
-			<p><c:out value="${f.c_date}"/></p>
-			<!-- 理解度の顔文字 -->
-			<img src="images/kao1.png" width="30" height="30"id="${f.c_comprehension_id}"/>
-			<!-- 理解度のテキスト -->
-			<p><c:out value="${f.c_comprehension_text}"/></p>
+					<!-- 時間 -->
+					<p>
+						<c:out value="${f.c_date}" />
+					</p>
+					<!-- 理解度の顔文字 -->
+					<img src="images/kao1.png" width="30" height="30"
+						id="${f.c_comprehension_id}" />
+					<!-- 理解度のテキスト -->
+					<p>
+						<c:out value="${f.c_comprehension_text}" />
+					</p>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
+					<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+					<script>
+						window.addEventListener('DOMContentLoaded', function() {
+							let id = $('#${f.c_comprehension_id}').attr('id');
+							console.log(id);
 
-	window.addEventListener( 'DOMContentLoaded' , function(){
-		let id=$('#${f.c_comprehension_id}').attr('id');
-		console.log(id);
-
-		if(id === '2'){
-			$('#${f.c_comprehension_id}').attr('src','images/kao2.png');
-		}else if(id === '3'){
-			$('#${f.c_comprehension_id}').attr('src','images/kao3.png');
-		}
-	});
-	</script>
+							if (id === '2') {
+								$('#${f.c_comprehension_id}').attr('src',
+										'images/kao2.png');
+							} else if (id === '3') {
+								$('#${f.c_comprehension_id}').attr('src',
+										'images/kao3.png');
+							}
+						});
+					</script>
 
 		</c:forEach>
 
