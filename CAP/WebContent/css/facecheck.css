@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/* wrapper1はメイン画面*/
+.wrapper1{
+
+	max-width:960px;
+	max-height:1200px;
+	overflow:hidden;
+	margin: 0 auto 0 auto;
+	border:solid 3px;
+}
+ /* item1は理解度*/
+.item1{
+	display:block;
+	width: 45%;
+	height:400px;
+	margin:0 0 0 60;
+	overflow:auto;
+	border:solid 2px;
+	float:left;
+}
+
+ /* item2は理解度*/
+.item2{
+	display:block;
+	width: 45%;
+	height:400px;
+	margin:0 60 0 0;
+	overflow:auto;
+	border:solid 2px;
+	float:right;
+}
+
+/* wrapper３はコメント画面。*/
+.wrapper3{
+	display:block;
+	overflow:auto;
+	clear:both;
+}
+/*テキストボックス*/
+.c_text{
+	display:block;
+	width: 400px;
+	height:300px;
+	margin:0 0 0 0 ;
+	width:90%;
+	height:60%;
+
+}
+.questionnaire{
+	width: 500px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+/*送信ボタン*/
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+
+h3{
+	text-align: center;
+}
+
+label {
+  display: block; /* ブロックを作るように */
+  margin: 5px 0; /* 前後のスペース */
+}
+
+.center{
+	margin:0 auto;
+	width:80%;
+	text-align: center;
+	}
+/*input[type="text"]{
+	width:90%;
+	height:60%;
+}*/
+
+.left{/*メニュー*/
+	float:right;
+    margin-left:20px;
+    margin-top: 20px;
+}
+.right{/*ログアウト*/
+   float:right;
+   margin-top: 20px;
+}
+
+.copyright{/*©*/
+	margin-bottom:32px;
+}
+.footer2{/*フッター*/
+  margin-top: 30px;
+  margin-right: 58px;
+  height:49px;
+}
+
+.q{/*ここにアンケートを入力*/
+  text-align:center;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color:rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  width:600px;
+  height:200px;
+  margin-left: 182px;
+  margin-top:25px;
+}
+
+
+.qtitle{
+  background: #ffffff;
+  color: #3e3e3e;
+  text-align: center;
+  margin: 0;
+  font-weight:bold;
+  height:35px;
+  font-size: 20px;
+}
+
