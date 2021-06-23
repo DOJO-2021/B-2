@@ -66,7 +66,7 @@ input[type="radio"]{
 	display:none;
 }
 /* ジャンル選択時に暗くする*/
-input[type="radio"]:checked + label{
+input[name="genre"]:checked + label{
 	background:#ffc057;
 }
 
@@ -307,7 +307,7 @@ input.delete:hover{
   top: 50%;
   transform: translate(-50%,-50%);
   width: 75%;
-  height:65%;
+  height:70%;
   max-width: 960px;
   padding: 50px;
   background-color: #fff;
