@@ -55,5 +55,43 @@ public class GenreDao {
 	return genreList;
 }
 
+	public boolean insertGenre(String genre_name) {
+		Connection conn = null;
+		boolean result = false;
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+
+			// SQL文を準備する
+			String sql = "insert into genre values (null,?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				pStmt.setString(1, genre_name);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 
 }
