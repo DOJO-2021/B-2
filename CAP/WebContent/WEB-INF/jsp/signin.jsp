@@ -14,7 +14,7 @@
 	<header class="header"> </header>
 	<main>
 		<div class="box">
-			<p class="boxtitle">-SIGNIN-</p>
+			<p class="boxtitle">-SIGNUP-</p>
 			<form method="POST" action="/CAP/SigninServlet" id="form">
 				<table class="form">
 					<tr>
@@ -54,14 +54,12 @@
 							(選択してください)</td>
 					</tr>
 					</table>
-				<br> <input class="signin1" type="submit" name="REGIST"
-					value="登録"> <input class="signin1" type="reset"
-					name="RESET" value="リセット"><br> <a
-					href="/CAP/S_LoginServlet">ログイン画面へ戻る</a>
+				<br> <input class="signin1" type="submit" name="REGIST" value="登録">
+				     <input class="signin1" type="reset" name="RESET" value="リセット"><br>
+				     <a href="/CAP/S_LoginServlet">ログイン画面へ戻る</a>
 			</form>
 		</div>
 	</main>
-	<p class="copyright">&copyCopyright MINNKUDA . All rights reserved.</p>
 	<script>
 		function pushHideButton() {
 			var txtPass = document.getElementById("js-password");
@@ -76,4 +74,5 @@
 		}
 	</script>
 </body>
+	<p class="copyright">&copyCopyright MINNKUDA . All rights reserved.</p>
 </html>

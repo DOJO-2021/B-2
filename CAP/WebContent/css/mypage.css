@@ -1,15 +1,99 @@
 /*マイページＣＳＳ*/
 @charset "UTF-8";
-.account{               /*アカウント*/
-  text-align:center;
-  font-size:25px;
+
+body{
+	background-color: #ffead6; /*背景色*/
+	margin: 0 auto 0 auto;
+	max-width: 960px; /*ページ最大幅*/
+	text-align: center;
+	color:#3e3e3e;
+}
+/*こんにちはの文*/
+.hello{
+	font-size:25px;
 }
 
-.hello{                 /*こんにちは○○さん*/
-  text-align:center;
-  font-size:22px;
+.massage{
+	margin-top:30px;
+	margin-bottom:3px;
 }
 
-.resist{
-  text-align:center;
+/*全体*/
+.form {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:5px;
+	position: relative;
+}
+.form th, td {
+	text-align: left;
+}
+
+/*PW、こたえ、合言葉の幅*/
+.form [name="ANSWER"]{
+	width: 30.7em;
+	height: 2em;
+	border: solid 1px #EEA34A;
+}
+/*秘密の質問の幅*/
+.form [name="QUESTIONS"]{
+	width: 30.7em;
+	height: 2em;
+	border: solid 1px #EEA34A;
+}
+
+/*登録、リセットボタン*/
+.mypage1 {
+	margin:15px 0 23px 0;
+	width: 90px;
+	height: 35px;
+	line-height: 20px;
+	position: relative;
+	font-size: 15px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #f1aa8b;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #e36055;
+}
+/*ボタンホバー時*/
+.mypage1:hover {
+	background-color: #fbcab9; /*ボタン色*/
+	border-bottom: solid 2px #fbcab9; /*下線色*/
+}
+/*ボタンクリック時*/
+.mypage1:active {
+	margin-top: 2px;
+	border-bottom: none;
+	-webkit-transform: translateY(2px); /*下移動*/
+	transform: translateY(2px);
+}
+
+/*背景*/
+.box{                /*フォーム項目枠線　現デザイン*/
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color:rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  width:600px;
+  height:350px;
+  margin-left: 182px;
+  margin-top:25px;
+
+
+}
+.boxtitle{
+  background: #ffffff;
+  color: #3e3e3e;
+  text-align: center;
+  margin: 0;
+  font-weight:bold;
+  height:35px;
+  font-size: 20px;
+}
+.box .inner{
+  padding: .5em;
+}
+
+.copyright{
+	margin-top:30px;
 }

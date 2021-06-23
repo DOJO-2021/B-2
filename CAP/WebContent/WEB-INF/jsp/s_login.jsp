@@ -35,9 +35,9 @@
 			<input class="login1" type="reset" name="RESET" value="リセット">
 		</form>
 
-		<p>―――――――サインインが済んでいない方―――――――</p>
+		<p>――――――サインアップが済んでいない方――――――</p>
 		<div class=login2>
-			<a href="/CAP/SigninServlet"><button type="button" class="sign">サインイン</button>
+			<a href="/CAP/SigninServlet"><button type="button" class="sign">サインアップ</button>
 			</a><br> <a href="/CAP/PasswordForgetServlet" class="pass">パスワードを忘れた場合</a>
 			<br>
 		</div>

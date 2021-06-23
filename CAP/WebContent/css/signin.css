@@ -39,14 +39,9 @@ body{
 	border: solid 1px #EEA34A;
 }
 
-/*user_typeの大きさ*/
-.form [name="user_type"]{
-	font-size: 30px;
-}
-
 /*登録、リセットボタン*/
 .signin1 {
-	margin:10px 0 23px 0;
+	margin:5px 0 23px 0;
 	width: 90px;
 	height: 35px;
 	line-height: 20px;
