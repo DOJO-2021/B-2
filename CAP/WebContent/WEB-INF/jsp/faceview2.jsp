@@ -113,9 +113,9 @@ input[type="radio"]:checked + label{
 
 <h1>顔文字集計(理解度個人)</h1>
 
-<p><a href="/CAP/T_ViewServlet"> つぶやき投稿</a></p>
-<p><a href="/CAP/T_MenuServlet">一覧</a></p>
-<p><a href="/CAP/FaceCheckServlet">FaceCheckServletに飛ぶ</a></p>
+<p><a href="/CAP/T_ViewServlet">みんくだ一覧</a></p>
+<p><a href="/CAP/FaceCheckServlet">顔文字チェック</a></p>
+<p><a href="/CAP/T_MenuServlet">メニューページ</a></p>
 <!-- ヘッダーメニュー -->
 
 
