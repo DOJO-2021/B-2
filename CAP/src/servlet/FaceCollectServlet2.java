@@ -17,9 +17,11 @@ import javax.servlet.http.HttpSession;
 
 import dao.CheckDao;
 import dao.FaceCalculateDao;
+import dao.QuestionNameDao;
 import model.AllData;
 import model.Check;
 import model.FaceMarks;
+import model.Questionare;
 /**
  * Servlet implementation class FaceCollectServlet2
  */
@@ -48,6 +50,10 @@ public class FaceCollectServlet2 extends HttpServlet {
     				List<AllData> alldataList = cDao.AllData();
     				request.setAttribute("alldataList", alldataList);
 
+    		//アンケート名を取得
+    				QuestionNameDao question_name = new QuestionNameDao();
+    				List<Questionare> q_nameList = question_name.NewQ_Data();
+    				request.setAttribute("q_nameList", q_nameList);
 
 //    		//ユーザーデータを取得
 //    				UserDao uDao = new UserDao();

@@ -119,13 +119,16 @@ input[type="radio"]:checked + label{
 <!-- ヘッダーメニュー -->
 
 <form method="GET" action="FaceCollectServlet3.java">
-  <select name="q_id">
-    <c:forEach var="f" items="${alldataList}">
-    	<option value="${f.user_id}">${f.user_id}</option>
 
 
-	</c:forEach>
-  </select>
+ <select name="q_id">
+   			 <c:forEach var="f" items="${q_nameList}">
+    			<option value="${f.q_name}">${f.q_name}</option>
+
+
+			 </c:forEach>
+ </select>
+
 </form>
 
 

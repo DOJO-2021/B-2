@@ -358,6 +358,11 @@ public class CheckDao {
 
 
 							PreparedStatement pStmt = conn.prepareStatement(sql);
+
+							//重複するアンケート名を取り除く
+
+						//	String sql1 = "SELECT DISTINCT c.q_name From questionnaire;";
+
 							// SQL文を実行し、結果表を取得する
 							ResultSet rs = pStmt.executeQuery();
 

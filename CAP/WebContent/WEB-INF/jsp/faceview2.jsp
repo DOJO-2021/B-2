@@ -120,13 +120,34 @@ input[type="radio"]:checked + label{
 
 
 <form method="GET" action="FaceCollectServlet2.java">
-  <select name="q_id">
-    <c:forEach var="f" items="${alldataList}">
-    	<option value="${f.user_id}">${f.user_id}</option>
 
 
-	</c:forEach>
-  </select>
+
+
+  		<select name="q_id">
+   			 <c:forEach var="f" items="${q_nameList}">
+    			<option value="${f.q_name}">${f.q_name}</option>
+
+
+			 </c:forEach>
+ 		</select>
+
+	<!--  <script>
+ 		//アンケート選択
+		$(function(){
+			$('select[name="q_id"]').change(function(){
+				var radiogenre = $('select[name="q_id"]').attr("id");
+				var postgenre = $('select[name="post_genre${b.post_id}"]').val();
+					$('#genre_id${b.post_id}').removeClass("Visible");
+					$('#genre_id${b.post_id}').removeClass("Hidden");
+				if(radiogenre == postgenre){
+					$('#genre_id${b.post_id}').addClass("Visible");
+				} else {
+					$('#genre_id${b.post_id}').addClass("Hidden");
+				}
+			});
+		});
+  	</script>-->
 </form>
 
 
