@@ -111,7 +111,7 @@ input[type="radio"]:checked + label{
 </head>
 <body>
 
-<h1>顔文字集計</h1>
+<h1>顔文字集計(理解度個人)</h1>
 
 <p><a href="/CAP/T_ViewServlet"> つぶやき投稿</a></p>
 <p><a href="/CAP/T_MenuServlet">一覧</a></p>
@@ -121,7 +121,7 @@ input[type="radio"]:checked + label{
 
 <form method="GET" action="FaceCollectServlet2.java">
   <select name="q_id">
-    <c:forEach var="f" items="${checkList}">
+    <c:forEach var="f" items="${alldataList}">
     	<option value="${f.user_id}">${f.user_id}</option>
 
 
@@ -147,7 +147,7 @@ input[type="radio"]:checked + label{
 
 
 	<c:forEach var="a" items="${alldataList}">
-					<p>(名前)<c:out value="${a.user_l_name}" /><c:out value="${a.user_f_name}" /></p>
+					<p>(名前)<c:out value="${a.l_name}" /><c:out value="${a.f_name}" /></p>
 
 					<!-- 時間 -->
 					<p>
@@ -165,32 +165,19 @@ input[type="radio"]:checked + label{
 
 
 
-		<c:forEach var="f" items="${checkList}">
-					<p>(名前)<c:out value="${f.user_id}" /><c:out value="${u.user_l_name}" /><c:out value="${u.user_f_name}" /></p>
 
-					<!-- 時間 -->
-					<p>
-						<c:out value="${f.c_date}" />
-					</p>
-					<!-- 理解度の顔文字 -->
-					<img src="images/kao1.png" width="30" height="30"
-						id="${f.c_comprehension_id}" />
-					<!-- 理解度のテキスト -->
-					<p>
-						<c:out value="${f.c_comprehension_text}" />
-					</p>
 
 					<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 					<script>
 						window.addEventListener('DOMContentLoaded', function() {
-							let id = $('#${f.c_comprehension_id}').attr('id');
+							let id = $('#${a.c_comprehension_id}').attr('id');
 							console.log(id);
 
 							if (id === '2') {
-								$('#${f.c_comprehension_id}').attr('src',
+								$('#${a.c_comprehension_id}').attr('src',
 										'images/kao2.png');
 							} else if (id === '3') {
-								$('#${f.c_comprehension_id}').attr('src',
+								$('#${a.c_comprehension_id}').attr('src',
 										'images/kao3.png');
 							}
 						});

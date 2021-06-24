@@ -111,12 +111,23 @@ input[type="radio"]:checked + label{
 </head>
 <body>
 
-<h1>顔文字集計</h1>
+<h1>顔文字集計(気持ち個人)</h1>
 
 <p><a href="/CAP/T_ViewServlet"> つぶやき投稿</a></p>
 <p><a href="/CAP/T_MenuServlet">一覧</a></p>
 <p><a href="/CAP/FaceCheckServlet">FaceCheckServletに飛ぶ</a></p>
 <!-- ヘッダーメニュー -->
+
+<form method="GET" action="FaceCollectServlet3.java">
+  <select name="q_id">
+    <c:forEach var="f" items="${alldataList}">
+    	<option value="${f.user_id}">${f.user_id}</option>
+
+
+	</c:forEach>
+  </select>
+</form>
+
 
 <div class = "wrapper1">
 	<div class = "wrapper2">
@@ -133,44 +144,51 @@ input[type="radio"]:checked + label{
 
 	<div class = "wrapper3">
 
-		<c:forEach var="f" items="${checkList}">
-			<p>
-				(名前)
-				<c:out value="${f.user_id}" />
-			</p>
 
-			<!-- 時間 -->
-			<p>
-				<c:out value="${f.c_date}" />
-			</p>
-			<!-- 気持ちの顔文字 -->
-			<img src="images/kao1.png" width="30" height="30"
-				id="${f.c_mental_id}" />
-			<!-- 気持ちのテキスト -->
-			<p>
-				<c:out value="${f.c_mental_text}" />
-			</p>
+	<c:forEach var="a" items="${alldataList}">
+					<p>(名前)<c:out value="${a.l_name}" /><c:out value="${a.f_name}" /></p>
 
-			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-			<script>
-				window.addEventListener('DOMContentLoaded', function() {
-					let id = $('#${f.c_comprehension_id}').attr('id');
-					console.log(id);
+					<!-- 時間 -->
+					<p>
+						<c:out value="${a.c_date}" />
+					</p>
+					<!-- 気持ちの顔文字 -->
+					<img src="images/kao1.png" width="30" height="30"
+						id="${a.c_mental_id}" />
+					<!-- 気持ちのテキスト -->
+					<p>
+						<c:out value="${a.c_mental_text}" />
+					</p>
 
-					if (id === '2') {
-						$('#${f.c_mental_id}').attr('src', 'images/kao2.png');
-					} else if (id === '3') {
-						$('#${f.c_mental_id}').attr('src', 'images/kao3.png');
-					}
-				});
-			</script>
+
+
+
+
+
+
+					<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+					<script>
+						window.addEventListener('DOMContentLoaded', function() {
+							let id = $('#${a.c_mental_id}').attr('id');
+							console.log(id);
+
+							if (id === '2') {
+								$('#${a.c_mental_id}').attr('src',
+										'images/kao2.png');
+							} else if (id === '3') {
+								$('#${a.c_mental_id}').attr('src',
+										'images/kao3.png');
+							}
+						});
+					</script>
 
 		</c:forEach>
+
+
 	</div>
 
-
-
 </div>
+
 
 
   <br>

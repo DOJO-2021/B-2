@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.CheckDao;
 import dao.FaceCalculateDao;
+import model.AllData;
 import model.Check;
 import model.FaceMarks;
 /**
@@ -42,33 +43,46 @@ public class FaceCollectServlet3 extends HttpServlet {
 
 
 		//受講生からのアンケート回答内容を全検索
-				CheckDao cDao = new CheckDao();
-				List<Check> checkList = cDao.checkSelectAll(new Check());
-				request.setAttribute("checkList", checkList);
+		CheckDao cDao = new CheckDao();
+		List<AllData> alldataList = cDao.AllData();
+		request.setAttribute("alldataList", alldataList);
 
-				// 理解度の集計結果
-				FaceCalculateDao fcDao = new FaceCalculateDao();
-						List<FaceMarks> FCList = fcDao.faceComprehension();
 
-						for(FaceMarks FC:FCList) {
-							System.out.println("理解度"+FC);
+////ユーザーデータを取得
+//		UserDao uDao = new UserDao();
+//		List<User> userList = uDao.select(new User());
+//		request.setAttribute("userList", userList);
 
+
+//AllDataデータを取得
+//		AllDataDao aDao = new AllDateDao();
+//		List<AllData> alldataList = aDao.select(new AllData());
+//		request.setAttribute("alldataList", alldataList);
+
+
+		// 理解度の集計結果
+		FaceCalculateDao fcDao = new FaceCalculateDao();
+				List<FaceMarks> FCList = fcDao.faceComprehension();
+
+				for(FaceMarks FC:FCList) {
+					System.out.println("理解度"+FC);
+
+				}
+//
+//				// メンタルの集計結果
+				FaceCalculateDao fmDao = new FaceCalculateDao();
+						List<FaceMarks> FMList = fmDao.faceMental();
+
+						for(FaceMarks FM:FMList) {
+							System.out.println("メンタル"+FM);
 						}
-//
-//						// メンタルの集計結果
-						FaceCalculateDao fmDao = new FaceCalculateDao();
-								List<FaceMarks> FMList = fmDao.faceMental();
 
-								for(FaceMarks FM:FMList) {
-									System.out.println("メンタル"+FM);
-								}
-
-								request.setAttribute("FMList", FMList);
+						request.setAttribute("FMList", FMList);
 
 
 //
 //
-				request.setAttribute("FCList", FCList);
+		request.setAttribute("FCList", FCList);
 
 		// 講師用顔文字閲覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/faceview3.jsp");
@@ -111,10 +125,10 @@ public class FaceCollectServlet3 extends HttpServlet {
 
 		// 検索処理を行う
 	    CheckDao cDao = new CheckDao();
-		List<Check> FaceCheckList = cDao.checkSelectAll(new Check(0, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text,c_mental_text,c_date,c_time));
+		List<Check> checkList = cDao.checkSelectAll(new Check(0, q_id, user_id, c_comprehension_id, c_mental_id, c_comprehension_text,c_mental_text,c_date,c_time));
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("FaceCheckList", FaceCheckList);
+		request.setAttribute("checkList", checkList);
 
 		// 結果ページにフォワードする
 

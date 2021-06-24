@@ -17,10 +17,9 @@ import javax.servlet.http.HttpSession;
 
 import dao.CheckDao;
 import dao.FaceCalculateDao;
-import dao.UserDao;
+import model.AllData;
 import model.Check;
 import model.FaceMarks;
-import model.User;
 /**
  * Servlet implementation class FaceCollectServlet2
  */
@@ -46,17 +45,17 @@ public class FaceCollectServlet2 extends HttpServlet {
 
     		//受講生からのアンケート回答内容を全検索
     				CheckDao cDao = new CheckDao();
-    				List<Check> checkList = cDao.checkSelectAll(new Check());
-    				request.setAttribute("checkList", checkList);
+    				List<AllData> alldataList = cDao.AllData();
+    				request.setAttribute("alldataList", alldataList);
 
 
-    		//ユーザーデータを取得
-    				UserDao uDao = new UserDao();
-    				List<User> userList = uDao.select(new User());
-    				request.setAttribute("userList", userList);
+//    		//ユーザーデータを取得
+//    				UserDao uDao = new UserDao();
+//    				List<User> userList = uDao.select(new User());
+//    				request.setAttribute("userList", userList);
 
 
-//    		//AllDataデータを取得
+    		//AllDataデータを取得
 //    				AllDataDao aDao = new AllDateDao();
 //    				List<AllData> alldataList = aDao.select(new AllData());
 //    				request.setAttribute("alldataList", alldataList);
