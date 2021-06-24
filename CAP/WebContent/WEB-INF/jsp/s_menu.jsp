@@ -9,11 +9,11 @@
 <link rel ="stylesheet" href ="css/common.css">
 </head>
 <body>
-<header class ="header">
-		<h1>
+<header>
 			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
-		</h1>
 </header>
+<hr>
+<a class="icon1" href="/CAP/FacePostServlet"><img src ="images/icon1.png" alt="顔文字投稿"></a>
 <a class="icon" href="/CAP/MyPageServlet"><img src ="images/icon.png" alt ="アカウント"></a>
 <div class="menu">
 <table>

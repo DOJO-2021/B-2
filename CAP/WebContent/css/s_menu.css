@@ -4,7 +4,7 @@
 .icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
   float:right;                     /*右に配置*/
   margin: -22px;
-  margin-right: -135px;
+  margin-right: -235px;
 }
 
 .icon1{                             /*顔文字のアイコン（顔文字投稿ページに飛ぶ）*/
@@ -80,19 +80,17 @@
   -webkit-transform : translate(-50%,-50%);
 }
 
-.eyes{               /*閲覧アイコン*/
-  margin-top:45px;
-  margin-left:36px;
-}
+/*.eyes{               閲覧アイコン
+
+}*/
 .smile{              /*顔文字アイコン*/
   margin-top:35px;
   margin-left:36px;
 }
 
-.write {             /*投稿アイコン*/
-  margin-top:28px;
-  margin-left:18px;
-}
+/*.write {             投稿アイコン
+
+}*/
 
 .a{
   margin-left: 765px;

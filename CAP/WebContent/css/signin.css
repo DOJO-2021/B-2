@@ -41,7 +41,7 @@ body{
 
 /*登録、リセットボタン*/
 .signin1 {
-	margin:5px 0 23px 0;
+	margin:0 0 23px 0;
 	width: 90px;
 	height: 35px;
 	line-height: 20px;
@@ -66,13 +66,18 @@ body{
 	transform: translateY(2px);
 }
 
+#errormsg{
+	color:#ff0000;
+	margin-bottom:0px;
+}
+
 /*背景*/
 .box{                /*フォーム項目枠線　現デザイン*/
   border: 2px solid rgba(255, 255, 255, 0.5);
   background-color:rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   width:600px;
-  height:400px;
+  height:420px;
   margin-left: 182px;
   margin-top:25px;
 

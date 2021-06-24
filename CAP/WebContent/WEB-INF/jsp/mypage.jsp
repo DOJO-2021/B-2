@@ -10,10 +10,7 @@
 </head>
 <body>
 	<header>
-		<h1>
-			<a href="${menu.menu}"><img src="images/logo5.png"
-				alt="みんなの気持ち教えてくだサイト" class="images"></a>
-		</h1>
+	<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
 	</header>
 	<main>
 		<div class="box">

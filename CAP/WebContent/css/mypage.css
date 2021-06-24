@@ -5,8 +5,10 @@ body{
 	background-color: #ffead6; /*背景色*/
 	margin: 0 auto 0 auto;
 	max-width: 960px; /*ページ最大幅*/
-	text-align: center;
 	color:#3e3e3e;
+}
+main{
+		text-align: center;
 }
 /*こんにちはの文*/
 .hello{

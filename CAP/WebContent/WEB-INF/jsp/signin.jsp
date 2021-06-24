@@ -26,7 +26,7 @@
 					<tr>
 						<th>PW</th>
 						<td><input id="js-password" type="password"
-							name="user_password" placeholder="英数字6文字以上20文字以下"></td>
+							name="user_password" placeholder="半角英数字6文字以上20文字以下"></td>
 						<td><span id="buttonEye" class="fa fa-eye"
 							onclick="pushHideButton()"></span></td>
 					</tr>
@@ -53,14 +53,17 @@
 							<input type="radio" name="user_type" value="2">講師
 							(選択してください)</td>
 					</tr>
-					</table>
-				<br> <input class="signin1" type="submit" name="REGIST" value="登録">
-				     <input class="signin1" type="reset" name="RESET" value="リセット"><br>
-				     <a href="/CAP/S_LoginServlet">ログイン画面へ戻る</a>
+				</table>
+				<p id="errormsg"></p>
+				<br> <input class="signin1" type="submit" name="REGIST"
+					value="登録"> <input class="signin1" type="reset"
+					name="RESET" value="リセット"><br> <a
+					href="/CAP/S_LoginServlet">ログイン画面へ戻る</a>
 			</form>
 		</div>
 	</main>
 	<script>
+		'use strict';
 		function pushHideButton() {
 			var txtPass = document.getElementById("js-password");
 			var btnEye = document.getElementById("buttonEye");
@@ -72,7 +75,36 @@
 				btnEye.className = "fa fa-eye-slash";
 			}
 		}
+
+		document.getElementById('form').onsubmit = function(event){
+			const user_l_name = document.getElementById('form').user_l_name.value;
+			const user_f_name = document.getElementById('form').user_f_name.value;
+			const user_password = document.getElementById('form').user_password.value;
+			const secret_id = document.getElementById('form').secret_id.value;
+			const user_answer = document.getElementById('form').user_answer.value;
+			const user_word = document.getElementById('form').user_word.value;
+			const user_type = document.getElementById('form').user_type.value;
+			console.log(user_l_name);
+			console.log(user_f_name);
+			console.log(user_password);
+			console.log(secret_id);
+			console.log(user_answer);
+			console.log(user_word);
+			console.log(user_type);
+			//すべて入力されているかのチェック
+			if(user_l_name === "" || user_f_name === "" || user_password === "" || secret_id === "" || user_answer === "" || user_word === "" || user_type === ""){
+				event.preventDefault();
+			document.getElementById('errormsg').textContent = `※すべて入力してください`;
+			return false;
+			}
+			// 半角英数字6~20文字チェック
+			else if(!(user_password.match(/^([a-zA-Z0-9]{6,20})$/))) {
+				event.preventDefault();
+				document.getElementById('errormsg').textContent = `※PWは半角英数字6～20文字で入力してください`;
+				return false;
+			}
+		}
 	</script>
 </body>
-	<p class="copyright">&copyCopyright MINNKUDA . All rights reserved.</p>
+<p class="copyright">&copyCopyright MINNKUDA . All rights reserved.</p>
 </html>

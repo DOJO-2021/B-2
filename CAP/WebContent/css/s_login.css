@@ -36,7 +36,7 @@ body {
 
 /*ログイン、リセットボタン*/
 .login1 {
-	margin:5px 0 30px 0;
+	margin:5px 0 5px 0;
 	width: 90px;
 	height: 35px;
 	line-height: 20px;
@@ -59,6 +59,10 @@ body {
 	border-bottom: none;
 	-webkit-transform: translateY(2px); /*下移動*/
 	transform: translateY(2px);
+}
+
+#output{
+	color:#ff0000;
 }
 
 /*サインイン*/
