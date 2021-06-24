@@ -364,18 +364,18 @@ public class CheckDao {
 							// 結果表をコレクションにコピーする
 							while (rs.next()) {
 								AllData card = new AllData(
-										rs.getInt("c.check_id"),
-										rs.getInt("c.q_id"),
-										rs.getInt("c.user_id"),
-										rs.getInt("c.c_comprehension_id"),
-										rs.getInt("c.c_mental_id"),
-										rs.getString("c.c_comprehension_text"),
-										rs.getString("c.c_mental_text"),
-										rs.getDate(" c.c_date"),
-										rs.getTime("c.c_time"),
-										rs.getString("q.q_name"),
-										rs.getString("u.user_l_name"),
-										rs.getString("u.user_f_name")
+										rs.getInt("check_id"),
+										rs.getInt("q_id"),
+										rs.getInt("user_id"),
+										rs.getInt("c_comprehension_id"),
+										rs.getInt("c_mental_id"),
+										rs.getString("c_comprehension_text"),
+										rs.getString("c_mental_text"),
+										rs.getDate(" c_date"),
+										rs.getTime("c_time"),
+										rs.getString("q_name"),
+										rs.getString("user_l_name"),
+										rs.getString("user_f_name")
 										);
 								checkList.add(card);
 								System.out.println(checkList);
