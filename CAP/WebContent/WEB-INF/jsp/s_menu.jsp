@@ -14,7 +14,6 @@
 			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
 		</h1>
 </header>
-<hr>
 <a class="icon" href="/CAP/MyPageServlet"><img src ="images/icon.png" alt ="アカウント"></a>
 <div class="menu">
 <table>

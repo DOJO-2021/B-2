@@ -124,3 +124,28 @@ label {
   font-size: 20px;
 }
 
+.send{
+	margin:5px 0 30px 0;
+	width: 90px;
+	height: 35px;
+	line-height: 20px;
+	position: relative;
+	font-size: 15px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #f1aa8b;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #e36055;
+}
+/*ボタンホバー時*/
+.send:hover {
+	background-color: #fbcab9; /*ボタン色*/
+	border-bottom: solid 2px #fbcab9; /*下線色*/
+}
+/*ボタンクリック時*/
+.send:active {
+	margin-top: 2px;
+	border-bottom: none;
+	-webkit-transform: translateY(2px); /*下移動*/
+	transform: translateY(2px);
+}

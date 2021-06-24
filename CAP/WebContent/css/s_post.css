@@ -176,22 +176,21 @@ h2:after{
   position:relative;
   height:27px;
   width:77px;
-  font-size:11px;
+  font-size:13px;
   font-weight:bold;
   text-decoration:none;
   display:block;
   text-align:center;
   padding:0 auto 0 auto;
   color:#ffffff;
-  background-color:#f3a727;
+  background-color: #f1aa8b;
   border-radius:5px;
-  border-color:#a86a1e;
-  box-shadow:2px 2px 2px #ff8040;
+  box-shadow: 2px 2px 2px #e36055;
 }
 
 .btn:hover{
-     background-color: #ffbf7f;/*ボタン色*/
-     border-bottom: solid 2px #f39800; /*下線色*/
+     background-color: #fbcab9;/*ボタン色*/
+     border-bottom: solid 2px #fbcab9; /*下線色*/
 }
 
 .btn:active {

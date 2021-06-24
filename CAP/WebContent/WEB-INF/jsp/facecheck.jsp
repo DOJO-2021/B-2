@@ -13,7 +13,7 @@
 <header class="header">
 			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト""></a>
 </header>
-<hr>
+
 
 <!--<div class = "wrapper1">-->
 	<form method="POST" action="FaceCheckServlet">
@@ -72,7 +72,7 @@
 				 <br> --%>
 				 <br>
 				 <div class = "wrapper3">
-				 	 <input type="submit" name="push" value="送信">
+				 	 <input class="send" type="submit" name="push" value="送信">
 		</div>
 				 </div>
 	</form>
