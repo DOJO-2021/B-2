@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんくだ</title>
 <link rel="stylesheet" href="css/mypage.css">
 <link rel="stylesheet" href="css/common.css">
 </head>

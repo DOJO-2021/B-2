@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"  type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>つぶやき投稿閲覧＜受講生用＞</title>
+<title>みんくだ</title>
 <link rel ="stylesheet" href ="css/common.css">
 <link rel ="stylesheet" href ="css/s_view.css">
 </head>

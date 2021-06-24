@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんくだ</title>
 <link rel="stylesheet" href="/CAP/css/passwordreset.css">
 <link rel="stylesheet" href="/CAP/css/common.css">
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんくだ</title>
 <link rel="stylesheet" href="css/signin.css">
 <link rel="stylesheet" href="css/common.css">
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"

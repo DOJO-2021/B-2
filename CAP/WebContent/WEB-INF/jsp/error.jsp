@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんくだ</title>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/error.css">
 </head>

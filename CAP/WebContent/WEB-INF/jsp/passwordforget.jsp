@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/CAP/css/passwordforget.css">
 <link rel="stylesheet" href="/CAP/css/common.css">
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんくだ</title>
 </head>
 <body>
 	<header class="header"> </header>
