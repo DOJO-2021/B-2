@@ -4,7 +4,7 @@
 .icon{                             /*サイのアイコン（アカウントページに飛ぶ）*/
   float:right;                     /*右に配置*/
   margin: -22px;
-  margin-right: -235px;
+  margin-right: -170px;
 }
 
 .icon1{                             /*顔文字のアイコン（顔文字投稿ページに飛ぶ）*/

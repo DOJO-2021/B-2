@@ -16,6 +16,7 @@ import dao.Browsing_CDao;
 import dao.GenreDao;
 import dao.PostDao;
 import model.Browsing_B;
+import model.Browsing_Bs;
 import model.Browsing_C;
 import model.Genre;
 import model.Post;
@@ -53,7 +54,9 @@ public class T_AddGenreServlet extends HttpServlet {
 					//投稿のスタンプを全検索
 					Browsing_BDao sDao = new Browsing_BDao();
 					List<Browsing_B> StampList = sDao.stampSelectAll(new Browsing_B());
+					List<Browsing_Bs> S_CountList = sDao.CountStamp();
 					request.setAttribute("StampList", StampList);
+					request.setAttribute("S_CountList", S_CountList);
 					//コメント内容を全検索
 					Browsing_CDao bcDao = new Browsing_CDao();
 					List<Browsing_C> CommentList = bcDao.commentSelectAll(new Browsing_C());

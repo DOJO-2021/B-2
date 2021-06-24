@@ -260,20 +260,92 @@ input.comsub{
 }
 .textp{
 	margin-top:0;
+	text-align:center;
 }
 
 /* 削除のボタンデザイン */
-input.delete{
-	background:#ffffff;
-	border:none;
-	width:70px;
+input[name="delete"]{
+	margin:5px 0 30px 0;
+	width: 70px;
+	height: 30px;
+	line-height: 20px;
+	position: relative;
+	font-weight:bold;
+	font-size: 13px;
+	text-decoration: none;
+	color: #000000;
+	background-color: #FFC057;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #F9BF28;
 }
 
 /* 削除のホバー時 */
-input.delete:hover{
-	background:#d3d3d3;
+input[name="delete"]:hover{
+	background-color: #F9BF28; /*ボタン色*/
 }
 
+/*ポップ表示の返信ボタン*/
+button[name="button"]{
+	margin:5px 0 30px 0;
+	width: 70px;
+	height: 30px;
+	line-height: 20px;
+	position: relative;
+	font-weight:bold;
+	font-size: 13px;
+	text-decoration: none;
+	color: #000000;
+	background-color: #FFC057;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #F9BF28;
+}
+
+/* ポップ表示の返信ボタンのホバー時 */
+button[name="button"]:hover{
+	background-color: #F9BF28; /*ボタン色*/
+}
+
+/*ポップの返信ボタン*/
+input[name="button"]{
+	margin:5px 0 30px 0;
+	width: 70px;
+	height: 30px;
+	line-height: 20px;
+	position: relative;
+	font-weight:bold;
+	font-size: 13px;
+	text-decoration: none;
+	color: #000000;
+	background-color: #FFC057;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #F9BF28;
+
+}
+
+/* ポップの返信ボタンのホバー時 */
+input[name="button"]:hover{
+	background-color: #F9BF28; /*ボタン色*/
+}
+
+/*ジャンル追加ボタン*/
+input[name="addgenre"]{
+	margin:5px 0 30px 0;
+	line-height: 20px;
+	position: relative;
+	font-weight:bold;
+	font-size: 13px;
+	text-decoration: none;
+	color: #000000;
+	background-color: #FFC057;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #F9BF28;
+
+}
+
+/* ジャンル追加ボタンのホバー時 */
+input[name="addgenre"]:hover{
+	background-color: #F9BF28; /*ボタン色*/
+}
 
 /* アンケート画面 */
 .modal{
@@ -480,4 +552,8 @@ h2:after{
     top: -6px;/* ワンポイントの位置 */
     left:5px;/* ワンポイントの位置 */
     position:absolute;
+}
+
+.Visible_I{
+	display:inline;
 }

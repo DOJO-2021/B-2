@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"  type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>つぶやき投稿閲覧＜受講生用＞</title>
+<title>つぶやき投稿閲覧＜講師用＞</title>
 <link rel ="stylesheet" href ="css/common.css">
 <link rel ="stylesheet" href ="css/t_view.css">
 </head>
@@ -17,8 +17,8 @@
   <a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
   </header>
 		<ul id="g-nav">
-			<li class="nav-item"><a href="/CAP/T_PostServlet">つぶやき投稿</a></li>
-			<li class="nav-item"><a href="/CAP/T_ViewServlet">　　一覧　　</a></li>
+			<li class="nav-item"><a href="/CAP/T_PostServlet">みんくだ投稿</a></li>
+			<li class="nav-item"><a href="/CAP/T_ViewServlet">みんくだ一覧</a></li>
 			 <li class="nav-item"><a href="/CAP/T_MenuServlet">トップページ</a></li>
 		</ul>
 <body>
@@ -95,7 +95,7 @@
 							</form>
 							</div>
 							</c:forEach>
-								<br><button id="js-show-popup${b.post_id}" class="${b.post_text}">返信</button>
+								<br><button id="js-show-popup${b.post_id}" class="${b.post_text}" name="button">返信</button>
 					<div class="popup" id="js-popup${b.post_id}">
 				  		<div class="popup-inner">
 				    		<div class="close-btn" id="js-close-btn${b.post_id}">
@@ -129,7 +129,7 @@
 							<form method="POST" action="/CAP/T_ViewServlet">
 								<input type="hidden" name="post_id" value="${b.post_id}">
 								<p class="textp"><textarea cols="60" rows="2" wrap="soft" name="comment" class="textarea"></textarea>
-								<br><input type="submit" value="送信"></p>
+								<br><input type="submit" value="送信" name="button"></p>
 							</form>
 				 		</div>
 				  		<div class="black-background" id="js-black-bg"></div>
@@ -185,7 +185,7 @@
 </div>
 	<form method="POST" action="/CAP/T_AddGenreServlet">
 		＋<input type="text" name="GenreName" size="14">
-		<input type="SUBMIT" value="作成">
+		<input type="SUBMIT" name="addgenre" value="作成">
 	</form>
 					<script>
 					window.addEventListener( 'DOMContentLoaded' , function(){
