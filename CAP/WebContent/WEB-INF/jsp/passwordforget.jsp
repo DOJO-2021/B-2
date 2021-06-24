@@ -16,10 +16,9 @@
 			<form method="POST" action="/CAP/PasswordForgetServlet">
 				<table class="form">
 					<tr>
-					<div class="pwforget">
 						<th>氏名</th>
-						<td><input type="text" name="l_name" placeholder="姓">
-						<input type="text" name="f_name" placeholder="名"></td>
+						<td><input type="text" name="l_name">
+						<input type="text" name="f_name"></td>
 					</tr>
 					<tr>
 						<th>秘密の質問</th>
@@ -34,12 +33,11 @@
 					<tr>
 						<th>答え</th>
 						<td><input type="text" name="answer"></td>
-					</div>
 					</tr>
 				</table>
 				<br>
-				<input class="ok" type="submit" name="ok" value="OK">
-				<input class="reset" type="submit" name="reset" value="リセット"><br>
+				<input type="submit" name="ok" value="OK" class="pass1">
+				<input type="submit" name="reset" value="リセット" class="pass1"><br>
 				<a href="/CAP/S_LoginServlet">ログインへ戻る</a>
 			</form>
 		</div>

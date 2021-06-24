@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/CAP/css/common.css">
 </head>
 <main>
-<header class ="header">
-		<h1>
+<header>
+
 <a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
-		</h1>
 </header>
 <ul id="g-nav">
-			<li class="nav-item"><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
-			<li class="nav-item"><a href="/CAP/S_ViewServlet">　　一覧　　</a></li>
+			<li class="nav-item"><a href="/CAP/S_PostServlet">みんくだ投稿</a></li>
+			<li class="nav-item"><a href="/CAP/S_ViewServlet">みんくだ一覧</a></li>
 			 <li class="nav-item"><a href="/CAP/S_MenuServlet">トップページ</a></li>
 
 </ul>
