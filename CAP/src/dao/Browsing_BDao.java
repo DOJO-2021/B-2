@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Browsing_B;
+import model.Browsing_Bs;
 
 public class Browsing_BDao {
 
@@ -57,6 +58,90 @@ public class Browsing_BDao {
 	return browsing_bList;
 }
 
+	public List<Browsing_Bs> CountStamp(){
+		Connection conn = null;
+		List<Browsing_Bs> S_CountList = new ArrayList<Browsing_Bs>();
+
+	try {
+		Class.forName("org.h2.Driver");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+
+		String sql = "select post_id,  browsing_b_stamp, count(browsing_b_ID) from browsing_b  group by post_id, browsing_b_stamp ";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		ResultSet rs = pStmt.executeQuery();
+		while (rs.next()) {
+			Browsing_Bs card = new Browsing_Bs(
+					rs.getInt("post_id"),
+					rs.getInt("browsing_b_stamp"),
+					rs.getInt("count(browsing_b_ID)")
+			);
+			S_CountList.add(card);
+		}
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		S_CountList = null;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		S_CountList = null;
+	}
+	finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				S_CountList = null;
+			}
+		}
+	}
+	return S_CountList;
+
+	}
+
+	public boolean StampInsert(int post_id, int browsing_b_stamp, int  user_id) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
+			// SQL文を準備する
+			String sql = "insert into browsing_b values (null,?, ?, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+				pStmt.setInt(1, post_id);
+				pStmt.setInt(2, browsing_b_stamp);
+				pStmt.setInt(3, user_id);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 
 
-}
+	}

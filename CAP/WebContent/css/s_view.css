@@ -485,3 +485,11 @@ h2:after{
     left:5px;/* ワンポイントの位置 */
     position:absolute;
 }
+
+input[name="GenreName"]{
+	width:130px;
+}
+
+.Visible_I{
+	display:inline;
+}

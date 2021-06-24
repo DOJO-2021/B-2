@@ -13,10 +13,8 @@
 </head>
 <main>
 
-  <header class="header">
-  <h1>
-  <a href="${menu.menu}"></a>
-  </h1>
+  <header>
+  <a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
   </header>
 		<ul id="g-nav">
 			<li class="nav-item"><a href="/CAP/S_PostServlet">つぶやき投稿</a></li>
@@ -40,10 +38,8 @@
 			</ul>
 	</div>
 	<div class = wrapper3>
-
 			<ul class="text">
 				<c:forEach var="b" items="${PostList}">
-					<c:forEach var="c" items="${StampList}">
 							<input  id="${b.post_id}" class="${b.post_id}" name="post_genre${b.post_id}" type="hidden" value="${b.genre_id}">
 							<li  id="genre_id${b.post_id}">
 								<div id="menu-btn${b.post_id}" class="menu-btn"></div>
@@ -55,10 +51,51 @@
 										</form></li>
 									</ul>
 								</div>
-								 ${b.post_date} - ${b.post_time}<br>${b.post_text}<br>${c.browsing_b_stamp}<br>
-								<button id="js-show-popup${b.post_id}" class="${b.post_text}">返信</button>
-							</li>
-					</c:forEach>
+								 ${b.post_date} - ${b.post_time}<br>${b.post_text}<br>
+								<c:forEach var="z" items="${S_CountList}">
+									<div style="display:inline-flex">
+									<form method="POST" action="/CAP/Browsing_bsServlet" style="text-align:left;">
+									<input type="hidden" id="count${b.post_id}${z.post_id}${z.browsing_b_stamp}" class="${z.count}" name="post_id" value="${z.post_id}">
+									<input type="hidden" id="substp${b.post_id}${z.post_id}${z.browsing_b_stamp}" name="browsing_b_stamp" value="${z.browsing_b_stamp}">
+									<span id="VorH${b.post_id}${z.post_id}${z.browsing_b_stamp}" class="" >
+										<button style="background:#ffffff; border:none; padding:0;"  id="stp${b.post_id}${z.post_id}${z.browsing_b_stamp}" class="${z.browsing_b_stamp}">
+												<input type="submit" value="+" style="background:#ffffff; border:none; padding:0;">
+										</button>
+									 		×${z.count}　
+									</span>
+								<script>
+								//投稿に応じたスタンプのデータを出す
+									 window.addEventListener( 'DOMContentLoaded' , function(){
+										 let postId = $('input[name="post_genre${b.post_id}"]').attr('id');
+										 let stpposId = $('#count${b.post_id}${z.post_id}${z.browsing_b_stamp}').val();
+										 console.log(postId);
+										 console.log(stpposId);
+
+											$("#VorH${b.post_id}${z.post_id}${z.browsing_b_stamp}").removeClass("Visible_I");
+											$("#VorH${b.post_id}${z.post_id}${z.browsing_b_stamp}").removeClass("Hidden");
+										if(postId===stpposId){
+											$("#VorH${b.post_id}${z.post_id}${z.browsing_b_stamp}").addClass("Visible_I");
+										}else{
+											$("#VorH${b.post_id}${z.post_id}${z.browsing_b_stamp}").addClass("Hidden");
+										}
+									})
+
+								//投稿のスタンプを表示
+									 window.addEventListener( 'DOMContentLoaded' , function(){
+ 											let stpId = $('#stp${b.post_id}${z.post_id}${z.browsing_b_stamp}').attr('class');
+ 										if( stpId === "1" ){
+ 											$('#stp${b.post_id}${z.post_id}${z.browsing_b_stamp}').append("<span>&#x1f604</span>");
+ 										} else if ( stpId === "2" ){
+	 										$('#stp${b.post_id}${z.post_id}${z.browsing_b_stamp}').append("<span>&#x1f62d</span>");
+		 								} else if ( stpId === "3" ){
+	 										$('#stp${b.post_id}${z.post_id}${z.browsing_b_stamp}').append("<span>&#x1f44d</span>");
+	 									}
+ 									});
+							</script>
+							</form>
+							</div>
+							</c:forEach>
+								<br><button id="js-show-popup${b.post_id}" class="${b.post_text}">返信</button>
 					<div class="popup" id="js-popup${b.post_id}">
 				  		<div class="popup-inner">
 				    		<div class="close-btn" id="js-close-btn${b.post_id}">

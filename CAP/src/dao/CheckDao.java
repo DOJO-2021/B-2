@@ -21,8 +21,6 @@ public class CheckDao {
 			Connection conn = null;
 			boolean result = false;
 
-
-
 			try {
 				// JDBCドライバを読み込む
 				Class.forName("org.h2.Driver");
@@ -354,33 +352,30 @@ public class CheckDao {
 							conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
 							// SQL文を準備する
-							String sql = "SELECT c.check_id, c.q_id, c.user_id, c.c_comprehension_id, c.c_mental_id, c.c_comprehension_text, c.c_mental_text, c.c_date, c.c_time, q.q_name, u.user_l_name, u.user_f_name  from check_table  as c inner join questionnaire as q on c.q_id = q.q_id inner join user as u on c.user_id = u.user_id;";
+							String sql = "SELECT c.check_id, c.q_id, c.user_id, c.c_comprehension_id, c.c_mental_id, c.c_comprehension_text, c.c_mental_text, c.c_date, c.c_time, q.q_name, u.user_l_name, u.user_f_name  from check_table  as c\r\n"
+									+ "inner join questionnaire as q on c.q_id = q.q_id \r\n"
+									+ "inner join user as u on c.user_id = u.user_id;";
 
 
 							PreparedStatement pStmt = conn.prepareStatement(sql);
-
-							//重複するアンケート名を取り除く
-
-						//	String sql1 = "SELECT DISTINCT c.q_name From questionnaire;";
-
 							// SQL文を実行し、結果表を取得する
 							ResultSet rs = pStmt.executeQuery();
 
 							// 結果表をコレクションにコピーする
 							while (rs.next()) {
 								AllData card = new AllData(
-										rs.getInt("check_id"),
-										rs.getInt("q_id"),
-										rs.getInt("user_id"),
-										rs.getInt("c_comprehension_id"),
-										rs.getInt("c_mental_id"),
-										rs.getString("c_comprehension_text"),
-										rs.getString("c_mental_text"),
-										rs.getDate("c_date"),
-										rs.getTime("c_time"),
-										rs.getString("q_name"),
-										rs.getString("user_l_name"),
-										rs.getString("user_f_name")
+										rs.getInt("c.check_id"),
+										rs.getInt("c.q_id"),
+										rs.getInt("c.user_id"),
+										rs.getInt("c.c_comprehension_id"),
+										rs.getInt("c.c_mental_id"),
+										rs.getString("c.c_comprehension_text"),
+										rs.getString("c.c_mental_text"),
+										rs.getDate(" c.c_date"),
+										rs.getTime("c.c_time"),
+										rs.getString("q.q_name"),
+										rs.getString("u.user_l_name"),
+										rs.getString("u.user_f_name")
 										);
 								checkList.add(card);
 								System.out.println(checkList);

@@ -19,9 +19,9 @@
   </h1>
   </header>
 		<ul id="g-nav">
-			<li class="nav-item"><a href="/CAP/T_ViewServlet">　　閲覧　　</a></li>
-			<li class="nav-item"><a href="/CAP/FaceCollectServlet">　顔文字　</a></li>
-			 <li class="nav-item"><a href="/CAP/T_MenuServlet">トップページ</a></li>
+			<li class="nav-item"><a href="/CAP/T_ViewServlet">つぶやき投稿</a></li>
+			<li class="nav-item"><a href="/CAP/T_MenuServlet">トップページ</a></li>
+			<li class="nav-item"><a href="/CAP/FaceCollectServlet">顔文字データ</a></li>
 		</ul>
 <body>
 <br>
@@ -147,7 +147,7 @@
 	</div>
 </div>
 	<form method="POST" action="/CAP/T_AddGenreServlet">
-		ジャンル追加：<input type="text" name="GenreName">
+		＋<input type="text" name="GenreName" size="14">
 		<input type="SUBMIT" value="作成">
 	</form>
 					<script>
