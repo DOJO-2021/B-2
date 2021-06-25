@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+h1 {   /* 投稿タイトル*/
+    font-size: 1.5em;
+    width: 300px;
+    font-weight: bold;
+    color: #3c3cfa;
+    margin: 0 auto 0 auto;
+    padding: 0 35px;
+    position: sticky;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #f1f5f5;
+    border-bottom: 2px dashed #4b4b4b;
+    text-align: center;
+}
+h1:after{
+    content:"☆";/* 文字前のワンポイント */
+    max-width:100px;
+    font-size:26px;/* ワンポイントの大きさ */
+    color: #3c3cfa;/* ワンポイントのカラー */
+    top: -6px;/* ワンポイントの位置 */
+    left:5px;/* ワンポイントの位置 */
+    position:absolute;
+}

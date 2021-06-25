@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-<title>みんくだ-講師用-</title>
-<link rel ="stylesheet" href ="css/common.css">
+<title>みんなの気持ち教えてくだサイト</title>
+<link rel ="stylesheet" href ="css/t_common.css">
 <link rel ="stylesheet" href ="css/facecheck.css">
 </head>
 <body>

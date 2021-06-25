@@ -4,9 +4,9 @@
 <html>
 <head>
 <!--<meta charset="UTF-8">-->
-<title>みんくだ-講師用-</title>
+<title>みんなの気持ち教えてくだサイト講師用</title>
 <link rel ="stylesheet" href ="css/t_menu.css">
-<link rel ="stylesheet" href ="css/common.css">
+<link rel ="stylesheet" href ="css/t_common.css">
 </head>
 <body>
 <header>
