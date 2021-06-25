@@ -14,7 +14,7 @@
 </head>
 <body>
 <header class="header">
-			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト"></a>
+			<a href="${menu.menu}"><img src="images/logo6.png" alt="みんなの気持ち教えてくだサイト"></a>
 </header>
 
 <ul id="g-nav">

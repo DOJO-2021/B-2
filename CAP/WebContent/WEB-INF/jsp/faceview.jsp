@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんくだ</title>
 <link rel ="stylesheet" href ="css/t_common.css">
 <link rel ="stylesheet" href ="css/faceview.css">
 </head>
 <body>
 <header class="header">
-			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト"></a>
+			<a href="${menu.menu}"><img src="images/logo6.png" alt="みんなの気持ち教えてくだサイト"></a>
 </header>
 <ul id="g-nav">
 <li class="nav-item"><a href="/CAP/T_ViewServlet">みんくだ一覧</a></li>
