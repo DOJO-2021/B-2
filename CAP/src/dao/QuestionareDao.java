@@ -136,10 +136,10 @@ public class QuestionareDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\B-2\\CAP\\capdb", "sa", "sa");
 
-			String sql = "select * from QUESTIONNAIRE where q_id=?";
+			String sql = "select * from QUESTIONNAIRE ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setInt(1, q_id);
+//			pStmt.setInt(1, q_id);
 
 			ResultSet rs = pStmt.executeQuery();
 			System.out.println(rs);
