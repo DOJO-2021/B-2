@@ -6,11 +6,13 @@
 <!--<meta charset="UTF-8">-->
 <title>みんなの気持ち教えてくだサイト講師用</title>
 <link rel ="stylesheet" href ="css/t_menu.css">
-<link rel ="stylesheet" href ="css/t_common.css">
+<link rel ="stylesheet" href ="css/common.css">
 </head>
 <body>
-<header>
+<header class ="header">
+		<h1>
 			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
+		</h1>
 </header>
 <hr>
 <a class="sai" href="/CAP/MyPageServlet"><img src ="images/icon.png" alt ="アカウント"></a>

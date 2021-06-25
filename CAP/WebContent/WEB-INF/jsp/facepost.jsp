@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>みんくだ</title>
+<title>みんなの気持ち教えてくだサイト</title>
 
 <style>
 /* wrapper1はメイン画面*/

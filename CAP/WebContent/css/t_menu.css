@@ -73,6 +73,15 @@
   -webkit-transform : translate(-50%,-50%);
 }
 
+.eyes{               /*閲覧アイコン*/
+  margin-top:45px;
+  margin-left:36px;
+}
+.smile{              /*顔文字アイコン*/
+  margin-top:35px;
+  margin-left:36px;
+}
+
 .write {             /*投稿アイコン*/
   margin-top:28px;
   margin-left:18px;

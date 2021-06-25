@@ -5,21 +5,103 @@
 <head>
 <meta charset="UTF-8">
 
-<title>みんくだ</title>
-<link rel ="stylesheet" href ="css/t_common.css">
-<link rel ="stylesheet" href ="css/facecheck.css">
+<title>みんなの気持ち教えてくだサイト</title>
+
+<style>
+/* wrapper1はメイン画面*/
+.wrapper1{
+
+	max-width:960px;
+	max-height:1200px;
+	overflow:hidden;
+	margin: 0 auto 0 auto;
+	border:solid 3px;
+}
+ /* item1は理解度*/
+.item1{
+	display:block;
+	width: 45%;
+	height:400px;
+	margin:0 0 0 60;
+	overflow:auto;
+	border:solid 2px;
+	float:left;
+}
+
+ /* item2は理解度*/
+.item2{
+	display:block;
+	width: 45%;
+	height:400px;
+	margin:0 60 0 0;
+	overflow:auto;
+	border:solid 2px;
+	float:right;
+}
+
+/* wrapper３はコメント画面。*/
+.wrapper3{
+	display:block;
+	width: 30%;
+	margin:0 auto;
+	overflow:auto;
+	clear:both;
+}
+/*テキストボックス*/
+.c_text{
+	display:block;
+	width: 400px;
+	height:300px;
+	margin:0 0 0 0 ;
+	width:90%;
+	height:60%;
+
+}
+.questionnaire{
+	width:100px;
+	heigt:100px;
+}
+
+/*送信ボタン*/
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+
+h3{
+	text-align: center;
+}
+
+label {
+  display: block; /* ブロックを作るように */
+  margin: 5px 0; /* 前後のスペース */
+}
+
+.center{
+	margin:0 auto;
+	width:80%;
+	text-align: center;
+	}
+/*input[type="text"]{
+	width:90%;
+	height:60%;
+}*/
+
+</style>
+
 </head>
 <body>
-<header class="header">
-			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト""></a>
-</header>
 
+<h1>顔文字投稿</h1>
 
+<p><a href="/CAP/T_MenuServlet">メニュー</a></p>
 <!--<div class = "wrapper1">-->
 	<form method="POST" action="FaceCheckServlet">
-		 <div class="q">
-		 <p class="qtitle">ここにアンケート名を入力<br></p>
-		 <input type="text" class="questionnaire" name="Q_NAME" >
+		<input type="text" class="questionnaire" name="Q_NAME"> ここにアンケート名を入力
 
 					<p></p>
 					<p></p>
@@ -72,18 +154,12 @@
 				 <br> --%>
 				 <br>
 				 <div class = "wrapper3">
-				 	 <input class="send" type="submit" name="push" value="送信">
-		</div>
+				 	 <input type="submit" style="width: 400px; height: 50px;" name="push" value="送信">
 				 </div>
 	</form>
 
 
 <!--</div>-->
-<footer class ="footer2">
-<p class="left"><a href="/CAP/LogoutServlet">ログアウト</a></p>
-<p class="right"><a href="/CAP/T_menuServlet">メニュー</a></p>
-</footer>
-<p class ="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
-
+<p><a href="/CAP/LogoutServlet">ログアウト</a></p>
 </body>
 </html>
