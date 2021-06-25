@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>みんなの気持ち教えてくだサイト</title>
+<title>みんくだ</title>
 <link rel ="stylesheet" href ="css/t_common.css">
 <link rel ="stylesheet" href ="css/facecheck.css">
 </head>
