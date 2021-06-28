@@ -50,8 +50,8 @@
 	width: 500px;
     height: 40px;
     margin-top: 30px;
-    border-color: #f4420a;
-    border: 1px solid #f69364;
+    border-color: #0080FF;;
+    border: 1px solid #0080FF;;
 }
 
 /*送信ボタン*/
@@ -133,14 +133,14 @@ label {
 	font-size: 15px;
 	text-decoration: none;
 	color: #ffffff;
-	background-color: #f1aa8b;
+	background-color: #0080FF;;
 	border-radius: 5px;
-	box-shadow: 2px 2px 2px #e36055;
+	box-shadow: 2px 2px 2px #0080FF;
 }
 /*ボタンホバー時*/
 .send:hover {
-	background-color: #fbcab9; /*ボタン色*/
-	border-bottom: solid 2px #fbcab9; /*下線色*/
+	background-color: #0080FF;; /*ボタン色*/
+	border-bottom: solid 2px #0080FF; /*下線色*/
 }
 /*ボタンクリック時*/
 .send:active {

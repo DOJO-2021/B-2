@@ -95,6 +95,12 @@ label {
 
 </head>
 <body>
+<<<<<<< HEAD
+<header class="header">
+			<a href="${menu.menu}"><img src="images/logo6.png" alt="みんなの気持ち教えてくだサイト""></a>
+</header>
+=======
+>>>>>>> master
 
 <h1>顔文字投稿</h1>
 
@@ -160,6 +166,15 @@ label {
 
 
 <!--</div>-->
+<<<<<<< HEAD
+<footer class ="footer2">
+<p class="left"><a href="/CAP/LogoutServlet">ログアウト</a></p>
+<p class="right"><a href="/CAP/T_MenuServlet">メニュー</a></p>
+</footer>
+<p class ="copyright">&copy:Copyright MINNKUDA . All rights reserved.</p>
+
+=======
 <p><a href="/CAP/LogoutServlet">ログアウト</a></p>
+>>>>>>> master
 </body>
 </html>

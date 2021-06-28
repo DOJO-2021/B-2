@@ -110,6 +110,28 @@ input[type="radio"]:checked + label{
 
 </head>
 <body>
+<<<<<<< HEAD
+<header class="header">	</header>
+<ul id="g-nav">
+<li class="nav-item"><a href="/CAP/T_ViewServlet">みんくだ一覧</a></li>
+<li class="nav-item"><a href="/CAP/FaceCheckServlet">顔文字チェック</a></li>
+<li class="nav-item"><a href="/CAP/FaceCheckServlet">顔文字アンケート</a></li>
+<li class="nav-item"><a href="/CAP/T_MenuServlet">メニューページ</a></li>
+	</ul>
+<h1>顔文字集計(気持ち個人)</h1>
+
+<form method="GET" action="FaceCollectServlet3.java">
+
+
+ <select name="q_id">
+   			 <c:forEach var="f" items="${q_nameList}">
+    			<option value="${f.q_name}">${f.q_name}</option>
+
+
+			 </c:forEach>
+ </select>
+=======
+>>>>>>> master
 
 <h1>顔文字集計</h1>
 

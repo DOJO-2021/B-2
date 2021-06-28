@@ -19,14 +19,15 @@
   text-align:center;
   padding:6px 0 8px;
   color:#ffffff;
-  background-color:#fc800596;
+  background-color:rgb(39 147 255);
   border-radius:5px;
-  box-shadow:2px 2px 2px #ff4500;
+  box-shadow:2px 2px 2px rgb(7 130 255)
 }
 
 .button2:hover{                        /*アカウントボタン講師・受講生 ホバー*/
-     background-color: #ffbf7f;/*ボタン色*/
-     border-bottom: solid 6px #f39800; /*下線色*/
+     background-color: #55AAFF	;/*ボタン色*/
+     border-bottom: solid 6px #0937F0; /*下線色*/
+
 }
 
 .button2:active {                      /*ボタンをクリックする時の効果*/
@@ -49,14 +50,14 @@
   text-align:center;
   padding:6px 0 8px;
   color:#ffffff;
-  background-color:#fc800596;
+  background-color:rgb(39 147 255);
   border-radius:5px;
-  box-shadow:2px 2px 2px #ff4500;
+  box-shadow:2px 2px 2px rgb(7 130 255);
 }
 
 .button3:hover{                        /*アカウントボタン講師・受講生 ホバー*/
-     background-color: #ffbf7f;/*ボタン色*/
-     border-bottom: solid 6px #f39800; /*下線色*/
+     background-color: #55AAFF;/*ボタン色*/
+     border-bottom: solid 6px #0937F0	; /*下線色*/
 }
 
 .button3:active {                      /*ボタンをクリックする時の効果*/

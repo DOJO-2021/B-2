@@ -9,10 +9,15 @@
 <link rel ="stylesheet" href ="css/common.css">
 </head>
 <body>
+<<<<<<< HEAD
+<header>
+			<a href="${menu.menu}"><img src="images/logo6.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
+=======
 <header class ="header">
 		<h1>
 			<a href="${menu.menu}"><img src="images/logo5.png" alt="みんなの気持ち教えてくだサイト" class="images"></a>
 		</h1>
+>>>>>>> master
 </header>
 <hr>
 <a class="sai" href="/CAP/MyPageServlet"><img src ="images/icon.png" alt ="アカウント"></a>

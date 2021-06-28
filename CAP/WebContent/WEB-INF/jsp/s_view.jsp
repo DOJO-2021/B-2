@@ -255,10 +255,10 @@
   	'use strict';
  	//未回答の投稿があった場合最新のものを表示
   	window.addEventListener( 'DOMContentLoaded' , function(){
-//  		console.log("script start");
+  		console.log("script start");
 		const id = ${QList.get(0).q_id};
-//		console.log("console q_id="+ id);
-//		console.log("console q_id="+ typeof(id));
+		console.log("console q_id="+ id);
+		console.log("console q_id="+ typeof(id));
 		if(!(id === 0) || !(id === undefined)){
 			document.getElementById('modal').classList.toggle('is-show_modal');
 		}
